@@ -1,5 +1,14 @@
 # 201-project
-SynataxSorcerers
+
+# SynataxSorcerers
+
+## Emily Greason.
+
+## Christina Hollie.
+
+## Julio Ramirez.
+
+## Lacey Washington.
 
 **Cooperation Plan**
 
@@ -52,3 +61,4 @@ Contacted instructor
 2.We will be using the GitHub Projects management tool.
 
 [Final Project Deck](https://docs.google.com/presentation/d/10BC2bCONo29nRvEOzpWXe0F7qEMH2ANHrQSsJjj1joc/edit?usp=sharing_eil_se_dm&ts=64224789)
+
