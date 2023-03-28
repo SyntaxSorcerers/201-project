@@ -1,5 +1,15 @@
 # 201-project
-SynataxSorcerers
+
+
+# SynataxSorcerers
+
+## Emily Greason.
+
+## Christina Hollie.
+
+## Julio Ramirez.
+
+## Lacey Washington.
 
 **Cooperation Plan**
 
