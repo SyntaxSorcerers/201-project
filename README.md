@@ -1,6 +1,14 @@
 # 201-project
 SynataxSorcerers
 
+## Emily Greason.
+
+## Christina Hollie.
+
+## Julio Ramirez.
+
+## Lacey Washington.
+
 **Cooperation Plan**
 
  Emily and Christina feel like we are better at CSS and Lacey and Julio feel that they are better at JavaScript, but we all want to get better in our weaker areas. Emily wants to contribute to JavaScript and lend a helping hand with CSS because that is her strength. Lacey likes to prioritize functionality over looks but wants to work on bettering his CSS skills. Christina wants to work on JavaScript as well to better her skills and Julio wants to help make sure we are all feeling included and can help with JavaScript.
