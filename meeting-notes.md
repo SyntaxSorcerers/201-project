@@ -31,3 +31,12 @@
 - emily can be a de-bugger - we can all work together if stuck on a problem
 
 - merge to test branch at the end of every work day if we've done anything of significance that works
+
+### PROJECT IDEA 1
+
+- Choose your own adventure game - single player game; make a form that sets specific paths that player can go down - if go down this path then this happens - selection of things can do based off where you go or what you do - you can gain health or be put in a precarious situation -
+D&D type situation; if else statements, while loops, CSS animation, HTML markdown unsplash images would be required
+
+### PROJECT IDEA 2
+
+- theme trivia (80's movies?)- guessing game, user asked question get 3 chances to get it right, move to next question if get it right, can get one clue question if you get it wrong. Score keeping and form to add yourself to a scoreboard; user can play against the computer or against other users
