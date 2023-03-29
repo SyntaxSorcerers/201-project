@@ -4,13 +4,13 @@ SynataxSorcerers
 
 **Cooperation Plan**
 
- 1. These are the key strenghs for each idividual.Emily and Christina feel like we are better at CSS and Lacey and Julio feel that they are better at JavaScript, but we all want to get better in our weaker areas.
- 
- 2.Emily wants to contribute to JavaScript and lend a helping hand with CSS because that is her strength. Same for Christina and Lacey likes to prioritize functionality over looks but wants to work on bettering his CSS skills. Julio wants to help make sure we are all feeling included and can help with JavaScript as well.
+1.  These are the key strenghs for each idividual.Emily and Christina feel like we are better at CSS and Lacey and Julio feel that they are better at JavaScript, but we all want to get better in our weaker areas.
 
- 3.Christina and Emily want to strengthen there abilities in JavaScript, Lacey wants to hone his sckills in CSS and Julio also wants to have a better styling abilities and his functions in JavaScript.
+2.Emily wants to contribute to JavaScript and lend a helping hand with CSS because that is her strength. Same for Christina and Lacey likes to prioritize functionality over looks but wants to work on bettering his CSS skills. Julio wants to help make sure we are all feeling included and can help with JavaScript as well.
 
- 4.Approaching day to day work we plan on communicating and working on our individual branches and then reviewing each others code to determine what we want to add to main.
+3.Christina and Emily want to strengthen there abilities in JavaScript, Lacey wants to hone his sckills in CSS and Julio also wants to have a better styling abilities and his functions in JavaScript.
+
+4.Approaching day to day work we plan on communicating and working on our individual branches and then reviewing each others code to determine what we want to add to main.
 
 **Conflict Plan**
 
@@ -38,8 +38,7 @@ SynataxSorcerers
 
 6.We will ensure everyone's voice is being heard by making sure we agree to communicate our needs.
 
-7.We will create a safe space by being patient and kind to each other.
-=======
+# 7.We will create a safe space by being patient and kind to each other.
 
 # SynataxSorcerers
 
@@ -53,7 +52,7 @@ SynataxSorcerers
 
 **Cooperation Plan**
 
- Emily and Christina feel like we are better at CSS and Lacey and Julio feel that they are better at JavaScript, but we all want to get better in our weaker areas. Emily wants to contribute to JavaScript and lend a helping hand with CSS because that is her strength. Lacey likes to prioritize functionality over looks but wants to work on bettering his CSS skills. Christina wants to work on JavaScript as well to better her skills and Julio wants to help make sure we are all feeling included and can help with JavaScript.
+Emily and Christina feel like we are better at CSS and Lacey and Julio feel that they are better at JavaScript, but we all want to get better in our weaker areas. Emily wants to contribute to JavaScript and lend a helping hand with CSS because that is her strength. Lacey likes to prioritize functionality over looks but wants to work on bettering his CSS skills. Christina wants to work on JavaScript as well to better her skills and Julio wants to help make sure we are all feeling included and can help with JavaScript.
 
 **Conflict Plan**
 
@@ -62,7 +61,6 @@ We plan to have patience and understanding of each others skills and also accoun
 **Communication Plan**
 
 We will be working class hours and if there are emergencies and we are needing to catch up then we will work on things Friday. Sunday are our days off and if anyone decides they are wanting to work on things then they will communicate that with the group. We will communicate with each other via text or Slack. We will take a 10-15min break every hour. We will ensure everyone's voice is being heard by making sure we agree to communicate our needs. We will create a safe space by being patient and kind to each other.
-
 
 **Work Plan**
 
@@ -83,4 +81,4 @@ We will have a test branch and personal branches that we will each push to the t
 
 [Final Project Deck](https://docs.google.com/presentation/d/10BC2bCONo29nRvEOzpWXe0F7qEMH2ANHrQSsJjj1joc/edit?usp=sharing_eil_se_dm&ts=64224789)
 
-[movie-madness-trivia-wireframe](./img.movie-madness-trivia-wireframe.jpg)
+![movie-madness-trivia-wireframe](img/movie-madness-trivia-wireframe.jpg)
