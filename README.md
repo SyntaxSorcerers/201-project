@@ -4,13 +4,11 @@ SynataxSorcerers
 
 **Cooperation Plan**
 
-
  1.These are the key strengths for each idividual. Emily and Christina feel like we are better at CSS and Lacey and Julio feel that they are better at JavaScript, but we all want to get better in our weaker areas.
- 
+
  2.Emily wants to contribute to JavaScript and lend a helping hand with CSS because that is her strength. Same for Christina and Lacey likes to prioritize functionality over looks but wants to work on bettering his CSS skills. Julio wants to help make sure we are all feeling included and can help with JavaScript as well.
 
-1.  These are the key strenghs for each idividual.Emily and Christina feel like we are better at CSS and Lacey and Julio feel that they are better at JavaScript, but we all want to get better in our weaker areas.
-
+1. These are the key strenghs for each idividual.Emily and Christina feel like we are better at CSS and Lacey and Julio feel that they are better at JavaScript, but we all want to get better in our weaker areas.
 
 2.Emily wants to contribute to JavaScript and lend a helping hand with CSS because that is her strength. Same for Christina and Lacey likes to prioritize functionality over looks but wants to work on bettering his CSS skills. Julio wants to help make sure we are all feeling included and can help with JavaScript as well.
 
@@ -48,13 +46,13 @@ SynataxSorcerers
 
 # SynataxSorcerers
 
-## Emily Greason.
+## Emily Greason
 
-## Christina Hollie.
+## Christina Hollie
 
-## Julio Ramirez.
+## Julio Ramirez
 
-## Lacey Washington.
+## Lacey Washington
 
 **Cooperation Plan**
 
