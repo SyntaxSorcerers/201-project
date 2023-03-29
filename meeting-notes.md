@@ -4,7 +4,7 @@
 
 ### Conflict Plan
 
-- key stengths (emily & christina CSS, Julio & Lacey JS)
+- key strengths (emily & christina CSS, Julio & Lacey JS)
 
 - utilizing strengths - JS first - get functionality down and then focus on making it look pretty after
 
