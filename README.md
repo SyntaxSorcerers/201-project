@@ -83,4 +83,4 @@ We will have a test branch and personal branches that we will each push to the t
 
 [Final Project Deck](https://docs.google.com/presentation/d/10BC2bCONo29nRvEOzpWXe0F7qEMH2ANHrQSsJjj1joc/edit?usp=sharing_eil_se_dm&ts=64224789)
 
-![movie-madness-trivia-wireframe](./img.movie-madness-trivia-wireframe.jpg)
+![movie-madness-trivia-wireframe](/img.movie-madness-trivia-wireframe.jpg)
