@@ -25,3 +25,7 @@ The stretch goal is display one higher order function to display all functions.
 
 Stretch
 Our stretch goals are you going to aim for is display css animation with card rendering.
+
+## Data Flow
+
+The flow of this application is the user will go through each questions about 80s - 90s movie. Each question will have 4 options to choose from and only three chance to get it right. Each question still graidely decrease in difficultly hard to easy which the question will have a timer. Each question you answer right will get a point and for each wrong answer lose a point. At the end of the game your results will display to see your score.
