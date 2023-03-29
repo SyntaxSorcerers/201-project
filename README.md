@@ -1,5 +1,13 @@
 # 201-project
 
+## Emily Greason.
+
+## Christina Hollie.
+
+## Julio Ramirez.
+
+## Lacey Washington.
+
 SynataxSorcerers
 
 **Cooperation Plan**
@@ -7,10 +15,6 @@ SynataxSorcerers
  1.These are the key strengths for each idividual. Emily and Christina feel like we are better at CSS and Lacey and Julio feel that they are better at JavaScript, but we all want to get better in our weaker areas.
 
  2.Emily wants to contribute to JavaScript and lend a helping hand with CSS because that is her strength. Same for Christina and Lacey likes to prioritize functionality over looks but wants to work on bettering his CSS skills. Julio wants to help make sure we are all feeling included and can help with JavaScript as well.
-
-1. These are the key strenghs for each idividual.Emily and Christina feel like we are better at CSS and Lacey and Julio feel that they are better at JavaScript, but we all want to get better in our weaker areas.
-
-2.Emily wants to contribute to JavaScript and lend a helping hand with CSS because that is her strength. Same for Christina and Lacey likes to prioritize functionality over looks but wants to work on bettering his CSS skills. Julio wants to help make sure we are all feeling included and can help with JavaScript as well.
 
 3.Christina and Emily want to strengthen there abilities in JavaScript, Lacey wants to hone his sckills in CSS and Julio also wants to have a better styling abilities and his functions in JavaScript.
 
@@ -42,7 +46,7 @@ SynataxSorcerers
 
 6.We will ensure everyone's voice is being heard by making sure we agree to communicate our needs.
 
-# 7.We will create a safe space by being patient and kind to each other.
+7.We will create a safe space by being patient and kind to each other.
 
 # SynataxSorcerers
 
@@ -70,6 +74,8 @@ We will be working class hours and if there are emergencies and we are needing t
 
 When we figure out what our project will be we will working together building the HTML and then focus on the JavaScript to get things running before tackling CSS.
 
+7.We will create a safe space by being patient and kind to each other.
+
 **Scheduling the practice section**
 Contacted instructor
 
@@ -79,10 +85,8 @@ Contacted instructor
 
 2.We will be using the GitHub Projects management tool.
 
+3.We will have a test branch and personal branches that we will each push to the test branch. Then when we all agree on how the test branch looks we will add to main. We will discuss this on Saturdays.
+
 [Final Project Deck](https://docs.google.com/presentation/d/10BC2bCONo29nRvEOzpWXe0F7qEMH2ANHrQSsJjj1joc/edit?usp=sharing_eil_se_dm&ts=64224789)
-
-We will have a test branch and personal branches that we will each push to the test branch. Then when we all agree on how the test branch looks we will add to main. We will discuss this on Saturdays.
-
-[Final Project Deck](https://docs.google.com/presentation/d/10BC2bCONo29nRvEOzpWXe0F7qEMH2ANHrQSsJjj1joc/edit?usp=sharing_eil_se_dm&ts=6422478
 
 ![movie-madness-trivia-wireframe](img/movie-madness-trivia-wireframe.jpg)
