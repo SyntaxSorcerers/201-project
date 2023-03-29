@@ -12,10 +12,9 @@ SynataxSorcerers
 
 **Cooperation Plan**
 
-1.These are the key strengths for each idividual. Emily and Christina feel like we are better at CSS and Lacey and Julio feel that they are better at JavaScript, but we all want to get better in our weaker areas.
+ 1.These are the key strengths for each idividual. Emily and Christina feel like we are better at CSS and Lacey and Julio feel that they are better at JavaScript, but we all want to get better in our weaker areas.
 
-
-2.Emily wants to contribute to JavaScript and lend a helping hand with CSS because that is her strength. Same for Christina and Lacey likes to prioritize functionality over looks but wants to work on bettering his CSS skills. Julio wants to help make sure we are all feeling included and can help with JavaScript as well.
+ 2.Emily wants to contribute to JavaScript and lend a helping hand with CSS because that is her strength. Same for Christina and Lacey likes to prioritize functionality over looks but wants to work on bettering his CSS skills. Julio wants to help make sure we are all feeling included and can help with JavaScript as well.
 
 3.Christina and Emily want to strengthen there abilities in JavaScript, Lacey wants to hone his sckills in CSS and Julio also wants to have a better styling abilities and his functions in JavaScript.
 
@@ -63,3 +62,5 @@ Contacted instructor
 [Final Project Deck](https://docs.google.com/presentation/d/10BC2bCONo29nRvEOzpWXe0F7qEMH2ANHrQSsJjj1joc/edit?usp=sharing_eil_se_dm&ts=64224789)
 
 ![movie-madness-trivia-wireframe](img/movie-madness-trivia-wireframe.jpg)
+
+![movie-madness-domain-model](img/movie-madness-domain-model.jpg)
