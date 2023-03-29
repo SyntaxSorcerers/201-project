@@ -19,7 +19,7 @@ This product will not be develop in mobile applications or gaming applications
 
 ## Functional
 
-Our MVP functionality will be the rendering a user input and questionaire.
+Our MVP functionality will be the rendering a user input and questionnaire.
 
 The stretch goal is display one higher order function to display all functions.
 
