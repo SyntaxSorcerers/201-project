@@ -12,9 +12,9 @@ SynataxSorcerers
 
 **Cooperation Plan**
 
- 1.These are the key strengths for each idividual. Emily and Christina feel like we are better at CSS and Lacey and Julio feel that they are better at JavaScript, but we all want to get better in our weaker areas.
+1.These are the key strengths for each idividual. Emily and Christina feel like we are better at CSS and Lacey and Julio feel that they are better at JavaScript, but we all want to get better in our weaker areas.
 
- 2.Emily wants to contribute to JavaScript and lend a helping hand with CSS because that is her strength. Same for Christina and Lacey likes to prioritize functionality over looks but wants to work on bettering his CSS skills. Julio wants to help make sure we are all feeling included and can help with JavaScript as well.
+2.Emily wants to contribute to JavaScript and lend a helping hand with CSS because that is her strength. Same for Christina and Lacey likes to prioritize functionality over looks but wants to work on bettering his CSS skills. Julio wants to help make sure we are all feeling included and can help with JavaScript as well.
 
 3.Christina and Emily want to strengthen there abilities in JavaScript, Lacey wants to hone his sckills in CSS and Julio also wants to have a better styling abilities and his functions in JavaScript.
 
@@ -58,8 +58,6 @@ Contacted instructor
 1.When identifying tasks at hand we will assign each of us something to complete and then have a test branch and personal branches that we will each push to the test branch. Then when we all agree on how the test branch looks we will add to main. We will discuss this on Saturdays.
 
 2.We will be using the GitHub Projects management tool.
-
-[Final Project Deck](https://docs.google.com/presentation/d/10BC2bCONo29nRvEOzpWXe0F7qEMH2ANHrQSsJjj1joc/edit?usp=sharing_eil_se_dm&ts=64224789)
 
 We will have a test branch and personal branches that we will each push to the test branch. Then when we all agree on how the test branch looks we will add to main. We will discuss this on Saturdays.
 
