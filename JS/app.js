@@ -2,7 +2,7 @@
  let state {
     question: [],
     hints: [],
-    score:,
+    score:,git 
 }
 class Hints {
   constructor(hint1, hint2, hint3) {
