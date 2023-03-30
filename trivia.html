@@ -13,13 +13,18 @@
 
 <body>
     <header>
-        <h1></h1>
+        <h1>Movie Madness!</h1>
     </header>
     <main>
+        <section class="scores-and-hints">
+            <div id="scores"></div>
+            <button type="submit" id="hint">I need a hint</button>
+        </section>
         <section class="current-question">
-            <form>
+            <form class="current-question">
                 <label for="question" id="question"></label>
-                <input type="text" id="user">
+                <input type="text" name="userInput" id="user">
+                <button type="submit" id="submit">Answer</button>
             </form>
         </section>
     </main>
