@@ -33,7 +33,7 @@ let button = document.querySelector("button");
 
 function Submit(e) {
   e.preventDefault();
-  console.log("clicked");
+  console.log("click");
 }
 
 button.addEventListener("click", Submit);
