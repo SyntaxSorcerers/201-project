@@ -75,3 +75,7 @@ As a manager for a small business it’s important to have a team that can work 
 As a father to three teenagers its important for me and my husband to keep our family close and grounded so having weekly game nights is important part of our family dynamic with 90s movie trivia it a good way to show our kids our culture from when I was growing up and bring us closer together and even watch a few after.
 ### Marcus White 
 As a film professor I think 90s were a turning point to how we made movie using movie madness is a good way to test my students.
+
+## SOURCED CODE
+
+[CSS animation generator](https://webcode.tools/generators/css/keyframe-animation?utm_content=cmp-true)
