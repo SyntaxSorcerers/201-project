@@ -45,3 +45,10 @@ button {
 button:hover {
   background-color: #555;
 }
+
+h3 {
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  font-size: 20px;
+}
