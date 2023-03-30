@@ -36,4 +36,4 @@ function Submit(e) {
   console.log("clicked");
 }
 
-button.addEventListener("submit", Submit);
+button.addEventListener("click", Submit);
