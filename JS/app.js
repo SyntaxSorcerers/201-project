@@ -22,31 +22,19 @@ class Question {
   }
 }
 
-// function triviaQuestions(question, rightAnswer, wrongAnswer, tryAgain) {
-//   let answer = prompt(
-//     question +
-//       " Option 1: Project No Name " +
-//       " Option 2: A Boy's Life " +
-//       " Option 3: Unknown Home"
-//   );
+const myQuestion = new Question(
+  1,
+  "What is the original working title for E.T.?",
+  "A Boy's Life",
+  new Hints("Pellentesque habitant", "ultricies in", "adipiscing elit")
+);
 
-//   if (answer === "A Boy's Life" || answer === "a boy's life") {
-//     alert(rightAnswer);
-//   } else if (answer === "False" || answer === "false") {
-//     alert(wrongAnswer);
-//   } else {
-//     alert(tryAgain);
-//   }
-// }
+const questionElement = document.getElementById("questionOne");
+questionElement.textContent = myQuestion.question;
 
-// triviaQuestions(
-//   "What is the original working title for E.T.?",
-//   "You are correct!",
-//   "Wrong, Please Try Again!",
-//   "Try Again"
-// );
+// let button = document.querySelector("button");
 
-let button = document.querySelector("button");
+let button = document.querySelector("button[type='submit']");
 
 function Submit(e) {
   e.preventDefault();
