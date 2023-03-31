@@ -1,14 +1,14 @@
 body {
     padding: 0;
+    background-image: url(/img/background-image.jpg);
     margin: 0;
-    background-color: #f8d76e;
+    
 }
 
 .tv-container{
     height:500px;
     width: 450px;
-    border: 3px solid white;
-    position: absolute;
+    /* position: absolute; */
     margin: auto;
     top: 0;
     bottom: 0;
@@ -21,7 +21,7 @@ body {
     height: 200px;
     width: 270px;
     position: relative;
-    top: 200px;
+    top: 900px;
     left: 90px;
     border-radius: 15px;
 }
@@ -148,4 +148,60 @@ input:checked[type="checkbox"]:before{
         rgba(255,255,255,0.4) 180px,
         transparent 180px,
     );
+}
+
+h1 {
+  animation: wobble 3s ease 0s infinite normal forwards;  
+  background-color: hotpink;
+  color: yellow;
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 200px;
+  margin: 10% auto;
+  padding:20px;
+  text-align: center;
+  width:850px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes wobble {
+	0%,
+	100% {
+		transform: translateX(0%);
+		transform-origin: 50% 50%;
+	}
+	15% {
+		transform: translateX(-30px) rotate(-6deg);
+	}
+	30% {
+		transform: translateX(15px) rotate(6deg);
+	}
+	45% {
+		transform: translateX(-15px) rotate(-3.6deg);
+	}
+	60% {
+		transform: translateX(9px) rotate(2.4deg);
+	}
+	75% {
+		transform: translateX(-6px) rotate(-1.2deg);
+	}
+}
+
+#play-game a{
+  background-color:yellow;
+  border: 6px solid orange;
+  border-radius: 8px;
+  color: blueviolet;
+  font-family: 'Rampart One', cursive;
+  font-size: 50px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  width: 350px;
+  padding: 20px;
+  margin: auto;
+  /* position: fixed; */
 }

@@ -1,15 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./CSS/reset.css">
-    <link rel="stylesheet" href="./CSS/trivia.css">
-</head>
-<body>
-    
-</body>
-<script src="./JS/app.js"></script>
+    <link rel="stylesheet" href="./CSS/reset.css" />
+    <link rel="stylesheet" href="/CSS/trivia.css" />
+    <script defer src="./JS/app.js"></script>
+  </head>
+
+  <body>
+    <header>
+        <h1>Movie Madness!</h1>
+    </header>
+    <main>
+        <section class="scores-and-hints">
+            <div id="scores"></div>
+            <button type="submit" id="hint">I need a hint</button>
+        </section>
+        <section class="current-question">
+            <form class="current-question">
+                <label for="question" id="question"></label>
+                <input type="text" name="userInput" id="user">
+                <button type="submit" id="submit">Answer</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+      </footer>
+  </body>
 </html>
