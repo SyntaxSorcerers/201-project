@@ -55,10 +55,10 @@ class Question {
     state.questions.push(this);
   }
 
+}
  function handleSubmit(event){
 
 }
-
 
 console.log(state);
 submitButton.addEventListener('submit', handleSubmit);
