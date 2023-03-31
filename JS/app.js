@@ -55,27 +55,31 @@ button.addEventListener("click", Submit);
 // }
 // question11();
 
-// const myQuestion11 = new Question(
-//   'What year was Forest Gump released?',
-//   '1994',
-//   new Hints('The Lion King was released in the same year')
-// );
-// const questionElement11 = document.getElementById('questionEleven');
-// questionElement11.textContent = myQuestion11.question;
-// console.log(myQuestion11);
+const myQuestion11 = new Question(
+  'What year was Forest Gump released?',
+  '1994',
+  new Hints('1990, 1992, 1994')
+);
 
-// const myQuestion12 = new Question(
-//   'Which 90\'s movie featured Looney Tunes on it\'s soundtrack?',
-//   'Space Jam',
-//   new Hints('This movie also featured Michael Jordan')
-// );
-// const questionElement12 = document.getElementById('questionTwelve');
-// questionElement12.textContent = myQuestion12.question;
-// console.log(myQuestion12);
+const myQuestion12 = new Question(
+  'Which 90\'s movie featured Looney Tunes on it\'s soundtrack?',
+  'Space Jam',
+  new Hints('Also featured Michael Jordan, best NBA movie of all time, animated aliens')
+);
 
-// const myQuestion13 = new Question(
-//   'What movie is the quote "I see dead people" from?',
-//   'The Sixth Sense',
-//   new Hints('')
-// )
+const myQuestion13 = new Question(
+  'Johnny Depp cuts the hedges in this 1990 Tim Burton film',
+  'Edward Scissorhands',
+  new Hints('Mad scientist creation with scissors for hands, fantasy romance film, co-stars young Winona Ryder')
+);
+
+const questionElement14 = new Question(
+  'Brendan Fraiser plays caveman turned cool guy in what 1992 film?',
+  'Encino Man',
+  new Hints('co-stars Pauly Shore, Sean Astin\'s first movie since The Goonies, "Weezin\' on the juice"')
+);
+
+const questionElement15 = new Question(
+  ''
+)
 

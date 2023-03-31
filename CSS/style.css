@@ -9,7 +9,7 @@ h1 {
   color: yellow;
   font-family: 'Cabin Sketch', cursive;
   font-size: 230px;
-  margin: 5% auto;
+  margin: 4% auto;
   padding:20px;
   text-align: center;
   width:960px;
@@ -52,7 +52,7 @@ p {
   justify-content: center;
   width: 700px;
   padding:50px;
-  margin: auto;
+  margin: 1% auto;
   text-align: center;
   -webkit-transform: rotate(-5deg);
 }
