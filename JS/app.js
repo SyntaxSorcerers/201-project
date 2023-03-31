@@ -1,3 +1,4 @@
+
 'use strict';
 const question = document.getElementById('question');
 const submitButton = document.getElementById('submit');
@@ -31,6 +32,7 @@ class Question {
     this.hint = hint;
     this.attempt = 3;
     state.questions.push(this);
+}
   }
   handleSubmit(event){
 
@@ -39,7 +41,30 @@ class Question {
 
 
 
+
 console.log(state);
 submitButton.addEventListener('submit', handleSubmit);
 hintButton.addEventListener('submit', handleHintSubmit);
+
+=======
+const myQuestion = new Question(
+  1,
+  "What is the original working title for E.T.?",
+  "A Boy's Life",
+  new Hints("Pellentesque habitant", "ultricies in", "adipiscing elit")
+);
+
+const questionElement = document.getElementById("questionOne");
+questionElement.textContent = myQuestion.question;
+
+// let button = document.querySelector("button");
+
+let button = document.querySelector("button[type='submit']");
+
+function Submit(e) {
+  e.preventDefault();
+  console.log("clicked");
+}
+
+button.addEventListener("click", Submit);
 
