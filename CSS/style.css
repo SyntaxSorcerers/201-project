@@ -1,3 +1,4 @@
+
 body {
     padding: 0;
     background-image: url(/img/background-image.jpg);
@@ -205,3 +206,77 @@ h1 {
   margin: auto;
   /* position: fixed; */
 }
+
+h1 {
+  animation: wobble 3s ease 0s infinite normal forwards;  
+  background-color: hotpink;
+  border: 10px solid yellow;
+  color: yellow;
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 230px;
+  margin: 5% auto;
+  padding:20px;
+  text-align: center;
+  width:960px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes wobble {
+	0%,
+	100% {
+		transform: translateX(0%);
+		transform-origin: 50% 50%;
+	}
+	15% {
+		transform: translateX(-30px) rotate(-6deg);
+	}
+	30% {
+		transform: translateX(15px) rotate(6deg);
+	}
+	45% {
+		transform: translateX(-15px) rotate(-3.6deg);
+	}
+	60% {
+		transform: translateX(9px) rotate(2.4deg);
+	}
+	75% {
+		transform: translateX(-6px) rotate(-1.2deg);
+	}
+}
+
+p {
+  background-color: orange;
+  color:white;
+  font-family: 'Rampart One', cursive;
+  border:3px solid white;
+  font-size: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 700px;
+  padding:50px;
+  margin: auto;
+  text-align: center;
+  -webkit-transform: rotate(-5deg);
+}
+
+#play-game a{
+  background-color:yellow;
+  border: 6px solid orange;
+  border-radius: 8px;
+  color: blueviolet;
+  font-family: 'Rampart One', cursive;
+  font-size: 50px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  width: 350px;
+  padding: 20px;
+  margin: 2% auto;
+  /* position: fixed; */
+}
+

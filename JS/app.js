@@ -68,3 +68,41 @@ function Submit(e) {
 
 button.addEventListener("click", Submit);
 
+
+
+// function question11() {
+//   let userInput = prompt('What year was Forest Gump released?');
+//   if (userInput === 1994){
+//     alert('Booyah! You got it!');
+//     console.log('Booyah! You got it!');
+//   } else if (userInput !== '1994'){
+//     alert('That answer was totally bogus, try again!');
+//   }
+// }
+// question11();
+
+// const myQuestion11 = new Question(
+//   'What year was Forest Gump released?',
+//   '1994',
+//   new Hints('The Lion King was released in the same year')
+// );
+// const questionElement11 = document.getElementById('questionEleven');
+// questionElement11.textContent = myQuestion11.question;
+// console.log(myQuestion11);
+
+// const myQuestion12 = new Question(
+//   'Which 90\'s movie featured Looney Tunes on it\'s soundtrack?',
+//   'Space Jam',
+//   new Hints('This movie also featured Michael Jordan')
+// );
+// const questionElement12 = document.getElementById('questionTwelve');
+// questionElement12.textContent = myQuestion12.question;
+// console.log(myQuestion12);
+
+// const myQuestion13 = new Question(
+//   'What movie is the quote "I see dead people" from?',
+//   'The Sixth Sense',
+//   new Hints('')
+// )
+
+
