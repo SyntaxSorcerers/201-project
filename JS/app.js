@@ -1,14 +1,26 @@
-"use strict";
-let state = {
-  question: [],
+
+'use strict';
+const question = document.getElementById('question');
+const submitButton = document.getElementById('submit');
+const hintButton = document.getElementById('hint');
+const userInput = document.getElementById('user');
+const score = document.getElementById('scores');
+
+const state = {
+  questions: [],
   hints: [],
   score: 0,
 };
+
 class Hints {
   constructor(hint1, hint2, hint3) {
     this.hint1 = hint1;
     this.hint2 = hint2;
     this.hint3 = hint3;
+    state.hints.push(this);
+  }
+  handleHintSubmit(event){
+
   }
 }
 
@@ -19,9 +31,22 @@ class Question {
     this.answer = answer;
     this.hint = hint;
     this.attempt = 3;
+    state.questions.push(this);
+}
   }
+  handleSubmit(event){
+
+}
 }
 
+
+
+
+console.log(state);
+submitButton.addEventListener('submit', handleSubmit);
+hintButton.addEventListener('submit', handleHintSubmit);
+
+=======
 const myQuestion = new Question(
   1,
   "What is the original working title for E.T.?",
@@ -42,3 +67,4 @@ function Submit(e) {
 }
 
 button.addEventListener("click", Submit);
+
