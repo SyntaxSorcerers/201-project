@@ -14,15 +14,17 @@
     <header>
        <h1>Movie Madness!</h1>
       <nav id="home-page">
-        <li><a href="/index.html">E.T. Phone Home</a></li>
+        <p><a href="/index.html">☎ E.T. Phone Home</a></p>
       </nav>
     </header>
     <main>
         <section class="scores-and-hints">
             <div id="scores"></div>
+            <div id="right"></div>
             <button type="submit" id="hint">I need a hint</button>
         </section>
         <section class="currentQuestion">
+          <p id="resultsOfAnswer"></p>
             <form id="current-question">
                 <label for="userInput" id="question"></label>
                 <input type="text" name="userInput" id="user">

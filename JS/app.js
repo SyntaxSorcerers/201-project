@@ -1,7 +1,6 @@
 "use strict";
 //helper array and var to hold questions used.
 let pocketArray = [];
-let currentQuestionInParr = pocketArray[pocketArray.length - 1];
 // state
 const state = {
   questions: [],
@@ -19,14 +18,14 @@ function getRandomQuestion() {
   return Math.floor(Math.random() * state.questions.length);
 }
 
-//Hint helper constructor for question
+//Hint helper constructor for question.
 class Hints {
   constructor(hint1, hint2, hint3) {
     this.hints = [hint1, hint2, hint3];
   }
 }
 
-// question constructor function
+// question constructor function.
 class Question {
   constructor(question, answer, hint) {
     this.question = question;
@@ -142,16 +141,16 @@ function createQuestions() {
 function renderQuestion() {
   let currentQuestion = getRandomQuestion();
   score.textContent = state.score;
+  answerResults.textContent = `you have 3 attempt(s)`;
   question.innerText = state.questions[currentQuestion].question;
   pocketArray.push(state.questions[currentQuestion]);
   state.questions.splice(currentQuestion, 1);
 }
-
+// handles and compares Answers to question object from pocket arr and decrements attempts.
 function handleSubmit(event) {
   event.preventDefault();
   let currentQuestionInParr = pocketArray[pocketArray.length - 1];
-  let userInput = event.target.form.userInput.value;
-  console.log(userInput);
+  let userInput = event.target.form.userInput.value.toLowerCase();
 
   function removeLi(unorderedList) {
     while (unorderedList.firstChild) {
@@ -159,15 +158,21 @@ function handleSubmit(event) {
       removeLi();
     }
   }
+
   if (currentQuestionInParr.attempts >= 2) {
     if (userInput !== currentQuestionInParr.answer) {
+      console.log("you got it wrong");
       currentQuestionInParr.attempts--;
-      console.log(currentQuestionInParr.attempts);
+      answerResults.textContent = `Bummer you got it wrong. you still have ${currentQuestionInParr.attempts} attempt(s) left`;
       userInputEvent.reset();
+      console.log(currentQuestionInParr.attempts);
     } else {
+      console.log("you got it right");
+      if (userInput === currentQuestionInParr.answer.toLowerCase()) {
+        congratsAlert.textContent = "Radical you got the last question right";
+      }
       state.score += 100;
-      score.textContent = state.score;
-      console.log(pocketArray);
+      console.log(pocketArray, "you got it right");
       renderQuestion();
       userInputEvent.reset();
     }
@@ -182,13 +187,15 @@ function handleSubmit(event) {
     userInputEvent.reset();
   }
 }
+
+// creates hints and displays them when 'I need a hint' button is clicked.
 function handleHints() {
   console.log("proof of life");
   const ulElem = document.createElement("ul");
   hintButton.appendChild(ulElem);
   let currentQuestionInParr = pocketArray[pocketArray.length - 1];
-  console.log(currentQuestionInParr.attempts, "***");
 
+  console.log(currentQuestionInParr.attempts, "***");
   if (currentQuestionInParr.attempts === 3) {
     let liElem = document.createElement("li");
     liElem.textContent = currentQuestionInParr.hint.hints[0];
@@ -213,43 +220,9 @@ function handleHints() {
   }
 }
 
-function resetHints() {
-  console.log("resetHints");
-  const ulElem = document.createElement("ul");
-  hintButton.appendChild(ulElem);
-  let currentQuestionInParr = pocketArray[pocketArray.length - 1];
-  // while(currentQuestionInParr.attepts === 0){
-  //   let handleHints = resetHints();
-  //   if(!currentQuestionInParr.includes(handleHints)){
-  //     currentQuestionInParr.unshift(handleHints);
-  //   }
-  // }
-  // if (currentQuestionInParr.attempts === 0){
-  //   let handleHints = resetHints();
-  // }
-}
 console.log(state);
+
+createQuestions();
 renderQuestion();
 submitButton.addEventListener("click", handleSubmit);
 hintButton.addEventListener("click", handleHints);
-
-// hintButton.onmouseenter();
-// let currentQuestion = getRandomQuestion();
-// console.log(state.questions[currentQuestion].attempts);
-// console.log(currentQuestion);
-// console.log(state.questions.length);
-// console.log(state);
-// renderQuestion();
-// const questionElement = document.getElementById("questionOne");
-// questionElement.textContent = myQuestion.question;
-
-// // let button = document.querySelector("button");
-
-// let button = document.querySelector("button[type='submit']");
-
-// function Submit(e) {
-//   e.preventDefault();
-//   console.log("clicked");
-// }
-
-// button.addEventListener("click", Submit);
