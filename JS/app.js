@@ -101,18 +101,12 @@ function createQuestions() {
   );
 }
 
-
 const myQuestion13 = new Question(
   'Johnny Depp cuts the hedges in this 1990 Tim Burton film',
   'Edward Scissorhands',
   new Hints('Mad scientist creation with scissors for hands', 'Fantasy romance film', 'Co-stars young Winona Ryder')
 );
 
-const questionElement14 = new Question(
-  'Brendan Fraiser plays caveman turned cool guy in what 1992 film?',
-  'Encino Man',
-  new Hints('co-stars Pauly Shore', 'Sean Astin\'s first movie since The Goonies', '"Weezin\' on the juice"')
-);
 
 const myQuestion15 = new Question(
   'What 1991 film stars Patrick Swayze as a bank robbing surfer?',
