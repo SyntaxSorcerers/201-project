@@ -1,5 +1,209 @@
 body {
-  background-image: url(/img/background-image.jpg);
+    padding: 0;
+    background-image: url(/img/background-image.jpg);
+    margin: 0;
+    
+}
+
+.tv-container{
+    height:500px;
+    width: 450px;
+    /* position: absolute; */
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.tv {
+    background-color: #ed5650;
+    height: 200px;
+    width: 270px;
+    position: relative;
+    top: 900px;
+    left: 90px;
+    border-radius: 15px;
+}
+
+input[type="checkbox"]{
+    -webkit-appearance: none;
+    background-color: #f3947e;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    position:absolute;
+    top:100px;
+    right: 15px;
+}
+
+.speaker{
+    position:absolute;
+    top:50px;
+    right: 7px;
+}
+
+.speaker>div{
+    background-color: #d52f31;
+    height: 6px;
+    width: 50px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+}
+
+.slot{
+    background-color: #d52f31;
+    height: 6px;
+    width: 220px;
+    border-radius: 8px;
+    position:absolute;
+    bottom: 12px;
+    left: 18px;
+}
+
+.antenna{
+    background-color: #3d3f3d;
+    height: 20px;
+    width: 60px;
+    border-radius: 20px 20px 0 0;
+    position: absolute;
+    top: -20px;
+    left: 50px;
+}
+
+.a{
+    background-color: #3d3f3d;
+    height: 70px;
+    width: 6px;
+    border-radius: 6px;
+    position: relative;
+}
+
+.a:nth-child(1){
+    bottom: 60px;
+    left: 10px;
+    transform: rotate(-30deg);
+}
+
+.a:nth-child(2){
+    bottom:130px;
+    left:45px;
+    transform: rotate(30deg);
+}
+
+.stand1, .stand2{
+    background-color: #d52f31;
+    height: 10px;
+    width: 18px;
+    position: absolute;
+    border-radius: 0 0 15px 15px;
+    bottom: -10px;
+}
+
+.stand1{
+  left: 45px; 
+}
+
+.stand2{
+    right: 45px;
+}
+
+input[type="checkbox"]:before{
+    content: '';
+    position: absolute;
+    background-color: #caffd0;
+    height: 140px;
+    width: 170px;
+    bottom: -42px;
+    right: 45px;
+    border-radius: 5px;
+    border: 10px solid #d52f31;
+    background-size: 125px 140px;
+    background-image: linear-gradient(
+        to left,
+        #db9dff 25px,
+        #9dc4ff 25px,
+        #9dc4ff 50px,
+        #fefd93 50px,
+        #fefd93 75px,
+        #fcc670 75px,
+        #fcc670 100px,
+        #ff9ea7 100px,
+        #ff9ea7 125px,
+        );
+    animation: move 20s infinite linear;
+}
+@keyframes move{
+    100%{
+        background-position: 2000px 0;
+    }
+}
+input:checked[type="checkbox"]:before{
+    background-size: 100% 100%;
+    animation: none;
+    background-image: linear-gradient(
+        -45deg,
+        tansparent 150px,
+        rgba(255,255,255,0.4) 150px,
+        rgba(255,255,255,0.4) 180px,
+        transparent 180px,
+    );
+}
+
+h1 {
+  animation: wobble 3s ease 0s infinite normal forwards;  
+  background-color: hotpink;
+  color: yellow;
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 200px;
+  margin: 10% auto;
+  padding:20px;
+  text-align: center;
+  width:850px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes wobble {
+	0%,
+	100% {
+		transform: translateX(0%);
+		transform-origin: 50% 50%;
+	}
+	15% {
+		transform: translateX(-30px) rotate(-6deg);
+	}
+	30% {
+		transform: translateX(15px) rotate(6deg);
+	}
+	45% {
+		transform: translateX(-15px) rotate(-3.6deg);
+	}
+	60% {
+		transform: translateX(9px) rotate(2.4deg);
+	}
+	75% {
+		transform: translateX(-6px) rotate(-1.2deg);
+	}
+}
+
+#play-game a{
+  background-color:yellow;
+  border: 6px solid orange;
+  border-radius: 8px;
+  color: blueviolet;
+  font-family: 'Rampart One', cursive;
+  font-size: 50px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  width: 350px;
+  padding: 20px;
+  margin: auto;
+  /* position: fixed; */
 }
 
 h1 {
@@ -9,7 +213,7 @@ h1 {
   color: yellow;
   font-family: 'Cabin Sketch', cursive;
   font-size: 230px;
-  margin: 4% auto;
+  margin: 5% auto;
   padding:20px;
   text-align: center;
   width:960px;
@@ -52,7 +256,7 @@ p {
   justify-content: center;
   width: 700px;
   padding:50px;
-  margin: 1% auto;
+  margin: auto;
   text-align: center;
   -webkit-transform: rotate(-5deg);
 }
