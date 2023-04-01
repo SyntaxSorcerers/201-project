@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <title>Document</title>
     <link rel="stylesheet" href="./CSS/reset.css" />
     <link rel="stylesheet" href="/CSS/trivia.css" />
@@ -12,23 +15,28 @@
 
   <body>
     <header>
-       <h1>Movie Madness!</h1>
-      <nav id="home-page">
-        <p><a href="/index.html">☎ E.T. Phone Home</a></p>
-      </nav>
+
+     <nav id="home-page">
+      </nav> 
+        <h1 class="movie-title">Movie Madness!</h1>
+        <div class="vhs">
+          <img src="/img/vhs.jpg" height="200px" width="300px">
+        </div>
+
     </header>
     <main>
-        <section class="scores-and-hints">
-            <div id="scores"></div>
-            <button type="submit" id="hint">I need a hint</button>
-        </section>
-        <section class="currentQuestion">
-            <form id="current-question">
-                <label for="userInput" id="question"></label>
-                <input type="text" name="userInput" id="user">
-                <button type="button" for="userInput" id="submit">Submit</button>
-            </form>
-        </section>
+      <section class="scores-and-hints">
+        <div id="scores"></div>
+        <button type="submit" id="hint">hint</button>
+      </section>
+      <section class="currentQuestion">
+        <form id="current-question">
+          <label for="userInput" id="question"></label>
+          <input type="text" name="userInput" id="user">
+          <button type="button" for="userInput" id="submit">Submit</button>
+        </form>
+      </section>
+      <p><a href="/index.html">E.T.☎ Home</a></p>
     </main>
     <footer>
       </footer>
