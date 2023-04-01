@@ -2,18 +2,19 @@ body {
     padding: 0;
     background-image: url(/img/background-image.jpg);
     margin: 0;
-    
 }
 
 .tv-container{
     height:500px;
     width: 450px;
-    /* position: absolute; */
+    position: absolute;
+    display: flex;
     margin: auto;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
+    
 }
 
 .tv {
@@ -24,7 +25,7 @@ body {
     top: 200px;
     left: 90px;
     border-radius: 15px;
-}
+}  
 
 input[type="checkbox"]{
     -webkit-appearance: none;
@@ -43,6 +44,27 @@ input[type="checkbox"]{
     right: 7px;
 }
 
+#play-game a{
+    background-color:yellow;
+    border: 6px solid orange;
+    border-radius: 5px;
+    color: blueviolet;
+    font-family: 'Rampart One', cursive;
+    font-size: 50px;
+    font-weight: 500;
+    display: flex;
+    /* align-items: center;
+    justify-content: center; */
+    text-decoration: none;
+    width: 136px;
+    height:110px;
+    padding: 10px;
+    margin: auto;
+    left:-185px;
+    top:-41px;
+    position: relative;
+    /* position: relative; */
+  }
 .speaker>div{
     background-color: #d52f31;
     height: 6px;
@@ -188,39 +210,6 @@ h1 {
 	}
 }
 
-#play-game a{
-  background-color:yellow;
-  border: 6px solid orange;
-  border-radius: 8px;
-  color: blueviolet;
-  font-family: 'Rampart One', cursive;
-  font-size: 50px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  width: 350px;
-  padding: 20px;
-  margin: auto;
-  /* position: fixed; */
-}
-
-h1 {
-  animation: wobble 3s ease 0s infinite normal forwards;  
-  background-color: hotpink;
-  border: 10px solid yellow;
-  color: yellow;
-  font-family: 'Cabin Sketch', cursive;
-  font-size: 230px;
-  margin: 5% auto;
-  padding:20px;
-  text-align: center;
-  width:960px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 @keyframes wobble {
 	0%,
@@ -261,20 +250,3 @@ p {
   -webkit-transform: rotate(-5deg);
 }
 
-#play-game a{
-  background-color:yellow;
-  border: 6px solid orange;
-  border-radius: 8px;
-  color: blueviolet;
-  font-family: 'Rampart One', cursive;
-  font-size: 50px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  width: 350px;
-  padding: 20px;
-  margin: 2% auto;
-  /* position: fixed; */
-}
