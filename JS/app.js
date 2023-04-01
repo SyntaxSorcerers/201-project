@@ -123,6 +123,7 @@ function createQuestions() {
     new Hints('a kiss', 'her underwear', '$100 bill')
   );
 
+
   const myQuestion9 = new Question(
     'After and unfortunate incident the family from A Christmas Story ate their Christmas dinner at what kind of restaurant?',
     'Chinese',

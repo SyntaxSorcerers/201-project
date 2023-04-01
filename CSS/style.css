@@ -7,10 +7,10 @@ body {
 .tv-container{
     height:500px;
     width: 450px;
-    position: absolute;
+    position: relative;
     display: flex;
     margin: auto;
-    top: 0;
+    top: 20;
     bottom: 0;
     left: 0;
     right: 0;
@@ -185,6 +185,8 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  transform: scale(100%);
 }
 
 @keyframes wobble {
@@ -248,5 +250,6 @@ p {
   margin: auto;
   text-align: center;
   -webkit-transform: rotate(-5deg);
+  position: relative;
 }
 
