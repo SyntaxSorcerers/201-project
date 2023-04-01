@@ -7,6 +7,7 @@ const state = {
   questions: [],
   score: 0,
 };
+
 //DOM ref.
 let answerResults = document.getElementById('resultsOfAnswer');
 let question = document.getElementById('question');
