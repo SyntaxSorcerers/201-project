@@ -1,3 +1,8 @@
+#home-page a {
+  text-decoration: none;
+  
+}
+
 form {
   max-width: 500px;
   margin: 0 auto;

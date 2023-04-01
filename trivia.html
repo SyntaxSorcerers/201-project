@@ -12,23 +12,25 @@
 
   <body>
     <header>
-      <h1></h1>
+       <h1>Movie Madness!</h1>
+      <nav id="home-page">
+        <li><a href="/index.html">E.T. Phone Home</a></li>
+      </nav>
     </header>
     <main>
-      <section class="current-question">
-        <form>
-          <label for="question">Question :</label>
-          <!-- <input type="text" id="questionOne" name="questionOne" required /> -->
-          <h3 id="question"></h3>
-
-          <label for="Answer">Answer:</label>
-          <textarea id="Answer" name="Answer" required></textarea>
-
-          <button id="submit" type="submit">Submit</button>
-          <button id="hint" type="submit">Hint</button>
-        </form>
-      </section>
+        <section class="scores-and-hints">
+            <div id="scores"></div>
+            <button type="submit" id="hint">I need a hint</button>
+        </section>
+        <section class="currentQuestion">
+            <form id="current-question">
+                <label for="userInput" id="question"></label>
+                <input type="text" name="userInput" id="user">
+                <button type="button" for="userInput" id="submit">Submit</button>
+            </form>
+        </section>
     </main>
-    <footer></footer>
+    <footer>
+      </footer>
   </body>
 </html>

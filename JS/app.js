@@ -1,25 +1,187 @@
-"use strict";
-let state = {
-  question: [],
-  hints: [],
+
+'use strict';
+//helper array and var to hold questions used.
+let pocketArray = [];
+// state
+const state = {
+  questions: [],
   score: 0,
 };
+//DOM ref
+let question = document.getElementById('question');
+let submitButton = document.getElementById('submit');
+let hintButton = document.getElementById('hint');
+let userInputEvent = document.getElementById('current-question');
+let score = document.getElementById('scores');
+
+// helper function for generating a random question from the state index.
+function getRandomQuestion() {
+  return Math.floor(Math.random() * state.questions.length);
+}
+
+
+//Hint helper constructor for question
 class Hints {
   constructor(hint1, hint2, hint3) {
-    this.hint1 = hint1;
-    this.hint2 = hint2;
-    this.hint3 = hint3;
+    this.hints = [hint1, hint2, hint3,];
   }
 }
 
+
+// question constructor function
 class Question {
   constructor(question, answer, hint) {
     this.question = question;
     this.answer = answer;
     this.hint = hint;
-    this.attempt = 3;
+    this.attempts = 2;
+    state.questions.push(this);
   }
 }
+
+// const myQuestion6 = new Question(
+//   1,
+//   "A Boy's Life was the original working title for what 1983 movie?",
+//   new Hints("Highest grossing movie of the decade", "Intergalactic", "Elliot")
+// );
+
+// const myQuestion7 = new Question(
+//   2,
+//   "What town did Ren move from in Footloose?",
+//   new Hints("New York", "Detroit", "Chicago")
+// );
+
+// const myQuestion8 = new Question(
+//   3,
+//   "What did Samantha give to The Geek so that he could win a bet in Sixteen Candles?",
+//   new Hints("a kiss", "her underwear", "$100 bill")
+// );
+
+// const myQuestion9 = new Question(
+//   4,
+//   "After and unfortunate incident the family from A Christmas Story ate their Christmas dinner at what kind of restaurant?",
+//   new Hints("Chinese", "Italian", "Mexican")
+// );
+
+// const myQuestion10 = new Question(
+//   5,
+//   "In The Karate Kid what sport did Danny Larusso play in high school?",
+//   new Hints("basketball", "football", "soccer")
+// );
+function createQuestions() {
+  const myQuestion11 = new Question(
+    'What year was Forest Gump released?',
+    '1994',
+    new Hints('1990', '1992', '1994')
+  );
+
+  const myQuestion12 = new Question(
+    'Which 90\'s movie featured Looney Tunes on it\'s soundtrack?',
+    'Space Jam',
+    new Hints('Also featured Michael Jordan', 'best NBA movie of all time', 'animated aliens')
+  );
+
+  const myQuestion13 = new Question(
+    'Johnny Depp cuts the hedges in this 1990 Tim Burton film',
+    'Edward Scissor hands',
+    new Hints('Mad scientist creation with scissors for hands', 'fantasy romance film', 'co-stars young Winona Ryder')
+  );
+
+  const questionElement14 = new Question(
+    'Brendan Fraiser plays caveman turned cool guy in what 1992 film?',
+    'Encino Man',
+    new Hints('co-stars Pauly Shore', 'Sean Austin\'s first movie since The Goonies', 'Weezin\' on the juice')
+  );
+}
+
+
+//Renders question and pushes the currentQuestion into a pocketArray
+//then it will remove the question from the state.questions so it will not
+//render again.
+function renderQuestion() {
+  let currentQuestion = getRandomQuestion();
+  score.textContent = state.score;
+  question.innerText = state.questions[currentQuestion].question;
+  pocketArray.push(state.questions[currentQuestion]);
+  state.questions.splice(currentQuestion, 1);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let currentQuestionInParr = pocketArray[pocketArray.length - 1];
+  let userInput = event.target.form.userInput.value.toLowerCase();
+  console.log(userInput);
+  if (currentQuestionInParr.attempts > 0) {
+    if (userInput !== currentQuestionInParr.answer.toLowerCase()) {
+      currentQuestionInParr.attempts--;
+      console.log(currentQuestionInParr.attempts, 'this is the wrong answer');
+      userInputEvent.reset();
+    } else {
+      state.score += 100;
+      console.log(pocketArray, 'you got it right');
+      renderQuestion();
+      userInputEvent.reset();
+    }
+  } else {
+    alert('out of attempts');
+    renderQuestion();
+    userInputEvent.reset();
+  }
+}
+function handleHints() {
+  console.log('proof of life');
+  const ulElem = document.createElement('ul');
+  hintButton.appendChild(ulElem);
+  let currentQuestionInParr = pocketArray[pocketArray.length - 1];
+  console.log(currentQuestionInParr);
+  if (currentQuestionInParr.attempts === 2) {
+    let liElem = document.createElement('li');
+    liElem.textContent = currentQuestionInParr.hint.hints[0];
+    console.log(currentQuestionInParr.hint[0]);
+    ulElem.appendChild(liElem);
+  }
+  else if (currentQuestionInParr.attempts === 1) {
+    let liElem2 = document.createElement('li');
+    liElem2.innerText = currentQuestionInParr.hint.hints[1];
+    console.log(currentQuestionInParr.hint[1]);
+    ulElem.appendChild(liElem2);
+  }
+  else if (currentQuestionInParr.attempts === 0) {
+    let liElem3 = document.createElement('li');
+    liElem3.innerText = currentQuestionInParr.hint.hints[2];
+    console.log(currentQuestionInParr.hint[2]);
+    ulElem.appendChild(liElem3);
+  }
+}
+console.log(state);
+createQuestions();
+renderQuestion();
+submitButton.addEventListener('click', handleSubmit);
+hintButton.addEventListener('click', handleHints);
+
+// hintButton.onmouseenter();
+// let currentQuestion = getRandomQuestion();
+// console.log(state.questions[currentQuestion].attempts);
+// console.log(currentQuestion);
+// console.log(state.questions.length);
+// console.log(state);
+// renderQuestion();
+// const questionElement = document.getElementById("questionOne");
+// questionElement.textContent = myQuestion.question;
+
+// // let button = document.querySelector("button");
+
+// let button = document.querySelector("button[type='submit']");
+
+// function Submit(e) {
+  //   e.preventDefault();
+//   console.log("clicked");
+// }
+
+
+
+
+
 
 const myQuestionOne = new Question(
   "Who is the high school wise guy?",
@@ -50,61 +212,3 @@ const myQuestionFive = new Question(
   "Ferrari",
   new Hints("Mustang", "Camaro", "Ferrari")
 );
-
-let arr = [
-  myQuestionOne,
-  myQuestionTwo,
-  myQuestionThree,
-  myQuestionFour,
-  myQuestionFive,
-];
-
-const questionElement = document.getElementById("question");
-questionElement.textContent = myQuestionOne.question;
-
-let hintBtn = document.querySelector("#hint");
-
-let submitBtn = document.querySelector("#submit");
-
-// let button = document.querySelector("button[type='submit']");
-
-function hint(e) {
-  e.preventDefault();
-  console.log("clicked hint");
-  let currentQuestionIndex = arr.findIndex(function (question) {
-    return question.question === questionElement.textContent;
-  });
-
-  let currentQuestion = arr[currentQuestionIndex];
-
-  let hintElement = document.getElementById("hint");
-
-  hintElement.textContent =
-    "Hint: " +
-    currentQuestion.hint.hint1 +
-    ", " +
-    currentQuestion.hint.hint2 +
-    ", " +
-    currentQuestion.hint.hint3;
-}
-
-function submit(e) {
-  e.preventDefault();
-  console.log("clicked submit");
-
-  let currentQuestionIndex = arr.findIndex(function (question) {
-    return question.question === questionElement.textContent;
-  });
-
-  let nextQuestionIndex = currentQuestionIndex + 1;
-
-  if (nextQuestionIndex < arr.length) {
-    let nextQuestion = arr[nextQuestionIndex];
-    questionElement.textContent = nextQuestion.question;
-  } else {
-    alert("Your done with the quiz!");
-  }
-}
-
-hintBtn.addEventListener("click", hint);
-submitBtn.addEventListener("click", submit);
