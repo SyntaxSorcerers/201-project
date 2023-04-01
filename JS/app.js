@@ -2,7 +2,6 @@
 'use strict';
 //helper array and var to hold questions used.
 let pocketArray = [];
-let currentQuestionInParr = pocketArray[pocketArray.length - 1];
 // state
 const state = {
   questions: [],
@@ -40,12 +39,60 @@ class Question {
   }
 }
 
+// const myQuestion6 = new Question(
+//   1,
+//   "A Boy's Life was the original working title for what 1983 movie?",
+//   new Hints("Highest grossing movie of the decade", "Intergalactic", "Elliot")
+// );
 
-const myQuestion12 = new Question(
-  'Which 90\'s movie featured Looney Tunes on it\'s soundtrack?',
-  'Space Jam',
-  new Hints('This movie also featured Michael Jordan', 'bugs bunny', 'stuff')
-);
+// const myQuestion7 = new Question(
+//   2,
+//   "What town did Ren move from in Footloose?",
+//   new Hints("New York", "Detroit", "Chicago")
+// );
+
+// const myQuestion8 = new Question(
+//   3,
+//   "What did Samantha give to The Geek so that he could win a bet in Sixteen Candles?",
+//   new Hints("a kiss", "her underwear", "$100 bill")
+// );
+
+// const myQuestion9 = new Question(
+//   4,
+//   "After and unfortunate incident the family from A Christmas Story ate their Christmas dinner at what kind of restaurant?",
+//   new Hints("Chinese", "Italian", "Mexican")
+// );
+
+// const myQuestion10 = new Question(
+//   5,
+//   "In The Karate Kid what sport did Danny Larusso play in high school?",
+//   new Hints("basketball", "football", "soccer")
+// );
+function createQuestions() {
+  const myQuestion11 = new Question(
+    'What year was Forest Gump released?',
+    '1994',
+    new Hints('1990', '1992', '1994')
+  );
+
+  const myQuestion12 = new Question(
+    'Which 90\'s movie featured Looney Tunes on it\'s soundtrack?',
+    'Space Jam',
+    new Hints('Also featured Michael Jordan', 'best NBA movie of all time', 'animated aliens')
+  );
+
+  const myQuestion13 = new Question(
+    'Johnny Depp cuts the hedges in this 1990 Tim Burton film',
+    'Edward Scissor hands',
+    new Hints('Mad scientist creation with scissors for hands', 'fantasy romance film', 'co-stars young Winona Ryder')
+  );
+
+  const questionElement14 = new Question(
+    'Brendan Fraiser plays caveman turned cool guy in what 1992 film?',
+    'Encino Man',
+    new Hints('co-stars Pauly Shore', 'Sean Austin\'s first movie since The Goonies', 'Weezin\' on the juice')
+  );
+}
 
 
 //Renders question and pushes the currentQuestion into a pocketArray
@@ -53,6 +100,7 @@ const myQuestion12 = new Question(
 //render again.
 function renderQuestion() {
   let currentQuestion = getRandomQuestion();
+  score.textContent = state.score;
   question.innerText = state.questions[currentQuestion].question;
   pocketArray.push(state.questions[currentQuestion]);
   state.questions.splice(currentQuestion, 1);
@@ -60,48 +108,53 @@ function renderQuestion() {
 
 function handleSubmit(event) {
   event.preventDefault();
-  let userInput = event.target.form.userInput.value;
+  let currentQuestionInParr = pocketArray[pocketArray.length - 1];
+  let userInput = event.target.form.userInput.value.toLowerCase();
   console.log(userInput);
   if (currentQuestionInParr.attempts > 0) {
-    if (userInput !== currentQuestionInParr.answer) {
+    if (userInput !== currentQuestionInParr.answer.toLowerCase()) {
       currentQuestionInParr.attempts--;
-      console.log(currentQuestionInParr.attempts);
+      console.log(currentQuestionInParr.attempts, 'this is the wrong answer');
       userInputEvent.reset();
     } else {
       state.score += 100;
-      score.textContent = state.score;
-      console.log(pocketArray);
+      console.log(pocketArray, 'you got it right');
       renderQuestion();
       userInputEvent.reset();
     }
-  } else{
+  } else {
     alert('out of attempts');
     renderQuestion();
     userInputEvent.reset();
   }
 }
-function handleHints(event) {
-
+function handleHints() {
+  console.log('proof of life');
   const ulElem = document.createElement('ul');
   hintButton.appendChild(ulElem);
-
-  if (state.questions[currentQuestion].attempts === 2){
+  let currentQuestionInParr = pocketArray[pocketArray.length - 1];
+  console.log(currentQuestionInParr);
+  if (currentQuestionInParr.attempts === 2) {
     let liElem = document.createElement('li');
-    liElem.textContent = state.questions[currentQuestion].hint[0];
+    liElem.textContent = currentQuestionInParr.hint.hints[0];
+    console.log(currentQuestionInParr.hint[0]);
     ulElem.appendChild(liElem);
   }
-  else if (state.questions[currentQuestion].attempts === 1) {
+  else if (currentQuestionInParr.attempts === 1) {
     let liElem2 = document.createElement('li');
-    liElem2.textContent = state.questions[currentQuestion].hint[1];
+    liElem2.innerText = currentQuestionInParr.hint.hints[1];
+    console.log(currentQuestionInParr.hint[1]);
     ulElem.appendChild(liElem2);
   }
-  else if (state.question[currentQuestion].attempts === 0) {
+  else if (currentQuestionInParr.attempts === 0) {
     let liElem3 = document.createElement('li');
-    liElem3.textContent = state.questions[currentQuestion].hint[2];
+    liElem3.innerText = currentQuestionInParr.hint.hints[2];
+    console.log(currentQuestionInParr.hint[2]);
     ulElem.appendChild(liElem3);
   }
 }
 console.log(state);
+createQuestions();
 renderQuestion();
 submitButton.addEventListener('click', handleSubmit);
 hintButton.addEventListener('click', handleHints);
@@ -125,63 +178,6 @@ hintButton.addEventListener('click', handleHints);
 //   console.log("clicked");
 // }
 
-const myQuestion6 = new Question(
-  1,
-  "A Boy's Life was the original working title for what 1983 movie?",
-  new Hints("Highest grossing movie of the decade", "Intergalactic", "Elliot")
-);
-
-const myQuestion7 = new Question(
-  2,
-  "What town did Ren move from in Footloose?",
-  new Hints("New York", "Detroit", "Chicago")
-);
-
-const myQuestion8 = new Question(
-  3,
-  "What did Samantha give to The Geek so that he could win a bet in Sixteen Candles?",
-  new Hints("a kiss", "her underwear", "$100 bill")
-);
-
-const myQuestion9 = new Question(
-  4,
-  "After and unfortunate incident the family from A Christmas Story ate their Christmas dinner at what kind of restaurant?",
-  new Hints("Chinese", "Italian", "Mexican")
-);
-
-const myQuestion10 = new Question(
-  5,
-  "In The Karate Kid what sport did Danny Larusso play in high school?",
-  new Hints("basketball", "football", "soccer")
-);
-2
-
-// button.addEventListener("click", Submit);
-
-
-const myQuestion11 = new Question(
-  'What year was Forest Gump released?',
-  '1994',
-  new Hints('1990, 1992, 1994')
-);
-
-const myQuestion12 = new Question(
-  'Which 90\'s movie featured Looney Tunes on it\'s soundtrack?',
-  'Space Jam',
-  new Hints('Also featured Michael Jordan, best NBA movie of all time, animated aliens')
-);
-
-const myQuestion13 = new Question(
-  'Johnny Depp cuts the hedges in this 1990 Tim Burton film',
-  'Edward Scissorhands',
-  new Hints('Mad scientist creation with scissors for hands, fantasy romance film, co-stars young Winona Ryder')
-);
-
-const questionElement14 = new Question(
-  'Brendan Fraiser plays caveman turned cool guy in what 1992 film?',
-  'Encino Man',
-  new Hints('co-stars Pauly Shore, Sean Astin\'s first movie since The Goonies, "Weezin\' on the juice"')
-);
 
 
 
