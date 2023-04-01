@@ -50,16 +50,18 @@ input[type="checkbox"]{
     border-radius: 5px;
     color: blueviolet;
     font-family: 'Rampart One', cursive;
-    font-size: 33px;
+    font-size: 50px;
     font-weight: 500;
     display: flex;
     /* align-items: center;
     justify-content: center; */
     text-decoration: none;
-    width: 100px;
+    width: 136px;
+    height:110px;
     padding: 10px;
     margin: auto;
-    left:-100px;
+    left:-185px;
+    top:-41px;
     position: relative;
     /* position: relative; */
   }
