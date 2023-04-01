@@ -7,11 +7,13 @@ const state = {
   score: 0,
 };
 //DOM ref
+let answerResults = document.getElementById("resultsOfAnswer");
 let question = document.getElementById("question");
 let submitButton = document.getElementById("submit");
 let hintButton = document.getElementById("hint");
 let userInputEvent = document.getElementById("current-question");
 let score = document.getElementById("scores");
+let congratsAlert = document.getElementById("right");
 
 // helper function for generating a random question from the state index.
 function getRandomQuestion() {
