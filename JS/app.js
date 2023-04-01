@@ -2,12 +2,12 @@
 'use strict';
 //helper array and var to hold questions used.
 let pocketArray = [];
-// state
+// state.
 const state = {
   questions: [],
   score: 0,
 };
-//DOM ref
+//DOM ref.
 let answerResults = document.getElementById('resultsOfAnswer');
 let question = document.getElementById('question');
 let submitButton = document.getElementById('submit');
@@ -22,7 +22,7 @@ function getRandomQuestion() {
 }
 
 
-//Hint helper constructor for question
+//Hint helper constructor for question.
 class Hints {
   constructor(hint1, hint2, hint3) {
     this.hints = [hint1, hint2, hint3,];
@@ -30,7 +30,7 @@ class Hints {
 }
 
 
-// question constructor function
+// question constructor function.
 class Question {
   constructor(question, answer, hint) {
     this.question = question;
@@ -40,6 +40,8 @@ class Question {
     state.questions.push(this);
   }
 }
+
+// creates the questions using the constructors.
 function createQuestions() {
   const myQuestion11 = new Question(
     'What year was Forest Gump released?',
@@ -64,36 +66,36 @@ function createQuestions() {
     'Encino Man',
     new Hints('co-stars Pauly Shore', 'Sean Austin\'s first movie since The Goonies', 'Weezin\' on the juice')
   );
-  
-const myQuestionOne = new Question(
-  "Who is the high school wise guy?",
-  "Ferris Bueller's",
-  new Hints("Day Off", "Matthew Broderick", "John Hughes Film")
-);
 
-const myQuestionTwo = new Question(
-  "What year did Ferris Bueller's Day off came out?",
-  "1986",
-  new Hints("1984", "1986", "1985")
-);
+  const myQuestionOne = new Question(
+    'Who is the high school wise guy?',
+    'Ferris Bueller\'s',
+    new Hints('Day Off', 'Matthew Broderick', 'John Hughes Film')
+  );
 
-const myQuestionThree = new Question(
-  "Ferris' sister's name was Jeanie, but according to her, her friends called her what?",
-  "Shaunna",
-  new Hints("Sandy", "Sarah", "Shaunna")
-);
+  const myQuestionTwo = new Question(
+    'What year did Ferris Bueller\'s Day off came out?',
+    '1986',
+    new Hints('1984', '1986', '1985')
+  );
 
-const myQuestionFour = new Question(
-  "Where did Ferris, Cameron, and Sloane take the day off to?",
-  "Chicago",
-  new Hints("Seattle", "Chicago", "New York City")
-);
+  const myQuestionThree = new Question(
+    'Ferris sister\'s name was Jeanie, but according to her, her friends called her what?',
+    "Shaunna",
+    new Hints('Sandy', 'Sarah', 'Shaunna')
+  );
 
-const myQuestionFive = new Question(
-  "What kind of car do the boys take out for the day?",
-  "Ferrari",
-  new Hints("Mustang", "Camaro", "Ferrari")
-);
+  const myQuestionFour = new Question(
+    'Where did Ferris, Cameron, and Sloane take the day off to?',
+    'Chicago',
+    new Hints('Seattle', 'Chicago', 'New York City')
+  );
+
+  const myQuestionFive = new Question(
+    'What kind of car do the boys take out for the day?',
+    'Ferrari',
+    new Hints('Mustang', 'Camaro', 'Ferrari')
+  );
 }
 
 
@@ -108,7 +110,7 @@ function renderQuestion() {
   pocketArray.push(state.questions[currentQuestion]);
   state.questions.splice(currentQuestion, 1);
 }
-
+// handles and compares Answers to question object from pocket arr and decrements attempts.
 function handleSubmit(event) {
   event.preventDefault();
   let currentQuestionInParr = pocketArray[pocketArray.length - 1];
@@ -122,7 +124,7 @@ function handleSubmit(event) {
       console.log(currentQuestionInParr.attempts);
     } else {
       console.log('you got it right');
-      if (userInput === currentQuestionInParr.answer.toLowerCase()){
+      if (userInput === currentQuestionInParr.answer.toLowerCase()) {
         congratsAlert.textContent = 'Radical you got the last question right';
       }
       state.score += 100;
@@ -136,6 +138,7 @@ function handleSubmit(event) {
   }
 }
 
+// creates hints and displays them when 'I need a hint' button is clicked.
 function handleHints() {
   console.log('proof of life');
   const ulElem = document.createElement('ul');
@@ -161,8 +164,13 @@ function handleHints() {
     ulElem.appendChild(liElem3);
   }
 }
+
 console.log(state);
+
+// call functions.
 createQuestions();
 renderQuestion();
+
+// Listeners.
 submitButton.addEventListener('click', handleSubmit);
 hintButton.addEventListener('click', handleHints);
