@@ -43,7 +43,6 @@ class Question {
   }
 }
 
-
 // creates the questions using the constructors.
 function createQuestions() {
   const myQuestion11 = new Question(
@@ -99,20 +98,44 @@ function createQuestions() {
     'Ferrari',
     new Hints('Mustang', 'Camaro', 'Ferrari')
   );
+
+  const myQuestion15 = new Question(
+    'What 1991 film stars Patrick Swayze as a bank robbing surfer?',
+    'Point Break',
+    new Hints('Co-stars Keanu Reeves', 'The film was originally titled "Johnny Utah"', 'A remake of the film was released in 2015')
+  );
+
+  const myQuestion6 = new Question(
+    'A Boy\'s Life was the original working title for what 1983 movie?',
+    'E.T.',
+    new Hints('Highest grossing movie of the decade', 'Intergalactic', 'Elliot')
+  );
+
+  const myQuestion7 = new Question(
+    'What town did Ren move from in Footloose?',
+    'Chicago',
+    new Hints('New York', 'Detroit', 'Chicago')
+  );
+
+  const myQuestion8 = new Question(
+    'What did Samantha give to The Geek so that he could win a bet in Sixteen Candles?',
+    'her underwear',
+    new Hints('a kiss', 'her underwear', '$100 bill')
+  );
+
+
+  const myQuestion9 = new Question(
+    'After and unfortunate incident the family from A Christmas Story ate their Christmas dinner at what kind of restaurant?',
+    'Chinese',
+    new Hints('Chinese', 'Italian', 'Mexican')
+  );
+
+  const myQuestion10 = new Question(
+    'In The Karate Kid what sport did Danny Larusso play in high school?',
+    'soccer',
+    new Hints('basketball', 'football', 'soccer')
+  );
 }
-
-const myQuestion13 = new Question(
-  'Johnny Depp cuts the hedges in this 1990 Tim Burton film',
-  'Edward Scissorhands',
-  new Hints('Mad scientist creation with scissors for hands', 'Fantasy romance film', 'Co-stars young Winona Ryder')
-);
-
-
-const myQuestion15 = new Question(
-  'What 1991 film stars Patrick Swayze as a bank robbing surfer?',
-  'Point Break',
-  new Hints('Co-stars Keanu Reeves', 'The film was originally titled "Johnny Utah"', 'A remake of the film was released in 2015')
-);
 
 //Renders question and pushes the currentQuestion into a pocketArray
 //then it will remove the question from the state.questions so it will not
@@ -130,13 +153,6 @@ function handleSubmit(event) {
   event.preventDefault();
   let currentQuestionInParr = pocketArray[pocketArray.length - 1];
   let userInput = event.target.form.userInput.value.toLowerCase();
-
-  function removeLi(unorderedList) {
-    while (unorderedList.firstChild) {
-      unorderedList.removeChild(unorderedList.firstChild);
-      removeLi();
-    }
-  }
 
   if (currentQuestionInParr.attempts >= 2) {
     if (userInput !== currentQuestionInParr.answer) {
@@ -156,11 +172,11 @@ function handleSubmit(event) {
     }
   } else {
     alert('out of attempts');
-    const oldlist = document.querySelectorAll('ul');
-    oldlist[0].remove();
-    oldlist[1].remove();
-    oldlist[2].remove();
-    console.log(oldlist);
+    const oldList = document.querySelectorAll('ul');
+    oldList[0].remove();
+    oldList[1].remove();
+    oldList[2].remove();
+    console.log(oldList);
     renderQuestion();
     userInputEvent.reset();
   }
@@ -173,6 +189,7 @@ function handleHints() {
   hintButton.appendChild(ulElem);
   let currentQuestionInParr = pocketArray[pocketArray.length - 1];
   console.log(currentQuestionInParr.attempts, '***');
+
   if (currentQuestionInParr.attempts === 3) {
     let liElem = document.createElement('li');
     liElem.textContent = currentQuestionInParr.hint.hints[0];
@@ -191,14 +208,6 @@ function handleHints() {
     ulElem.appendChild(liElem3);
 
   }
-  else if (currentQuestionInParr.attempts === -1) {
-    console.log('inside-1tries');
-    hintButton.removeEventListener('click', handleHints);
-    // removeLi(oldlist);
-    // resetHints();
-    // ulElem.textContent = ' ';
-    // console.log(oldList);
-  }
 }
 
 console.log(state);
@@ -210,3 +219,5 @@ renderQuestion();
 // Listeners.
 submitButton.addEventListener('click', handleSubmit);
 hintButton.addEventListener('click', handleHints);
+
+
