@@ -1,36 +1,31 @@
-
-'use strict';
+"use strict";
 //helper array and var to hold questions used.
 let pocketArray = [];
-
 // state
 const state = {
   questions: [],
   score: 0,
 };
-
-//DOM ref.
-let answerResults = document.getElementById('resultsOfAnswer');
-let question = document.getElementById('question');
-let submitButton = document.getElementById('submit');
-let hintButton = document.getElementById('hint');
-let userInputEvent = document.getElementById('current-question');
-let score = document.getElementById('scores');
-let congratsAlert = document.getElementById('right');
+//DOM ref
+let answerResults = document.getElementById("resultsOfAnswer");
+let question = document.getElementById("question");
+let submitButton = document.getElementById("submit");
+let hintButton = document.getElementById("hint");
+let userInputEvent = document.getElementById("current-question");
+let score = document.getElementById("scores");
+let congratsAlert = document.getElementById("right");
 
 // helper function for generating a random question from the state index.
 function getRandomQuestion() {
   return Math.floor(Math.random() * state.questions.length);
 }
 
-
 //Hint helper constructor for question.
 class Hints {
   constructor(hint1, hint2, hint3) {
-    this.hints = [hint1, hint2, hint3,];
+    this.hints = [hint1, hint2, hint3];
   }
 }
-
 
 // question constructor function.
 class Question {
@@ -43,96 +38,106 @@ class Question {
   }
 }
 
+
 // creates the questions using the constructors.
 function createQuestions() {
-  const myQuestion11 = new Question(
-    'What year was Forest Gump released?',
-    '1994',
-    new Hints('1990', '1992', '1994')
-  );
-
-  const myQuestion12 = new Question(
-    'Which 90\'s movie featured Looney Tunes on it\'s soundtrack?',
-    'Space Jam',
-    new Hints('Also featured Michael Jordan', 'best NBA movie of all time', 'animated aliens')
-  );
-
-  const myQuestion13 = new Question(
-    'Johnny Depp cuts the hedges in this 1990 Tim Burton film',
-    'Edward Scissor hands',
-    new Hints('Mad scientist creation with scissors for hands', 'fantasy romance film', 'co-stars young Winona Ryder')
-  );
-
-  const questionElement14 = new Question(
-    'Brendan Fraiser plays caveman turned cool guy in what 1992 film?',
-    'Encino Man',
-    new Hints('co-stars Pauly Shore', 'Sean Austin\'s first movie since The Goonies', 'Weezin\' on the juice')
-  );
-
   const myQuestionOne = new Question(
-    'Who is the high school wise guy?',
-    'Ferris Bueller\'s',
-    new Hints('Day Off', 'Matthew Broderick', 'John Hughes Film')
+    "Who is the high school wise guy?",
+    "Ferris Bueller's",
+    new Hints("Day Off", "Matthew Broderick", "John Hughes Film")
   );
 
   const myQuestionTwo = new Question(
-    'What year did Ferris Bueller\'s Day off came out?',
-    '1986',
-    new Hints('1984', '1986', '1985')
+    "What year did Ferris Bueller's Day off came out?",
+    "1986",
+    new Hints("1984", "1986", "1985")
   );
 
   const myQuestionThree = new Question(
-    'Ferris sister\'s name was Jeanie, but according to her, her friends called her what?',
-    'Shaunna',
-    new Hints('Sandy', 'Sarah', 'Shaunna')
+    "Ferris' sister's name was Jeanie, but according to her, her friends called her what?",
+    "Shaunna",
+    new Hints("Sandy", "Sarah", "Shaunna")
   );
 
   const myQuestionFour = new Question(
-    'Where did Ferris, Cameron, and Sloane take the day off to?',
-    'Chicago',
-    new Hints('Seattle', 'Chicago', 'New York City')
+    "Where did Ferris, Cameron, and Sloane take the day off to?",
+    "Chicago",
+    new Hints("Seattle", "Chicago", "New York City")
   );
 
   const myQuestionFive = new Question(
-    'What kind of car do the boys take out for the day?',
-    'Ferrari',
-    new Hints('Mustang', 'Camaro', 'Ferrari')
+    "What kind of car do the boys take out for the day?",
+    "Ferrari",
+    new Hints("Mustang", "Camaro", "Ferrari")
   );
-
-  const myQuestion15 = new Question(
-    'What 1991 film stars Patrick Swayze as a bank robbing surfer?',
-    'Point Break',
-    new Hints('Co-stars Keanu Reeves', 'The film was originally titled "Johnny Utah"', 'A remake of the film was released in 2015')
-  );
-
   const myQuestion6 = new Question(
-    'A Boy\'s Life was the original working title for what 1983 movie?',
-    'E.T.',
-    new Hints('Highest grossing movie of the decade', 'Intergalactic', 'Elliot')
+    "A Boy's Life was the original working title for what 1983 movie?",
+    new Hints("Highest grossing movie of the decade", "Intergalactic", "Elliot")
   );
+
 
   const myQuestion7 = new Question(
-    'What town did Ren move from in Footloose?',
-    'Chicago',
-    new Hints('New York', 'Detroit', 'Chicago')
+    "What town did Ren move from in Footloose?",
+    new Hints("New York", "Detroit", "Chicago")
   );
 
   const myQuestion8 = new Question(
-    'What did Samantha give to The Geek so that he could win a bet in Sixteen Candles?',
-    'her underwear',
-    new Hints('a kiss', 'her underwear', '$100 bill')
+    "What did Samantha give to The Geek so that he could win a bet in Sixteen Candles?",
+    new Hints("a kiss", "her underwear", "$100 bill")
   );
 
   const myQuestion9 = new Question(
-    'After and unfortunate incident the family from A Christmas Story ate their Christmas dinner at what kind of restaurant?',
-    'Chinese',
-    new Hints('Chinese', 'Italian', 'Mexican')
+    "After and unfortunate incident the family from A Christmas Story ate their Christmas dinner at what kind of restaurant?",
+    new Hints("Chinese", "Italian", "Mexican")
   );
 
   const myQuestion10 = new Question(
-    'In The Karate Kid what sport did Danny Larusso play in high school?',
-    'soccer',
-    new Hints('basketball', 'football', 'soccer')
+    "In The Karate Kid what sport did Danny Larusso play in high school?",
+    new Hints("basketball", "football", "soccer")
+  );
+  const myQuestion11 = new Question(
+    "What year was Forest Gump released?",
+    "1994",
+    new Hints("1990", "1992", "1994")
+  );
+
+  const myQuestion12 = new Question(
+    "Which 90's movie featured Looney Tunes on it's soundtrack?",
+    "Space Jam",
+    new Hints(
+      "Also featured Michael Jordan",
+      "best NBA movie of all time",
+      "animated aliens"
+    )
+  );
+
+  const myQuestion13 = new Question(
+    "Johnny Depp cuts the hedges in this 1990 Tim Burton film",
+    "Edward Scissor hands",
+    new Hints(
+      "Mad scientist creation with scissors for hands",
+      "fantasy romance film",
+      "co-stars young Winona Ryder"
+    )
+  );
+
+  const questionElement14 = new Question(
+    "Brendan Fraiser plays caveman turned cool guy in what 1992 film?",
+    "Encino Man",
+    new Hints(
+      "co-stars Pauly Shore",
+      "Sean Austin's first movie since The Goonies",
+      "Weezin' on the juice"
+    )
+  );
+  const questionElement15 = new Question(
+    "What 1991 film stars Patrick Swayze as a bank robbing surfer?",
+    "Point Break",
+    new Hints(
+      "Co-stars Keanu Reeves",
+      'The film was originally titled "Johnny Utah"',
+      "A remake of the film was released in 2015"
+    )
   );
 }
 
@@ -153,6 +158,13 @@ function handleSubmit(event) {
   let currentQuestionInParr = pocketArray[pocketArray.length - 1];
   let userInput = event.target.form.userInput.value.toLowerCase();
 
+
+  function removeLi(unorderedList) {
+    while (unorderedList.firstChild) {
+      unorderedList.removeChild(unorderedList.firstChild);
+      removeLi();
+    }
+  }
   if (currentQuestionInParr.attempts >= 2) {
     if (userInput !== currentQuestionInParr.answer) {
       console.log('you got it wrong');
@@ -161,11 +173,12 @@ function handleSubmit(event) {
       userInputEvent.reset();
       console.log(currentQuestionInParr.attempts);
     } else {
-      console.log('you got it right');
+      console.log("you got it right");
       if (userInput === currentQuestionInParr.answer.toLowerCase()) {
-        congratsAlert.textContent = 'Radical you got the last question right';
+        congratsAlert.textContent = "Radical you got the last question right";
       }
       state.score += 100;
+      console.log(pocketArray, "you got it right");
       renderQuestion();
       userInputEvent.reset();
     }
@@ -183,40 +196,43 @@ function handleSubmit(event) {
 
 // creates hints and displays them when 'I need a hint' button is clicked.
 function handleHints() {
-  console.log('proof of life');
-  const ulElem = document.createElement('ul');
+  console.log("proof of life");
+  const ulElem = document.createElement("ul");
   hintButton.appendChild(ulElem);
   let currentQuestionInParr = pocketArray[pocketArray.length - 1];
-  console.log(currentQuestionInParr.attempts, '***');
-
+  console.log(currentQuestionInParr.attempts, "***");
+  
   if (currentQuestionInParr.attempts === 3) {
-    let liElem = document.createElement('li');
+    let liElem = document.createElement("li");
     liElem.textContent = currentQuestionInParr.hint.hints[0];
     // console.log();
     ulElem.appendChild(liElem);
-  }
-  else if (currentQuestionInParr.attempts === 2) {
-    let liElem2 = document.createElement('li');
+  } else if (currentQuestionInParr.attempts === 2) {
+    let liElem2 = document.createElement("li");
     liElem2.textContent = currentQuestionInParr.hint.hints[1];
     ulElem.appendChild(liElem2);
-  }
-  else if (currentQuestionInParr.attempts === 1) {
-    let liElem3 = document.createElement('li');
+  } else if (currentQuestionInParr.attempts === 1) {
+    let liElem3 = document.createElement("li");
     liElem3.textContent = currentQuestionInParr.hint.hints[2];
-    console.log('inside0tries');
+    console.log("inside0tries");
     ulElem.appendChild(liElem3);
 
+  } else if (currentQuestionInParr.attempts === -1) {
+    console.log("inside-1tries");
+    hintButton.removeEventListener("click", handleHints);
+    // removeLi(oldlist);
+    // resetHints();
+    // ulElem.textContent = ' ';
+    // console.log(oldList);
   }
 }
 
 console.log(state);
 
-// call functions.
 createQuestions();
 renderQuestion();
+
 
 // Listeners.
 submitButton.addEventListener('click', handleSubmit);
 hintButton.addEventListener('click', handleHints);
-
-
