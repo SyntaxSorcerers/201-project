@@ -2,7 +2,7 @@
 'use strict';
 //helper array and var to hold questions used.
 let pocketArray = [];
-let currentQuestionInParr = pocketArray[pocketArray.length - 1];
+// let currentQuestionInParr = pocketArray[pocketArray.length - 1];
 // state
 const state = {
   questions: [],
@@ -35,7 +35,7 @@ class Question {
     this.question = question;
     this.answer = answer;
     this.hint = hint;
-    this.attempts = 2;
+    this.attempts = 3;
     state.questions.push(this);
   }
 }
@@ -43,7 +43,7 @@ class Question {
 const myQuestion11 = new Question(
   'What year was Forest Gump released?',
   '1994',
-  new Hints('1990, 1992, 1994')
+  new Hints('1990', '1992', '1994')
 );
 
 const myQuestion12 = new Question(
@@ -55,19 +55,19 @@ const myQuestion12 = new Question(
 const myQuestion13 = new Question(
   'Johnny Depp cuts the hedges in this 1990 Tim Burton film',
   'Edward Scissorhands',
-  new Hints('Mad scientist creation with scissors for hands, Fantasy romance film, Co-stars young Winona Ryder')
+  new Hints('Mad scientist creation with scissors for hands', 'Fantasy romance film', 'Co-stars young Winona Ryder')
 );
 
 const questionElement14 = new Question(
   'Brendan Fraiser plays caveman turned cool guy in what 1992 film?',
   'Encino Man',
-  new Hints('co-stars Pauly Shore, Sean Astin\'s first movie since The Goonies, "Weezin\' on the juice"')
+  new Hints('co-stars Pauly Shore', 'Sean Astin\'s first movie since The Goonies', '"Weezin\' on the juice"')
 );
 
 const questionElement15 = new Question(
   'What 1991 film stars Patrick Swayze as a bank robbing surfer?',
   'Point Break',
-  new Hints('Co-stars Keanu Reeves, The film was originally titled "Johnny Utah", A remake of the film was released in 2015')
+  new Hints('Co-stars Keanu Reeves', 'The film was originally titled "Johnny Utah"', 'A remake of the film was released in 2015')
 );
 
 //Renders question and pushes the currentQuestion into a pocketArray
@@ -82,9 +82,17 @@ function renderQuestion() {
 
 function handleSubmit(event) {
   event.preventDefault();
+  let currentQuestionInParr = pocketArray[pocketArray.length - 1];
   let userInput = event.target.form.userInput.value;
   console.log(userInput);
-  if (currentQuestionInParr.attempts > 0) {
+
+  function removeLi(unorderedList) {
+    while (unorderedList.firstChild) {
+      unorderedList.removeChild(unorderedList.firstChild);
+      removeLi();
+    }
+  }
+  if (currentQuestionInParr.attempts >= 2) {
     if (userInput !== currentQuestionInParr.answer) {
       currentQuestionInParr.attempts--;
       console.log(currentQuestionInParr.attempts);
@@ -96,32 +104,66 @@ function handleSubmit(event) {
       renderQuestion();
       userInputEvent.reset();
     }
-  } else{
+  } else {
     alert('out of attempts');
+    const oldlist = document.querySelectorAll('ul');
+    oldlist[0].remove();
+    oldlist[1].remove();
+    oldlist[2].remove();
+    console.log(oldlist);
     renderQuestion();
     userInputEvent.reset();
   }
 }
-function handleHints(event) {
-
+function handleHints() {
+  console.log('proof of life');
   const ulElem = document.createElement('ul');
   hintButton.appendChild(ulElem);
+  let currentQuestionInParr = pocketArray[pocketArray.length - 1];
+  console.log(currentQuestionInParr.attempts, '***');
 
-  if (state.questions[currentQuestion].attempts === 2){
+  if (currentQuestionInParr.attempts === 3) {
     let liElem = document.createElement('li');
-    liElem.textContent = state.questions[currentQuestion].hint[0];
+    liElem.textContent = currentQuestionInParr.hint.hints[0];
+    // console.log();
     ulElem.appendChild(liElem);
   }
-  else if (state.questions[currentQuestion].attempts === 1) {
+  else if (currentQuestionInParr.attempts === 2) {
     let liElem2 = document.createElement('li');
-    liElem2.textContent = state.questions[currentQuestion].hint[1];
+    liElem2.textContent = currentQuestionInParr.hint.hints[1];
     ulElem.appendChild(liElem2);
   }
-  else if (state.question[currentQuestion].attempts === 0) {
+  else if (currentQuestionInParr.attempts === 1) {
     let liElem3 = document.createElement('li');
-    liElem3.textContent = state.questions[currentQuestion].hint[2];
+    liElem3.textContent = currentQuestionInParr.hint.hints[2];
+    console.log('inside0tries');
     ulElem.appendChild(liElem3);
+
   }
+  else if (currentQuestionInParr.attempts === -1) {
+    console.log('inside-1tries');
+    hintButton.removeEventListener('click', handleHints);
+    // removeLi(oldlist);
+    // resetHints();
+    // ulElem.textContent = ' ';
+    // console.log(oldList);
+  }
+}
+
+function resetHints() {
+  console.log('resetHints');
+  const ulElem = document.createElement('ul');
+  hintButton.appendChild(ulElem);
+  let currentQuestionInParr = pocketArray[pocketArray.length - 1];
+  // while(currentQuestionInParr.attepts === 0){
+  //   let handleHints = resetHints();
+  //   if(!currentQuestionInParr.includes(handleHints)){
+  //     currentQuestionInParr.unshift(handleHints);
+  //   }
+  // }
+  // if (currentQuestionInParr.attempts === 0){
+  //   let handleHints = resetHints();
+  // }
 }
 console.log(state);
 renderQuestion();
