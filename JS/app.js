@@ -98,56 +98,44 @@ function createQuestions() {
     'Ferrari',
     new Hints('Mustang', 'Camaro', 'Ferrari')
   );
-<<<<<<< HEAD
 
   const myQuestion15 = new Question(
     'What 1991 film stars Patrick Swayze as a bank robbing surfer?',
     'Point Break',
     new Hints('Co-stars Keanu Reeves', 'The film was originally titled "Johnny Utah"', 'A remake of the film was released in 2015')
   );
-}
-
-
-=======
-  
-  const myQuestion15 = new Question(
-  'What 1991 film stars Patrick Swayze as a bank robbing surfer?',
-  'Point Break',
-  new Hints('Co-stars Keanu Reeves', 'The film was originally titled "Johnny Utah"', 'A remake of the film was released in 2015')
-  );  
 
   const myQuestion6 = new Question(
-    "A Boy's Life was the original working title for what 1983 movie?",
-    "E.T.",
-    new Hints("Highest grossing movie of the decade", "Intergalactic", "Elliot")
+    'A Boy\'s Life was the original working title for what 1983 movie?',
+    'E.T.',
+    new Hints('Highest grossing movie of the decade', 'Intergalactic', 'Elliot')
   );
-  
+
   const myQuestion7 = new Question(
-    "What town did Ren move from in Footloose?",
-    "Chicago",
-    new Hints("New York", "Detroit", "Chicago")
+    'What town did Ren move from in Footloose?',
+    'Chicago',
+    new Hints('New York', 'Detroit', 'Chicago')
   );
-  
+
   const myQuestion8 = new Question(
-    "What did Samantha give to The Geek so that he could win a bet in Sixteen Candles?",
-    "her underwear",
-    new Hints("a kiss", "her underwear", "$100 bill")
+    'What did Samantha give to The Geek so that he could win a bet in Sixteen Candles?',
+    'her underwear',
+    new Hints('a kiss', 'her underwear', '$100 bill')
   );
-  
+
   const myQuestion9 = new Question(
-    "After and unfortunate incident the family from A Christmas Story ate their Christmas dinner at what kind of restaurant?",
-    "Chinese",
-    new Hints("Chinese", "Italian", "Mexican")
+    'After and unfortunate incident the family from A Christmas Story ate their Christmas dinner at what kind of restaurant?',
+    'Chinese',
+    new Hints('Chinese', 'Italian', 'Mexican')
   );
-  
+
   const myQuestion10 = new Question(
-    "In The Karate Kid what sport did Danny Larusso play in high school?",
-    "soccer",
-    new Hints("basketball", "football", "soccer")
+    'In The Karate Kid what sport did Danny Larusso play in high school?',
+    'soccer',
+    new Hints('basketball', 'football', 'soccer')
   );
 }
 
->>>>>>> 3a02a3a616fe975f608084617723949d0e177f4e
 //Renders question and pushes the currentQuestion into a pocketArray
 //then it will remove the question from the state.questions so it will not
 //render again.
@@ -158,24 +146,16 @@ function renderQuestion() {
   question.innerText = state.questions[currentQuestion].question;
   pocketArray.push(state.questions[currentQuestion]);
   state.questions.splice(currentQuestion, 1);
-}  
+}
 // handles and compares Answers to question object from pocket arr and decrements attempts.
 function handleSubmit(event) {
   event.preventDefault();
   let currentQuestionInParr = pocketArray[pocketArray.length - 1];
   let userInput = event.target.form.userInput.value.toLowerCase();
 
-  function removeLi(unorderedList) {
-    while (unorderedList.firstChild) {
-      unorderedList.removeChild(unorderedList.firstChild);
-      removeLi();
-    }  
-  }  
-
   if (currentQuestionInParr.attempts >= 2) {
     if (userInput !== currentQuestionInParr.answer) {
       console.log('you got it wrong');
-
       currentQuestionInParr.attempts--;
       answerResults.textContent = `Bummer you got it wrong. you still have ${currentQuestionInParr.attempts} attempt(s) left`;
       userInputEvent.reset();
@@ -184,32 +164,29 @@ function handleSubmit(event) {
       console.log('you got it right');
       if (userInput === currentQuestionInParr.answer.toLowerCase()) {
         congratsAlert.textContent = 'Radical you got the last question right';
-      }  
+      }
       state.score += 100;
       renderQuestion();
       userInputEvent.reset();
-    }  
+    }
   } else {
     alert('out of attempts');
-    const oldlist = document.querySelectorAll('ul');
-    oldlist[0].remove();
-    oldlist[1].remove();
-    oldlist[2].remove();
-    console.log(oldlist);
+    const oldList = document.querySelectorAll('ul');
+    oldList[0].remove();
+    oldList[1].remove();
+    oldList[2].remove();
+    console.log(oldList);
     renderQuestion();
     userInputEvent.reset();
-  }  
-}  
+  }
+}
 
 // creates hints and displays them when 'I need a hint' button is clicked.
 function handleHints() {
   console.log('proof of life');
   const ulElem = document.createElement('ul');
   hintButton.appendChild(ulElem);
-
-  if (state.questions[currentQuestion].attempts === 2) {
-
-  let currentQuestionInParr = pocketArray[pocketArray.length - 1];  
+  let currentQuestionInParr = pocketArray[pocketArray.length - 1];
   console.log(currentQuestionInParr.attempts, '***');
 
   if (currentQuestionInParr.attempts === 3) {
@@ -217,28 +194,20 @@ function handleHints() {
     liElem.textContent = currentQuestionInParr.hint.hints[0];
     // console.log();
     ulElem.appendChild(liElem);
-  }  
+  }
   else if (currentQuestionInParr.attempts === 2) {
     let liElem2 = document.createElement('li');
     liElem2.textContent = currentQuestionInParr.hint.hints[1];
     ulElem.appendChild(liElem2);
-  }  
+  }
   else if (currentQuestionInParr.attempts === 1) {
     let liElem3 = document.createElement('li');
     liElem3.textContent = currentQuestionInParr.hint.hints[2];
     console.log('inside0tries');
     ulElem.appendChild(liElem3);
 
-  }  
-  else if (currentQuestionInParr.attempts === -1) {
-    console.log('inside-1tries');
-    hintButton.removeEventListener('click', handleHints);
-    // removeLi(oldlist);
-    // resetHints();
-    // ulElem.textContent = ' ';
-    // console.log(oldList);
-  }  
-}  
+  }
+}
 
 console.log(state);
 
@@ -249,5 +218,5 @@ renderQuestion();
 // Listeners.
 submitButton.addEventListener('click', handleSubmit);
 hintButton.addEventListener('click', handleHints);
-}
+
 
