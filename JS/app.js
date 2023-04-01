@@ -143,10 +143,10 @@ function handleSubmit(event) {
       removeLi();
     }
   }
-  
+
   if (currentQuestionInParr.attempts >= 2) {
     if (userInput !== currentQuestionInParr.answer) {
-    console.log('you got it wrong');
+      console.log('you got it wrong');
       currentQuestionInParr.attempts--;
       answerResults.textContent = `Bummer you got it wrong. you still have ${currentQuestionInParr.attempts} attempt(s) left`;
       userInputEvent.reset();
@@ -179,7 +179,7 @@ function handleHints() {
   hintButton.appendChild(ulElem);
   let currentQuestionInParr = pocketArray[pocketArray.length - 1];
   console.log(currentQuestionInParr.attempts, '***');
- if (currentQuestionInParr.attempts === 3) {
+  if (currentQuestionInParr.attempts === 3) {
     let liElem = document.createElement('li');
     liElem.textContent = currentQuestionInParr.hint.hints[0];
     // console.log();
