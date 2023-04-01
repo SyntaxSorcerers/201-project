@@ -1,6 +1,7 @@
 "use strict";
 //helper array and var to hold questions used.
 let pocketArray = [];
+let currentQuestionInParr = pocketArray[pocketArray.length - 1];
 // state
 const state = {
   questions: [],
@@ -31,11 +32,10 @@ class Question {
     this.question = question;
     this.answer = answer;
     this.hint = hint;
-    this.attempts = 2;
+    this.attempts = 3;
     state.questions.push(this);
   }
 }
-
 function createQuestions() {
   const myQuestionOne = new Question(
     "Who is the high school wise guy?",
@@ -125,6 +125,15 @@ function createQuestions() {
       "Weezin' on the juice"
     )
   );
+  const questionElement15 = new Question(
+    "What 1991 film stars Patrick Swayze as a bank robbing surfer?",
+    "Point Break",
+    new Hints(
+      "Co-stars Keanu Reeves",
+      'The film was originally titled "Johnny Utah"',
+      "A remake of the film was released in 2015"
+    )
+  );
 }
 
 //Renders question and pushes the currentQuestion into a pocketArray
@@ -141,23 +150,34 @@ function renderQuestion() {
 function handleSubmit(event) {
   event.preventDefault();
   let currentQuestionInParr = pocketArray[pocketArray.length - 1];
-  let userInput = event.target.form.userInput.value.toLowerCase();
+  let userInput = event.target.form.userInput.value;
   console.log(userInput);
-  if (currentQuestionInParr.attempts > 0) {
-    if (userInput !== currentQuestionInParr.answer.toLowerCase()) {
+
+  function removeLi(unorderedList) {
+    while (unorderedList.firstChild) {
+      unorderedList.removeChild(unorderedList.firstChild);
+      removeLi();
+    }
+  }
+  if (currentQuestionInParr.attempts >= 2) {
+    if (userInput !== currentQuestionInParr.answer) {
       currentQuestionInParr.attempts--;
-      // console.log(currentQuestionInParr.attempts, "this is the wrong answer");
-      alert("this is the wrong answer");
+      console.log(currentQuestionInParr.attempts);
       userInputEvent.reset();
     } else {
       state.score += 100;
-      // console.log(pocketArray, "you got it right");
-      alert("you got it right");
+      score.textContent = state.score;
+      console.log(pocketArray);
       renderQuestion();
       userInputEvent.reset();
     }
   } else {
     alert("out of attempts");
+    const oldlist = document.querySelectorAll("ul");
+    oldlist[0].remove();
+    oldlist[1].remove();
+    oldlist[2].remove();
+    console.log(oldlist);
     renderQuestion();
     userInputEvent.reset();
   }
@@ -167,26 +187,69 @@ function handleHints() {
   const ulElem = document.createElement("ul");
   hintButton.appendChild(ulElem);
   let currentQuestionInParr = pocketArray[pocketArray.length - 1];
-  console.log(currentQuestionInParr);
-  if (currentQuestionInParr.attempts === 2) {
+  console.log(currentQuestionInParr.attempts, "***");
+
+  if (currentQuestionInParr.attempts === 3) {
     let liElem = document.createElement("li");
     liElem.textContent = currentQuestionInParr.hint.hints[0];
-    console.log(currentQuestionInParr.hint[0]);
+    // console.log();
     ulElem.appendChild(liElem);
-  } else if (currentQuestionInParr.attempts === 1) {
+  } else if (currentQuestionInParr.attempts === 2) {
     let liElem2 = document.createElement("li");
-    liElem2.innerText = currentQuestionInParr.hint.hints[1];
-    console.log(currentQuestionInParr.hint[1]);
+    liElem2.textContent = currentQuestionInParr.hint.hints[1];
     ulElem.appendChild(liElem2);
-  } else if (currentQuestionInParr.attempts === 0) {
+  } else if (currentQuestionInParr.attempts === 1) {
     let liElem3 = document.createElement("li");
-    liElem3.innerText = currentQuestionInParr.hint.hints[2];
-    console.log(currentQuestionInParr.hint[2]);
+    liElem3.textContent = currentQuestionInParr.hint.hints[2];
+    console.log("inside0tries");
     ulElem.appendChild(liElem3);
+  } else if (currentQuestionInParr.attempts === -1) {
+    console.log("inside-1tries");
+    hintButton.removeEventListener("click", handleHints);
+    // removeLi(oldlist);
+    // resetHints();
+    // ulElem.textContent = ' ';
+    // console.log(oldList);
   }
 }
-// console.log(state);
-createQuestions();
+
+function resetHints() {
+  console.log("resetHints");
+  const ulElem = document.createElement("ul");
+  hintButton.appendChild(ulElem);
+  let currentQuestionInParr = pocketArray[pocketArray.length - 1];
+  // while(currentQuestionInParr.attepts === 0){
+  //   let handleHints = resetHints();
+  //   if(!currentQuestionInParr.includes(handleHints)){
+  //     currentQuestionInParr.unshift(handleHints);
+  //   }
+  // }
+  // if (currentQuestionInParr.attempts === 0){
+  //   let handleHints = resetHints();
+  // }
+}
+console.log(state);
 renderQuestion();
 submitButton.addEventListener("click", handleSubmit);
 hintButton.addEventListener("click", handleHints);
+
+// hintButton.onmouseenter();
+// let currentQuestion = getRandomQuestion();
+// console.log(state.questions[currentQuestion].attempts);
+// console.log(currentQuestion);
+// console.log(state.questions.length);
+// console.log(state);
+// renderQuestion();
+// const questionElement = document.getElementById("questionOne");
+// questionElement.textContent = myQuestion.question;
+
+// // let button = document.querySelector("button");
+
+// let button = document.querySelector("button[type='submit']");
+
+// function Submit(e) {
+//   e.preventDefault();
+//   console.log("clicked");
+// }
+
+// button.addEventListener("click", Submit);
