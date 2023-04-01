@@ -2,10 +2,6 @@ body{
   background-image: url(/img/retro\ video\ game.jpg);
   background-size: cover;
   
-  /* border: solid rgb(74, 224, 247) 75px;
-  height: 800px;
-  width: auto; 
-  background: linear-gradient(to bottom, #ff37a8, #d152ff, #06f5fd); */
 }
 
 h1{
@@ -24,8 +20,6 @@ h1{
   animation: shadows 1.2s ease-in infinite, move 1.2s ease-in infinite;
     letter-spacing: 0.4rem;
 }
-
-
 
 .vhs{
   display: flex;

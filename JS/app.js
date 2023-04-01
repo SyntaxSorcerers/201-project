@@ -43,7 +43,6 @@ class Question {
   }
 }
 
-
 // creates the questions using the constructors.
 function createQuestions() {
   const myQuestion11 = new Question(
@@ -84,7 +83,7 @@ function createQuestions() {
 
   const myQuestionThree = new Question(
     'Ferris sister\'s name was Jeanie, but according to her, her friends called her what?',
-    "Shaunna",
+    'Shaunna',
     new Hints('Sandy', 'Sarah', 'Shaunna')
   );
 
@@ -99,26 +98,43 @@ function createQuestions() {
     'Ferrari',
     new Hints('Mustang', 'Camaro', 'Ferrari')
   );
-}
-
-
-const myQuestion13 = new Question(
-  'Johnny Depp cuts the hedges in this 1990 Tim Burton film',
-  'Edward Scissorhands',
-  new Hints('Mad scientist creation with scissors for hands', 'Fantasy romance film', 'Co-stars young Winona Ryder')
-);
-
-const questionElement14 = new Question(
-  'Brendan Fraiser plays caveman turned cool guy in what 1992 film?',
-  'Encino Man',
-  new Hints('co-stars Pauly Shore', 'Sean Astin\'s first movie since The Goonies', '"Weezin\' on the juice"')
-);
-
-const questionElement15 = new Question(
+  
+  const myQuestion15 = new Question(
   'What 1991 film stars Patrick Swayze as a bank robbing surfer?',
   'Point Break',
   new Hints('Co-stars Keanu Reeves', 'The film was originally titled "Johnny Utah"', 'A remake of the film was released in 2015')
-);
+  );  
+
+  const myQuestion6 = new Question(
+    "A Boy's Life was the original working title for what 1983 movie?",
+    "E.T.",
+    new Hints("Highest grossing movie of the decade", "Intergalactic", "Elliot")
+  );
+  
+  const myQuestion7 = new Question(
+    "What town did Ren move from in Footloose?",
+    "Chicago",
+    new Hints("New York", "Detroit", "Chicago")
+  );
+  
+  const myQuestion8 = new Question(
+    "What did Samantha give to The Geek so that he could win a bet in Sixteen Candles?",
+    "her underwear",
+    new Hints("a kiss", "her underwear", "$100 bill")
+  );
+  
+  const myQuestion9 = new Question(
+    "After and unfortunate incident the family from A Christmas Story ate their Christmas dinner at what kind of restaurant?",
+    "Chinese",
+    new Hints("Chinese", "Italian", "Mexican")
+  );
+  
+  const myQuestion10 = new Question(
+    "In The Karate Kid what sport did Danny Larusso play in high school?",
+    "soccer",
+    new Hints("basketball", "football", "soccer")
+  );
+}
 
 //Renders question and pushes the currentQuestion into a pocketArray
 //then it will remove the question from the state.questions so it will not
@@ -126,11 +142,11 @@ const questionElement15 = new Question(
 function renderQuestion() {
   let currentQuestion = getRandomQuestion();
   score.textContent = state.score;
-  answerResults.textContent = `you have 3 attempt(s)`;
+  answerResults.textContent = 'you have 3 attempt(s)';
   question.innerText = state.questions[currentQuestion].question;
   pocketArray.push(state.questions[currentQuestion]);
   state.questions.splice(currentQuestion, 1);
-}
+}  
 // handles and compares Answers to question object from pocket arr and decrements attempts.
 function handleSubmit(event) {
   event.preventDefault();
@@ -141,12 +157,13 @@ function handleSubmit(event) {
     while (unorderedList.firstChild) {
       unorderedList.removeChild(unorderedList.firstChild);
       removeLi();
-    }
-  }
+    }  
+  }  
 
   if (currentQuestionInParr.attempts >= 2) {
     if (userInput !== currentQuestionInParr.answer) {
       console.log('you got it wrong');
+
       currentQuestionInParr.attempts--;
       answerResults.textContent = `Bummer you got it wrong. you still have ${currentQuestionInParr.attempts} attempt(s) left`;
       userInputEvent.reset();
@@ -155,11 +172,11 @@ function handleSubmit(event) {
       console.log('you got it right');
       if (userInput === currentQuestionInParr.answer.toLowerCase()) {
         congratsAlert.textContent = 'Radical you got the last question right';
-      }
+      }  
       state.score += 100;
       renderQuestion();
       userInputEvent.reset();
-    }
+    }  
   } else {
     alert('out of attempts');
     const oldlist = document.querySelectorAll('ul');
@@ -169,34 +186,38 @@ function handleSubmit(event) {
     console.log(oldlist);
     renderQuestion();
     userInputEvent.reset();
-  }
-}
+  }  
+}  
 
 // creates hints and displays them when 'I need a hint' button is clicked.
 function handleHints() {
   console.log('proof of life');
   const ulElem = document.createElement('ul');
   hintButton.appendChild(ulElem);
-  let currentQuestionInParr = pocketArray[pocketArray.length - 1];
+
+  if (state.questions[currentQuestion].attempts === 2) {
+
+  let currentQuestionInParr = pocketArray[pocketArray.length - 1];  
   console.log(currentQuestionInParr.attempts, '***');
+
   if (currentQuestionInParr.attempts === 3) {
     let liElem = document.createElement('li');
     liElem.textContent = currentQuestionInParr.hint.hints[0];
     // console.log();
     ulElem.appendChild(liElem);
-  }
+  }  
   else if (currentQuestionInParr.attempts === 2) {
     let liElem2 = document.createElement('li');
     liElem2.textContent = currentQuestionInParr.hint.hints[1];
     ulElem.appendChild(liElem2);
-  }
+  }  
   else if (currentQuestionInParr.attempts === 1) {
     let liElem3 = document.createElement('li');
     liElem3.textContent = currentQuestionInParr.hint.hints[2];
     console.log('inside0tries');
     ulElem.appendChild(liElem3);
 
-  }
+  }  
   else if (currentQuestionInParr.attempts === -1) {
     console.log('inside-1tries');
     hintButton.removeEventListener('click', handleHints);
@@ -204,8 +225,8 @@ function handleHints() {
     // resetHints();
     // ulElem.textContent = ' ';
     // console.log(oldList);
-  }
-}
+  }  
+}  
 
 console.log(state);
 
@@ -216,3 +237,5 @@ renderQuestion();
 // Listeners.
 submitButton.addEventListener('click', handleSubmit);
 hintButton.addEventListener('click', handleHints);
+}
+
