@@ -83,7 +83,7 @@ function createQuestions() {
 
   const myQuestionThree = new Question(
     'Ferris sister\'s name was Jeanie, but according to her, her friends called her what?',
-    "Shaunna",
+    'Shaunna',
     new Hints('Sandy', 'Sarah', 'Shaunna')
   );
 
@@ -98,10 +98,8 @@ function createQuestions() {
     'Ferrari',
     new Hints('Mustang', 'Camaro', 'Ferrari')
   );
-}
-
-
-const questionElement15 = new Question(
+  
+  const myQuestion15 = new Question(
   'What 1991 film stars Patrick Swayze as a bank robbing surfer?',
   'Point Break',
   new Hints('Co-stars Keanu Reeves', 'The film was originally titled "Johnny Utah"', 'A remake of the film was released in 2015')
@@ -136,7 +134,7 @@ const questionElement15 = new Question(
     "soccer",
     new Hints("basketball", "football", "soccer")
   );
-
+}
 
 //Renders question and pushes the currentQuestion into a pocketArray
 //then it will remove the question from the state.questions so it will not
@@ -144,7 +142,7 @@ const questionElement15 = new Question(
 function renderQuestion() {
   let currentQuestion = getRandomQuestion();
   score.textContent = state.score;
-  answerResults.textContent = `you have 3 attempt(s)`;
+  answerResults.textContent = 'you have 3 attempt(s)';
   question.innerText = state.questions[currentQuestion].question;
   pocketArray.push(state.questions[currentQuestion]);
   state.questions.splice(currentQuestion, 1);
@@ -161,10 +159,10 @@ function handleSubmit(event) {
       removeLi();
     }  
   }  
-  
+
   if (currentQuestionInParr.attempts >= 2) {
     if (userInput !== currentQuestionInParr.answer) {
-    console.log('you got it wrong');  
+      console.log('you got it wrong');
 
       currentQuestionInParr.attempts--;
       answerResults.textContent = `Bummer you got it wrong. you still have ${currentQuestionInParr.attempts} attempt(s) left`;
@@ -203,7 +201,6 @@ function handleHints() {
   console.log(currentQuestionInParr.attempts, '***');
 
   if (currentQuestionInParr.attempts === 3) {
-
     let liElem = document.createElement('li');
     liElem.textContent = currentQuestionInParr.hint.hints[0];
     // console.log();
@@ -241,26 +238,4 @@ renderQuestion();
 submitButton.addEventListener('click', handleSubmit);
 hintButton.addEventListener('click', handleHints);
 }
-// hintButton.onmouseenter();
-// let currentQuestion = getRandomQuestion();
-// console.log(state.questions[currentQuestion].attempts);
-// console.log(currentQuestion);
-// console.log(state.questions.length);
-// console.log(state);
-// renderQuestion();
-// const questionElement = document.getElementById("questionOne");
-// questionElement.textContent = myQuestion.question;
-
-// // let button = document.querySelector("button");
-
-// let button = document.querySelector("button[type='submit']");
-
-// function Submit(e) {
-//   e.preventDefault();  
-//   console.log("clicked");
-// }
-
-
-// button.addEventListener("click", Submit);
-
 
