@@ -37,6 +37,9 @@ class Question {
     state.questions.push(this);
   }
 }
+
+
+// creates the questions using the constructors.
 function createQuestions() {
   const myQuestionOne = new Question(
     "Who is the high school wise guy?",
@@ -71,6 +74,7 @@ function createQuestions() {
     "A Boy's Life was the original working title for what 1983 movie?",
     new Hints("Highest grossing movie of the decade", "Intergalactic", "Elliot")
   );
+
 
   const myQuestion7 = new Question(
     "What town did Ren move from in Footloose?",
@@ -143,7 +147,7 @@ function createQuestions() {
 function renderQuestion() {
   let currentQuestion = getRandomQuestion();
   score.textContent = state.score;
-  answerResults.textContent = `you have 3 attempt(s)`;
+  answerResults.textContent = 'you have 3 attempt(s)';
   question.innerText = state.questions[currentQuestion].question;
   pocketArray.push(state.questions[currentQuestion]);
   state.questions.splice(currentQuestion, 1);
@@ -154,16 +158,16 @@ function handleSubmit(event) {
   let currentQuestionInParr = pocketArray[pocketArray.length - 1];
   let userInput = event.target.form.userInput.value.toLowerCase();
 
+
   function removeLi(unorderedList) {
     while (unorderedList.firstChild) {
       unorderedList.removeChild(unorderedList.firstChild);
       removeLi();
     }
   }
-
   if (currentQuestionInParr.attempts >= 2) {
     if (userInput !== currentQuestionInParr.answer) {
-      console.log("you got it wrong");
+      console.log('you got it wrong');
       currentQuestionInParr.attempts--;
       answerResults.textContent = `Bummer you got it wrong. you still have ${currentQuestionInParr.attempts} attempt(s) left`;
       userInputEvent.reset();
@@ -179,12 +183,12 @@ function handleSubmit(event) {
       userInputEvent.reset();
     }
   } else {
-    alert("out of attempts");
-    const oldlist = document.querySelectorAll("ul");
-    oldlist[0].remove();
-    oldlist[1].remove();
-    oldlist[2].remove();
-    console.log(oldlist);
+    alert('out of attempts');
+    const oldList = document.querySelectorAll('ul');
+    oldList[0].remove();
+    oldList[1].remove();
+    oldList[2].remove();
+    console.log(oldList);
     renderQuestion();
     userInputEvent.reset();
   }
@@ -196,8 +200,8 @@ function handleHints() {
   const ulElem = document.createElement("ul");
   hintButton.appendChild(ulElem);
   let currentQuestionInParr = pocketArray[pocketArray.length - 1];
-
   console.log(currentQuestionInParr.attempts, "***");
+  
   if (currentQuestionInParr.attempts === 3) {
     let liElem = document.createElement("li");
     liElem.textContent = currentQuestionInParr.hint.hints[0];
@@ -212,6 +216,7 @@ function handleHints() {
     liElem3.textContent = currentQuestionInParr.hint.hints[2];
     console.log("inside0tries");
     ulElem.appendChild(liElem3);
+
   } else if (currentQuestionInParr.attempts === -1) {
     console.log("inside-1tries");
     hintButton.removeEventListener("click", handleHints);
@@ -226,5 +231,8 @@ console.log(state);
 
 createQuestions();
 renderQuestion();
-submitButton.addEventListener("click", handleSubmit);
-hintButton.addEventListener("click", handleHints);
+
+
+// Listeners.
+submitButton.addEventListener('click', handleSubmit);
+hintButton.addEventListener('click', handleHints);
