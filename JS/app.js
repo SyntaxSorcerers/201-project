@@ -8,11 +8,13 @@ const state = {
   score: 0,
 };
 //DOM ref
+let answerResults = document.getElementById('resultsOfAnswer');
 let question = document.getElementById('question');
 let submitButton = document.getElementById('submit');
 let hintButton = document.getElementById('hint');
 let userInputEvent = document.getElementById('current-question');
 let score = document.getElementById('scores');
+let congratsAlert = document.getElementById('right');
 
 // helper function for generating a random question from the state index.
 function getRandomQuestion() {
@@ -34,7 +36,7 @@ class Question {
     this.question = question;
     this.answer = answer;
     this.hint = hint;
-    this.attempts = 2;
+    this.attempts = 3;
     state.questions.push(this);
   }
 }
@@ -101,6 +103,7 @@ function createQuestions() {
 function renderQuestion() {
   let currentQuestion = getRandomQuestion();
   score.textContent = state.score;
+  answerResults.textContent = `you have 3 attempt(s)`;
   question.innerText = state.questions[currentQuestion].question;
   pocketArray.push(state.questions[currentQuestion]);
   state.questions.splice(currentQuestion, 1);
@@ -110,15 +113,19 @@ function handleSubmit(event) {
   event.preventDefault();
   let currentQuestionInParr = pocketArray[pocketArray.length - 1];
   let userInput = event.target.form.userInput.value.toLowerCase();
-  console.log(userInput);
-  if (currentQuestionInParr.attempts > 0) {
+  if (currentQuestionInParr.attempts >= 2) {
     if (userInput !== currentQuestionInParr.answer.toLowerCase()) {
+      console.log('you got it wrong');
       currentQuestionInParr.attempts--;
-      console.log(currentQuestionInParr.attempts, 'this is the wrong answer');
+      answerResults.textContent = `Bummer you got it wrong. you still have ${currentQuestionInParr.attempts} attempt(s) left`;
       userInputEvent.reset();
+      console.log(currentQuestionInParr.attempts);
     } else {
+      console.log('you got it right');
+      if (userInput === currentQuestionInParr.answer.toLowerCase()){
+        congratsAlert.textContent = 'Radical you got the last question right';
+      }
       state.score += 100;
-      console.log(pocketArray, 'you got it right');
       renderQuestion();
       userInputEvent.reset();
     }
@@ -128,6 +135,7 @@ function handleSubmit(event) {
     userInputEvent.reset();
   }
 }
+
 function handleHints() {
   console.log('proof of life');
   const ulElem = document.createElement('ul');
@@ -158,27 +166,3 @@ createQuestions();
 renderQuestion();
 submitButton.addEventListener('click', handleSubmit);
 hintButton.addEventListener('click', handleHints);
-
-// hintButton.onmouseenter();
-// let currentQuestion = getRandomQuestion();
-// console.log(state.questions[currentQuestion].attempts);
-// console.log(currentQuestion);
-// console.log(state.questions.length);
-// console.log(state);
-// renderQuestion();
-// const questionElement = document.getElementById("questionOne");
-// questionElement.textContent = myQuestion.question;
-
-// // let button = document.querySelector("button");
-
-// let button = document.querySelector("button[type='submit']");
-
-// function Submit(e) {
-  //   e.preventDefault();
-//   console.log("clicked");
-// }
-
-
-
-
-
