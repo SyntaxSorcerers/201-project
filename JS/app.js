@@ -47,11 +47,34 @@ submitButton.addEventListener('submit', handleSubmit);
 hintButton.addEventListener('submit', handleHintSubmit);
 
 
-const myQuestion = new Question(
+const myQuestion6 = new Question(
   1,
-  "What is the original working title for E.T.?",
-  "A Boy's Life",
-  new Hints("Pellentesque habitant", "ultricies in", "adipiscing elit")
+  "A Boy's Life was the original working title for what 1983 movie?",
+  new Hints("Highest grossing movie of the decade", "Intergalactic", "Elliot")
+);
+
+const myQuestion7 = new Question(
+  2,
+  "What town did Ren move from in Footloose?",
+  new Hints("New York", "Detroit", "Chicago")
+);
+
+const myQuestion8 = new Question(
+  3,
+  "What did Samantha give to The Geek so that he could win a bet in Sixteen Candles?",
+  new Hints("a kiss", "her underwear", "$100 bill")
+);
+
+const myQuestion9 = new Question(
+  4,
+  "After and unfortunate incident the family from A Christmas Story ate their Christmas dinner at what kind of restaurant?",
+  new Hints("Chinese", "Italian", "Mexican")
+);
+
+const myQuestion10 = new Question(
+  5,
+  "In The Karate Kid what sport did Danny Larusso play in high school?",
+  new Hints("basketball", "football", "soccer")
 );
 
 const questionElement = document.getElementById("questionOne");
