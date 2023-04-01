@@ -84,7 +84,7 @@ function createQuestions() {
 
   const myQuestionThree = new Question(
     'Ferris sister\'s name was Jeanie, but according to her, her friends called her what?',
-    "Shaunna",
+    'Shaunna',
     new Hints('Sandy', 'Sarah', 'Shaunna')
   );
 
@@ -114,7 +114,7 @@ const questionElement14 = new Question(
   new Hints('co-stars Pauly Shore', 'Sean Astin\'s first movie since The Goonies', '"Weezin\' on the juice"')
 );
 
-const questionElement15 = new Question(
+const myQuestion15 = new Question(
   'What 1991 film stars Patrick Swayze as a bank robbing surfer?',
   'Point Break',
   new Hints('Co-stars Keanu Reeves', 'The film was originally titled "Johnny Utah"', 'A remake of the film was released in 2015')
@@ -126,7 +126,7 @@ const questionElement15 = new Question(
 function renderQuestion() {
   let currentQuestion = getRandomQuestion();
   score.textContent = state.score;
-  answerResults.textContent = `you have 3 attempt(s)`;
+  answerResults.textContent = 'you have 3 attempt(s)';
   question.innerText = state.questions[currentQuestion].question;
   pocketArray.push(state.questions[currentQuestion]);
   state.questions.splice(currentQuestion, 1);
@@ -143,10 +143,10 @@ function handleSubmit(event) {
       removeLi();
     }
   }
-  
+
   if (currentQuestionInParr.attempts >= 2) {
     if (userInput !== currentQuestionInParr.answer) {
-    console.log('you got it wrong');
+      console.log('you got it wrong');
       currentQuestionInParr.attempts--;
       answerResults.textContent = `Bummer you got it wrong. you still have ${currentQuestionInParr.attempts} attempt(s) left`;
       userInputEvent.reset();
@@ -179,7 +179,7 @@ function handleHints() {
   hintButton.appendChild(ulElem);
   let currentQuestionInParr = pocketArray[pocketArray.length - 1];
   console.log(currentQuestionInParr.attempts, '***');
- if (currentQuestionInParr.attempts === 3) {
+  if (currentQuestionInParr.attempts === 3) {
     let liElem = document.createElement('li');
     liElem.textContent = currentQuestionInParr.hint.hints[0];
     // console.log();
