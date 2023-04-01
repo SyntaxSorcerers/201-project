@@ -125,36 +125,41 @@ hintButton.addEventListener('click', handleHints);
 //   console.log("clicked");
 // }
 
-const myQuestion6 = new Question(
+const myQuestion = new Question(
   1,
   "A Boy's Life was the original working title for what 1983 movie?",
+  "E.T.",
   new Hints("Highest grossing movie of the decade", "Intergalactic", "Elliot")
 );
 
-const myQuestion7 = new Question(
+const myQuestion = new Question(
   2,
   "What town did Ren move from in Footloose?",
+  "Chicago",
   new Hints("New York", "Detroit", "Chicago")
 );
 
-const myQuestion8 = new Question(
+const myQuestion = new Question(
   3,
   "What did Samantha give to The Geek so that he could win a bet in Sixteen Candles?",
+  "her underwear",
   new Hints("a kiss", "her underwear", "$100 bill")
 );
 
-const myQuestion9 = new Question(
+const myQuestion = new Question(
   4,
   "After and unfortunate incident the family from A Christmas Story ate their Christmas dinner at what kind of restaurant?",
+  "Chinese",
   new Hints("Chinese", "Italian", "Mexican")
 );
 
-const myQuestion10 = new Question(
+const myQuestion = new Question(
   5,
   "In The Karate Kid what sport did Danny Larusso play in high school?",
+  "soccer",
   new Hints("basketball", "football", "soccer")
 );
-2
+
 
 // button.addEventListener("click", Submit);
 
