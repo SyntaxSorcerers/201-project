@@ -99,26 +99,14 @@ function createQuestions() {
     'Ferrari',
     new Hints('Mustang', 'Camaro', 'Ferrari')
   );
+
+  const myQuestion15 = new Question(
+    'What 1991 film stars Patrick Swayze as a bank robbing surfer?',
+    'Point Break',
+    new Hints('Co-stars Keanu Reeves', 'The film was originally titled "Johnny Utah"', 'A remake of the film was released in 2015')
+  );
 }
 
-
-const myQuestion13 = new Question(
-  'Johnny Depp cuts the hedges in this 1990 Tim Burton film',
-  'Edward Scissorhands',
-  new Hints('Mad scientist creation with scissors for hands', 'Fantasy romance film', 'Co-stars young Winona Ryder')
-);
-
-const questionElement14 = new Question(
-  'Brendan Fraiser plays caveman turned cool guy in what 1992 film?',
-  'Encino Man',
-  new Hints('co-stars Pauly Shore', 'Sean Astin\'s first movie since The Goonies', '"Weezin\' on the juice"')
-);
-
-const questionElement15 = new Question(
-  'What 1991 film stars Patrick Swayze as a bank robbing surfer?',
-  'Point Break',
-  new Hints('Co-stars Keanu Reeves', 'The film was originally titled "Johnny Utah"', 'A remake of the film was released in 2015')
-);
 
 //Renders question and pushes the currentQuestion into a pocketArray
 //then it will remove the question from the state.questions so it will not
