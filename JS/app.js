@@ -40,14 +40,6 @@ class Question {
   }
 }
 
-
-const myQuestion12 = new Question(
-  'Which 90\'s movie featured Looney Tunes on it\'s soundtrack?',
-  'Space Jam',
-  new Hints('This movie also featured Michael Jordan', 'bugs bunny', 'stuff')
-);
-
-
 //Renders question and pushes the currentQuestion into a pocketArray
 //then it will remove the question from the state.questions so it will not
 //render again.
@@ -74,7 +66,7 @@ function handleSubmit(event) {
       renderQuestion();
       userInputEvent.reset();
     }
-  } else{
+  } else {
     alert('out of attempts');
     renderQuestion();
     userInputEvent.reset();
@@ -85,7 +77,7 @@ function handleHints(event) {
   const ulElem = document.createElement('ul');
   hintButton.appendChild(ulElem);
 
-  if (state.questions[currentQuestion].attempts === 2){
+  if (state.questions[currentQuestion].attempts === 2) {
     let liElem = document.createElement('li');
     liElem.textContent = state.questions[currentQuestion].hint[0];
     ulElem.appendChild(liElem);
@@ -121,40 +113,35 @@ hintButton.addEventListener('click', handleHints);
 // let button = document.querySelector("button[type='submit']");
 
 // function Submit(e) {
-  //   e.preventDefault();
+//   e.preventDefault();
 //   console.log("clicked");
 // }
 
-const myQuestion = new Question(
-  1,
+const myQuestion6 = new Question(
   "A Boy's Life was the original working title for what 1983 movie?",
   "E.T.",
   new Hints("Highest grossing movie of the decade", "Intergalactic", "Elliot")
 );
 
-const myQuestion = new Question(
-  2,
+const myQuestion7 = new Question(
   "What town did Ren move from in Footloose?",
   "Chicago",
   new Hints("New York", "Detroit", "Chicago")
 );
 
-const myQuestion = new Question(
-  3,
+const myQuestion8 = new Question(
   "What did Samantha give to The Geek so that he could win a bet in Sixteen Candles?",
   "her underwear",
   new Hints("a kiss", "her underwear", "$100 bill")
 );
 
-const myQuestion = new Question(
-  4,
+const myQuestion9 = new Question(
   "After and unfortunate incident the family from A Christmas Story ate their Christmas dinner at what kind of restaurant?",
   "Chinese",
   new Hints("Chinese", "Italian", "Mexican")
 );
 
-const myQuestion = new Question(
-  5,
+const myQuestion10 = new Question(
   "In The Karate Kid what sport did Danny Larusso play in high school?",
   "soccer",
   new Hints("basketball", "football", "soccer")
