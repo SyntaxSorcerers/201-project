@@ -2,7 +2,8 @@
 'use strict';
 //helper array and var to hold questions used.
 let pocketArray = [];
-// state.
+
+// state
 const state = {
   questions: [],
   score: 0,
@@ -41,6 +42,7 @@ class Question {
     state.questions.push(this);
   }
 }
+
 
 // creates the questions using the constructors.
 function createQuestions() {
@@ -100,6 +102,24 @@ function createQuestions() {
 }
 
 
+const myQuestion13 = new Question(
+  'Johnny Depp cuts the hedges in this 1990 Tim Burton film',
+  'Edward Scissorhands',
+  new Hints('Mad scientist creation with scissors for hands', 'Fantasy romance film', 'Co-stars young Winona Ryder')
+);
+
+const questionElement14 = new Question(
+  'Brendan Fraiser plays caveman turned cool guy in what 1992 film?',
+  'Encino Man',
+  new Hints('co-stars Pauly Shore', 'Sean Astin\'s first movie since The Goonies', '"Weezin\' on the juice"')
+);
+
+const questionElement15 = new Question(
+  'What 1991 film stars Patrick Swayze as a bank robbing surfer?',
+  'Point Break',
+  new Hints('Co-stars Keanu Reeves', 'The film was originally titled "Johnny Utah"', 'A remake of the film was released in 2015')
+);
+
 //Renders question and pushes the currentQuestion into a pocketArray
 //then it will remove the question from the state.questions so it will not
 //render again.
@@ -116,9 +136,17 @@ function handleSubmit(event) {
   event.preventDefault();
   let currentQuestionInParr = pocketArray[pocketArray.length - 1];
   let userInput = event.target.form.userInput.value.toLowerCase();
+
+  function removeLi(unorderedList) {
+    while (unorderedList.firstChild) {
+      unorderedList.removeChild(unorderedList.firstChild);
+      removeLi();
+    }
+  }
+  
   if (currentQuestionInParr.attempts >= 2) {
-    if (userInput !== currentQuestionInParr.answer.toLowerCase()) {
-      console.log('you got it wrong');
+    if (userInput !== currentQuestionInParr.answer) {
+    console.log('you got it wrong');
       currentQuestionInParr.attempts--;
       answerResults.textContent = `Bummer you got it wrong. you still have ${currentQuestionInParr.attempts} attempt(s) left`;
       userInputEvent.reset();
@@ -134,6 +162,11 @@ function handleSubmit(event) {
     }
   } else {
     alert('out of attempts');
+    const oldlist = document.querySelectorAll('ul');
+    oldlist[0].remove();
+    oldlist[1].remove();
+    oldlist[2].remove();
+    console.log(oldlist);
     renderQuestion();
     userInputEvent.reset();
   }
@@ -145,24 +178,32 @@ function handleHints() {
   const ulElem = document.createElement('ul');
   hintButton.appendChild(ulElem);
   let currentQuestionInParr = pocketArray[pocketArray.length - 1];
-  console.log(currentQuestionInParr);
-  if (currentQuestionInParr.attempts === 2) {
+  console.log(currentQuestionInParr.attempts, '***');
+ if (currentQuestionInParr.attempts === 3) {
     let liElem = document.createElement('li');
     liElem.textContent = currentQuestionInParr.hint.hints[0];
-    console.log(currentQuestionInParr.hint[0]);
+    // console.log();
     ulElem.appendChild(liElem);
   }
-  else if (currentQuestionInParr.attempts === 1) {
+  else if (currentQuestionInParr.attempts === 2) {
     let liElem2 = document.createElement('li');
-    liElem2.innerText = currentQuestionInParr.hint.hints[1];
-    console.log(currentQuestionInParr.hint[1]);
+    liElem2.textContent = currentQuestionInParr.hint.hints[1];
     ulElem.appendChild(liElem2);
   }
-  else if (currentQuestionInParr.attempts === 0) {
+  else if (currentQuestionInParr.attempts === 1) {
     let liElem3 = document.createElement('li');
-    liElem3.innerText = currentQuestionInParr.hint.hints[2];
-    console.log(currentQuestionInParr.hint[2]);
+    liElem3.textContent = currentQuestionInParr.hint.hints[2];
+    console.log('inside0tries');
     ulElem.appendChild(liElem3);
+
+  }
+  else if (currentQuestionInParr.attempts === -1) {
+    console.log('inside-1tries');
+    hintButton.removeEventListener('click', handleHints);
+    // removeLi(oldlist);
+    // resetHints();
+    // ulElem.textContent = ' ';
+    // console.log(oldList);
   }
 }
 
