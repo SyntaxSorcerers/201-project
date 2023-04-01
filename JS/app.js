@@ -40,13 +40,35 @@ class Question {
   }
 }
 
+const myQuestion11 = new Question(
+  'What year was Forest Gump released?',
+  '1994',
+  new Hints('1990, 1992, 1994')
+);
 
 const myQuestion12 = new Question(
   'Which 90\'s movie featured Looney Tunes on it\'s soundtrack?',
   'Space Jam',
-  new Hints('This movie also featured Michael Jordan', 'bugs bunny', 'stuff')
+  new Hints('This movie also featured Michael Jordan', 'Bugs Bunny', 'Best NBA movie of all time')
 );
 
+const myQuestion13 = new Question(
+  'Johnny Depp cuts the hedges in this 1990 Tim Burton film',
+  'Edward Scissorhands',
+  new Hints('Mad scientist creation with scissors for hands, Fantasy romance film, Co-stars young Winona Ryder')
+);
+
+const questionElement14 = new Question(
+  'Brendan Fraiser plays caveman turned cool guy in what 1992 film?',
+  'Encino Man',
+  new Hints('co-stars Pauly Shore, Sean Astin\'s first movie since The Goonies, "Weezin\' on the juice"')
+);
+
+const questionElement15 = new Question(
+  'What 1991 film stars Patrick Swayze as a bank robbing surfer?',
+  'Point Break',
+  new Hints('Co-stars Keanu Reeves, The film was originally titled "Johnny Utah", A remake of the film was released in 2015')
+);
 
 //Renders question and pushes the currentQuestion into a pocketArray
 //then it will remove the question from the state.questions so it will not
@@ -127,30 +149,6 @@ hintButton.addEventListener('click', handleHints);
 
 // button.addEventListener("click", Submit);
 
-
-const myQuestion11 = new Question(
-  'What year was Forest Gump released?',
-  '1994',
-  new Hints('1990, 1992, 1994')
-);
-
-const myQuestion12 = new Question(
-  'Which 90\'s movie featured Looney Tunes on it\'s soundtrack?',
-  'Space Jam',
-  new Hints('Also featured Michael Jordan, best NBA movie of all time, animated aliens')
-);
-
-const myQuestion13 = new Question(
-  'Johnny Depp cuts the hedges in this 1990 Tim Burton film',
-  'Edward Scissorhands',
-  new Hints('Mad scientist creation with scissors for hands, fantasy romance film, co-stars young Winona Ryder')
-);
-
-const questionElement14 = new Question(
-  'Brendan Fraiser plays caveman turned cool guy in what 1992 film?',
-  'Encino Man',
-  new Hints('co-stars Pauly Shore, Sean Astin\'s first movie since The Goonies, "Weezin\' on the juice"')
-);
 
 
 
