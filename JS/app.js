@@ -40,11 +40,6 @@ class Question {
   }
 }
 
-const myQuestion11 = new Question(
-  'What year was Forest Gump released?',
-  '1994',
-  new Hints('The Lion King was released in the same year', 'year', 'date')
-);
 
 const myQuestion12 = new Question(
   'Which 90\'s movie featured Looney Tunes on it\'s soundtrack?',
@@ -52,11 +47,7 @@ const myQuestion12 = new Question(
   new Hints('This movie also featured Michael Jordan', 'bugs bunny', 'stuff')
 );
 
-const myQuestion = new Question(
-  'What is the original working title for E.T.?',
-  `A Boy's Life`,
-  new Hints('Pellentesque habitant', 'ultricies in', 'adipiscing elit')
-);
+
 //Renders question and pushes the currentQuestion into a pocketArray
 //then it will remove the question from the state.questions so it will not
 //render again.
@@ -135,6 +126,32 @@ hintButton.addEventListener('click', handleHints);
 // }
 
 // button.addEventListener("click", Submit);
+
+
+const myQuestion11 = new Question(
+  'What year was Forest Gump released?',
+  '1994',
+  new Hints('1990, 1992, 1994')
+);
+
+const myQuestion12 = new Question(
+  'Which 90\'s movie featured Looney Tunes on it\'s soundtrack?',
+  'Space Jam',
+  new Hints('Also featured Michael Jordan, best NBA movie of all time, animated aliens')
+);
+
+const myQuestion13 = new Question(
+  'Johnny Depp cuts the hedges in this 1990 Tim Burton film',
+  'Edward Scissorhands',
+  new Hints('Mad scientist creation with scissors for hands, fantasy romance film, co-stars young Winona Ryder')
+);
+
+const questionElement14 = new Question(
+  'Brendan Fraiser plays caveman turned cool guy in what 1992 film?',
+  'Encino Man',
+  new Hints('co-stars Pauly Shore, Sean Astin\'s first movie since The Goonies, "Weezin\' on the juice"')
+);
+
 
 
 
