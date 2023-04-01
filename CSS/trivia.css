@@ -1,10 +1,54 @@
 body{
+  background-image: url(/img/retro\ video\ game.jpg);
+  background-size: cover;
+  
+}
 
+h1{
+  font-family: 'Press Start 2P', cursive;
+  margin-top: 40px;
+  color:#351550;
+  text-shadow: 5px 5px #951CD8;
+  text-align: center;
+  font-size: 50px;
+  overflow:hidden;
+}
+
+.movie-title{
+  text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiart),
+  9px 9px var(--color-quternary),;
+  animation: shadows 1.2s ease-in infinite, move 1.2s ease-in infinite;
+    letter-spacing: 0.4rem;
+}
+
+.vhs{
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.vhs img{
+  border: solid rgb(74, 224, 247) 4px;
+  border-radius: 15px 15px 15px 15px;
+}
+
+#hint{
+  margin-top: 50px;
+}
+
+p a{
+  display: flex;
+  justify-content: center;
+  color: #FEDB79;
+  font-family:'Press Start 2P', cursive;
+  font-size: 12px;
+  text-align: center;
+  padding-top: 150px;
+  padding-bottom: 20px;
 }
 
 #home-page a {
   text-decoration: none;
-  
 }
 
 form {
@@ -32,7 +76,7 @@ textarea {
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background-color: #f2f2f2;
+  background-color: #fdf1f1;
 }
 
 textarea {
@@ -40,19 +84,24 @@ textarea {
 }
 
 button {
+  font-family: 'Press Start 2P', cursive;
   display: block;
   margin: 20px auto 0;
   padding: 10px 20px;
-  border: none;
+  border: solid #46f9ff 1px;
   border-radius: 5px;
-  background-color: #333;
-  color: #fff;
+  background-color:#655DAA;
+  color: #f8f4ef;
   font-size: 18px;
   font-weight: bold;
 }
 
 button:hover {
-  background-color: #555;
+  
+  background-color:#FEDB79 ;
+  font-family: 'Press Start 2P', cursive;
+  color: #351550;
+  border: solid #f8f4ef 3px;
 }
 
 h3 {
