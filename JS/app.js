@@ -38,7 +38,6 @@ class Question {
   }
 }
 
-
 // creates the questions using the constructors.
 function createQuestions() {
   const myQuestionOne = new Question(
@@ -74,7 +73,6 @@ function createQuestions() {
     "A Boy's Life was the original working title for what 1983 movie?",
     new Hints("Highest grossing movie of the decade", "Intergalactic", "Elliot")
   );
-
 
   const myQuestion7 = new Question(
     "What town did Ren move from in Footloose?",
@@ -147,7 +145,7 @@ function createQuestions() {
 function renderQuestion() {
   let currentQuestion = getRandomQuestion();
   score.textContent = state.score;
-  answerResults.textContent = 'you have 3 attempt(s)';
+  answerResults.textContent = "you have 3 attempt(s)";
   question.innerText = state.questions[currentQuestion].question;
   pocketArray.push(state.questions[currentQuestion]);
   state.questions.splice(currentQuestion, 1);
@@ -158,7 +156,6 @@ function handleSubmit(event) {
   let currentQuestionInParr = pocketArray[pocketArray.length - 1];
   let userInput = event.target.form.userInput.value.toLowerCase();
 
-
   function removeLi(unorderedList) {
     while (unorderedList.firstChild) {
       unorderedList.removeChild(unorderedList.firstChild);
@@ -167,7 +164,7 @@ function handleSubmit(event) {
   }
   if (currentQuestionInParr.attempts >= 2) {
     if (userInput !== currentQuestionInParr.answer) {
-      console.log('you got it wrong');
+      console.log("you got it wrong");
       currentQuestionInParr.attempts--;
       answerResults.textContent = `Bummer you got it wrong. you still have ${currentQuestionInParr.attempts} attempt(s) left`;
       userInputEvent.reset();
@@ -183,8 +180,8 @@ function handleSubmit(event) {
       userInputEvent.reset();
     }
   } else {
-    alert('out of attempts');
-    const oldList = document.querySelectorAll('ul');
+    alert("out of attempts");
+    const oldList = document.querySelectorAll("ul");
     oldList[0].remove();
     oldList[1].remove();
     oldList[2].remove();
@@ -201,7 +198,7 @@ function handleHints() {
   hintButton.appendChild(ulElem);
   let currentQuestionInParr = pocketArray[pocketArray.length - 1];
   console.log(currentQuestionInParr.attempts, "***");
-  
+
   if (currentQuestionInParr.attempts === 3) {
     let liElem = document.createElement("li");
     liElem.textContent = currentQuestionInParr.hint.hints[0];
@@ -216,7 +213,6 @@ function handleHints() {
     liElem3.textContent = currentQuestionInParr.hint.hints[2];
     console.log("inside0tries");
     ulElem.appendChild(liElem3);
-
   } else if (currentQuestionInParr.attempts === -1) {
     console.log("inside-1tries");
     hintButton.removeEventListener("click", handleHints);
@@ -232,7 +228,11 @@ console.log(state);
 createQuestions();
 renderQuestion();
 
-
 // Listeners.
-submitButton.addEventListener('click', handleSubmit);
-hintButton.addEventListener('click', handleHints);
+submitButton.addEventListener("click", handleSubmit);
+hintButton.addEventListener("click", handleHints);
+
+localStorage.setItem("score", JSON.stringify(state.score));
+
+const storedObj = JSON.parse(localStorage.getItem("score"));
+console.log(storedObj); // O
