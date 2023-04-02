@@ -18,6 +18,8 @@ let userInputEvent = document.getElementById('current-question');
 let score = document.getElementById('scores');
 let congratsAlert = document.getElementById('right');
 
+const ctx = document.getElementById('end-button');
+
 // helper function for generating a random question from the state index.
 function getRandomQuestion() {
   return Math.floor(Math.random() * state.questions.length);
@@ -198,6 +200,13 @@ function handleHints() {
     // resetHints();
     // ulElem.textContent = ' ';
     // console.log(oldList);
+  }
+}
+function renderEndButton(){
+  ctx.style.display = 'block';
+
+  for(let i = 0; i < state.questions[i].length; i++){
+    
   }
 }
 
