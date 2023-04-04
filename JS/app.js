@@ -11,12 +11,15 @@ let answerResults = document.getElementById('resultsOfAnswer');
 let question = document.getElementById('question');
 let submitButton = document.getElementById('submit');
 let hintButton = document.getElementById('hint');
+let restartButton = document.getElementById('restart');
 //creates Unordered List
 let ulElem = document.createElement('ul');
 hintButton.appendChild(ulElem);
 let userInputEvent = document.getElementById('current-question');
 let score = document.getElementById('scores');
 let congratsAlert = document.getElementById('right');
+
+const ctx = document.getElementById('end-button');
 
 // helper function for generating a random question from the state index.
 function getRandomQuestion() {
@@ -45,8 +48,8 @@ class Question {
 function createQuestions() {
   // eslint-disable-next-line no-unused-vars
   const myQuestionOne = new Question(
-    'Who is the high school wise guy?',
-    'Ferris Bueller\'s',
+    'Who is the high school wise guy in Ferris Beuller\'s Day Off?',
+    'Ferris Bueller',
     new Hints('Day Off', 'Matthew Broderick', 'John Hughes Film')
   );
 
@@ -73,7 +76,7 @@ function createQuestions() {
 
   // eslint-disable-next-line no-unused-vars
   const myQuestionFive = new Question(
-    'What kind of car do the boys take out for the day?',
+    'What kind of car do the boys take out for the day in Ferris Bueller\'s Day Off?',
     'Ferrari',
     new Hints('Mustang', 'Camaro', 'Ferrari')
   );
@@ -102,7 +105,7 @@ function createQuestions() {
   // eslint-disable-next-line no-unused-vars
   const myQuestion9 = new Question(
     'After and unfortunate incident the family from A Christmas Story ate their Christmas dinner at what kind of restaurant?',
-    'A Chinese Restaurant',
+    'Chinese',
     new Hints('Chinese', 'Italian', 'Mexican')
   );
 
@@ -220,6 +223,22 @@ function removeLi() {
   }
 }
 
+//removes questions form.
+function removeForm() {
+  let restartButton = document.getElementById('current-question');
+  while (restartButton.firstChild) {
+    restartButton.removeChild(restartButton.firstChild);
+  }
+}
+
+//removes questions form.
+function removeHints() {
+  let restartButton = document.querySelector('scores-and-hints');
+  while (restartButton.firstChild) {
+    restartButton.removeChild(restartButton.firstChild);
+  }
+}
+
 //Renders question and pushes the currentQuestion into a pocketArray
 //then it will remove the question from the state.questions so it will not
 //render again.
@@ -264,6 +283,7 @@ function handleSubmit(event) {
       userInputEvent.reset();
     }
   } else {
+
     alert('out of attempts');
     removeLi();
     renderQuestion();
@@ -275,7 +295,9 @@ function handleSubmit(event) {
 // creates hints and displays them when 'I need a hint' button is clicked.
 function handleHints() {
   console.log('proof of life');
+
   let currentQuestionInParr = pocketArray[pocketArray.length - 1];
+
   console.log(currentQuestionInParr.attempts, '***');
 
   function createListElem1() {
@@ -314,13 +336,32 @@ function handleHints() {
   }
 }
 
+function renderEndButton(){
+  // ctx.style.display = 'block';
+  if (state.questions.length === 0){
+    removeForm();
+    removeHints();
+    console.log('congrats!');
+    answerResults.textContent = 'Congratulations! You are a trivia master!';
+    restartButton.addEventListener('click', endGame);
+  }
+  // renderEndButton.style.display = 'none';
+
+}
 
 console.log(state);
 // function calls to create questions and renders the questions.
 createQuestions();
 renderQuestion();
 
-
+renderEndButton();
 // Listeners.
+
 submitButton.addEventListener('click', handleSubmit);
 hintButton.addEventListener('click', handleHints);
+
+localStorage.setItem('score', JSON.stringify(state.score));
+
+const storedObj = JSON.parse(localStorage.getItem('score'));
+console.log(storedObj); // O
+
