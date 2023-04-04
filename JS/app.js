@@ -18,6 +18,8 @@ let userInputEvent = document.getElementById("current-question");
 let score = document.getElementById("scores");
 let congratsAlert = document.getElementById("right");
 
+const ctx = document.getElementById('end-button');
+
 // helper function for generating a random question from the state index.
 function getRandomQuestion() {
   return Math.floor(Math.random() * state.questions.length);
@@ -45,9 +47,10 @@ class Question {
 function createQuestions() {
   // eslint-disable-next-line no-unused-vars
   const myQuestionOne = new Question(
-    "Who is the high school wise guy?",
-    "Ferris Bueller's",
-    new Hints("Day Off", "Matthew Broderick", "John Hughes Film")
+
+    'Who is the high school wise guy in Ferris Beuller\'s Day Off?',
+    'Ferris Bueller',
+    new Hints('Day Off', 'Matthew Broderick', 'John Hughes Film')
   );
 
   // eslint-disable-next-line no-unused-vars
@@ -73,9 +76,9 @@ function createQuestions() {
 
   // eslint-disable-next-line no-unused-vars
   const myQuestionFive = new Question(
-    "What kind of car do the boys take out for the day?",
-    "Ferrari",
-    new Hints("Mustang", "Camaro", "Ferrari")
+    'What kind of car do the boys take out for the day in Ferris Bueller\'s Day Off?',
+    'Ferrari',
+    new Hints('Mustang', 'Camaro', 'Ferrari')
   );
 
   // eslint-disable-next-line no-unused-vars
@@ -101,9 +104,9 @@ function createQuestions() {
 
   // eslint-disable-next-line no-unused-vars
   const myQuestion9 = new Question(
-    "After and unfortunate incident the family from A Christmas Story ate their Christmas dinner at what kind of restaurant?",
-    "A Chinese Restaurant",
-    new Hints("Chinese", "Italian", "Mexican")
+    'After and unfortunate incident the family from A Christmas Story ate their Christmas dinner at what kind of restaurant?',
+    'Chinese',
+    new Hints('Chinese', 'Italian', 'Mexican')
   );
 
   // eslint-disable-next-line no-unused-vars
@@ -368,6 +371,13 @@ function handleHints() {
     createListElem2();
     createListElem3();
     hintButton.removeEventListener("click", handleHints);
+  }
+}
+function renderEndButton(){
+  ctx.style.display = 'block';
+
+  for(let i = 0; i < state.questions[i].length; i++){
+    
   }
 }
 
