@@ -46,7 +46,7 @@ function createQuestions() {
   // eslint-disable-next-line no-unused-vars
   const myQuestionOne = new Question(
     'Who is the high school wise guy?',
-    'Ferris Bueller\'s',
+    'Ferris Bueller',
     new Hints('Day Off', 'Matthew Broderick', 'John Hughes Film')
   );
 
@@ -95,21 +95,21 @@ function createQuestions() {
   // eslint-disable-next-line no-unused-vars
   const myQuestion8 = new Question(
     'What did Samantha give to The Geek so that he could win a bet in Sixteen Candles?',
-    'Her Underwear',
+    'her underwear',
     new Hints('a kiss', 'her underwear', '$100 bill')
   );
 
   // eslint-disable-next-line no-unused-vars
   const myQuestion9 = new Question(
     'After and unfortunate incident the family from A Christmas Story ate their Christmas dinner at what kind of restaurant?',
-    'A Chinese Restaurant',
+    'Chinese',
     new Hints('Chinese', 'Italian', 'Mexican')
   );
 
   // eslint-disable-next-line no-unused-vars
   const myQuestion10 = new Question(
     'In The Karate Kid what sport did Danny Larusso play in high school?',
-    'basketball',
+    'soccer',
     new Hints('basketball', 'football', 'soccer')
   );
 
@@ -134,7 +134,7 @@ function createQuestions() {
   // eslint-disable-next-line no-unused-vars
   const myQuestion13 = new Question(
     'Johnny Depp cuts the hedges in this 1990 Tim Burton film',
-    'Edward Scissor hands',
+    'Edward Scissorhands',
     new Hints(
       'Mad scientist creation with scissors for hands',
       'fantasy romance film',
@@ -175,12 +175,12 @@ function createQuestions() {
   );
 
   // eslint-disable-next-line no-unused-vars
-  const question17 = new Question('What was the first animated feature film to nominated for a Best Picture Oscar?',
+  const question17 = new Question('What was the first animated feature film to be nominated for a Best Picture Oscar?',
     'Beauty and the Beast',
     new Hints(
       'Disney',
-      'A Princes',
-      'There a talking tea cup')
+      'A Princess',
+      'There\'s a talking tea cup')
   );
 
   // eslint-disable-next-line no-unused-vars

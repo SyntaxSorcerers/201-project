@@ -59,6 +59,19 @@ p a{
   border-width: 5px;
   color:#fdf1f1;
 }
+.scores-and-hints{
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 25px;
+  margin-top: 20px;
+  font-weight: 900;
+  color:#FDE9DE;
+  text-shadow: 3px 2px #361551;
+  /* border: solid #55177C;
+  border-width: 1px;
+  background: linear-gradient(#951CD8, #56177C); */
+  } 
+
 
 #home-page a {
   text-decoration: none;
