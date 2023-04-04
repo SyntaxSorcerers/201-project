@@ -220,6 +220,7 @@ function removeLi() {
   }
 }
 
+
 //Renders question and pushes the currentQuestion into a pocketArray
 //then it will remove the question from the state.questions so it will not
 //render again.
@@ -276,7 +277,9 @@ function handleSubmit(event) {
 // creates hints and displays them when 'I need a hint' button is clicked.
 function handleHints() {
   console.log('proof of life');
+
   let currentQuestionInParr = pocketArray[pocketArray.length - 1];
+
   console.log(currentQuestionInParr.attempts, '***');
 
   function createListElem1() {
@@ -322,6 +325,7 @@ createQuestions();
 renderQuestion();
 
 // Listeners.
+
 submitButton.addEventListener("click", handleSubmit);
 hintButton.addEventListener("click", handleHints);
 
@@ -329,3 +333,4 @@ localStorage.setItem("score", JSON.stringify(state.score));
 
 const storedObj = JSON.parse(localStorage.getItem("score"));
 console.log(storedObj); // O
+
