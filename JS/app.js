@@ -315,6 +315,7 @@ function userAnswer() {
     alert("out of attempts");
     removeLi();
     userInputEvent.reset();
+    //shift method removes the first element from an array and returns that removed element
     state.questions.shift();
     renderQuestion();
     if (state.questions.length === 0) {
