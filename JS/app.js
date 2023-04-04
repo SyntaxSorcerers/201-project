@@ -11,6 +11,7 @@ let answerResults = document.getElementById('resultsOfAnswer');
 let question = document.getElementById('question');
 let submitButton = document.getElementById('submit');
 let hintButton = document.getElementById('hint');
+let restartButton = document.getElementById('restart');
 //creates Unordered List
 let ulElem = document.createElement('ul');
 hintButton.appendChild(ulElem);
@@ -222,6 +223,21 @@ function removeLi() {
   }
 }
 
+//removes questions form.
+function removeForm() {
+  let restartButton = document.getElementById('current-question');
+  while (restartButton.firstChild) {
+    restartButton.removeChild(restartButton.firstChild);
+  }
+}
+
+//removes questions form.
+function removeHints() {
+  let restartButton = document.querySelector('scores-and-hints');
+  while (restartButton.firstChild) {
+    restartButton.removeChild(restartButton.firstChild);
+  }
+}
 
 //Renders question and pushes the currentQuestion into a pocketArray
 //then it will remove the question from the state.questions so it will not
@@ -319,20 +335,26 @@ function handleHints() {
     hintButton.removeEventListener('click', handleHints);
   }
 }
+
 function renderEndButton(){
-  ctx.style.display = 'block';
-
-  for(let i = 0; i < state.questions[i].length; i++){
-    
+  // ctx.style.display = 'block';
+  if (state.questions.length === 0){
+    removeForm();
+    removeHints();
+    console.log('congrats!');
+    answerResults.textContent = 'Congratulations! You are a trivia master!';
+    restartButton.addEventListener('click', endGame);
   }
-}
+  // renderEndButton.style.display = 'none';
 
+}
 
 console.log(state);
 // function calls to create questions and renders the questions.
 createQuestions();
 renderQuestion();
 
+renderEndButton();
 // Listeners.
 
 submitButton.addEventListener('click', handleSubmit);
