@@ -14,12 +14,6 @@ h1{
   overflow:hidden;
 }
 
-.movie-title{
-  text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiart),
-  9px 9px var(--color-quternary),;
-  animation: shadows 1.2s ease-in infinite, move 1.2s ease-in infinite;
-    letter-spacing: 0.4rem;
-}
 
 .vhs{
   display: flex;
@@ -47,6 +41,25 @@ h1{
   padding-bottom: 20px;
 }
 
+#current-question{
+  margin: auto;
+  color:#fdf1f1;
+  font-weight: 800;
+  /* border: solid #5b2079; */
+  border-width: 30px;
+  background: linear-gradient(#55177C,#241438);
+
+}
+
+#resultsOfAnswer{
+  text-align: center;
+  margin-top: 50px;
+  font-weight: 700;
+  margin-bottom: -15px;
+  border-width: 5px;
+  color:#fdf1f1;
+}
+
 #home-page a {
   text-decoration: none;
 }
@@ -61,6 +74,7 @@ input,
 textarea {
   display: block;
   width: 100%;
+  margin-top: 20px;
 }
 
 label {
