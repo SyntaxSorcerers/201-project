@@ -134,8 +134,7 @@ function createQuestions() {
     "soccer",
     new Hints("basketball", "football", "soccer")
   );
-}
-
+  }
 //Renders question and pushes the currentQuestion into a pocketArray
 //then it will remove the question from the state.questions so it will not
 //render again.
@@ -195,7 +194,6 @@ function handleHints() {
   const ulElem = document.createElement('ul');
   hintButton.appendChild(ulElem);
 
-  if (state.questions[currentQuestion].attempts === 2) {
 
   let currentQuestionInParr = pocketArray[pocketArray.length - 1];  
   console.log(currentQuestionInParr.attempts, '***');
@@ -218,15 +216,9 @@ function handleHints() {
     ulElem.appendChild(liElem3);
 
   }  
-  else if (currentQuestionInParr.attempts === -1) {
-    console.log('inside-1tries');
-    hintButton.removeEventListener('click', handleHints);
-    // removeLi(oldlist);
-    // resetHints();
-    // ulElem.textContent = ' ';
-    // console.log(oldList);
-  }  
-}  
+
+  
+}
 
 console.log(state);
 
@@ -237,5 +229,4 @@ renderQuestion();
 // Listeners.
 submitButton.addEventListener('click', handleSubmit);
 hintButton.addEventListener('click', handleHints);
-}
 
