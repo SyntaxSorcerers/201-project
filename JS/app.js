@@ -227,7 +227,7 @@ function removeLi() {
 function renderQuestion() {
   let currentQuestion = getRandomQuestion();
   score.textContent = state.score;
-  answerResults.textContent = "you have 3 attempt(s)";
+  answerResults.textContent = 'you have 3 attempt(s)';
   question.innerText = state.questions[currentQuestion].question;
   pocketArray.push(state.questions[currentQuestion]);
   state.questions.splice(currentQuestion, 1);
@@ -326,11 +326,11 @@ renderQuestion();
 
 // Listeners.
 
-submitButton.addEventListener("click", handleSubmit);
-hintButton.addEventListener("click", handleHints);
+submitButton.addEventListener('click', handleSubmit);
+hintButton.addEventListener('click', handleHints);
 
-localStorage.setItem("score", JSON.stringify(state.score));
+localStorage.setItem('score', JSON.stringify(state.score));
 
-const storedObj = JSON.parse(localStorage.getItem("score"));
+const storedObj = JSON.parse(localStorage.getItem('score'));
 console.log(storedObj); // O
 
