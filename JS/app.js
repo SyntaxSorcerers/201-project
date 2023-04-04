@@ -12,13 +12,16 @@ let question = document.getElementById("question");
 let submitButton = document.getElementById("submit");
 let hintButton = document.getElementById("hint");
 let restartButton = document.getElementById("restart");
+
 //creates Unordered List
 let ulElem = document.createElement("ul");
 hintButton.appendChild(ulElem);
 let userInputEvent = document.getElementById("current-question");
 let score = document.getElementById("scores");
 let congratsAlert = document.getElementById("right");
+
 const ctx = document.getElementById("end-button");
+
 // helper function for generating a random question from the state index.
 function getRandomQuestion() {
   return Math.floor(Math.random() * state.questions.length);
@@ -46,7 +49,7 @@ class Question {
 function createQuestions() {
   // eslint-disable-next-line no-unused-vars
   const myQuestionOne = new Question(
-    "Who is the high school wise guy in Ferris Beuller's Day Off?",
+    "Who is the high school wise guy in Ferris Bueller's Day Off?",
     "Ferris Bueller",
     new Hints("Day Off", "Matthew Broderick", "John Hughes Film")
   );
@@ -60,7 +63,7 @@ function createQuestions() {
 
   // eslint-disable-next-line no-unused-vars
   const myQuestionThree = new Question(
-    "Ferris' sister's name was Jeanie, but according to her, her friends called her what?",
+    "Ferris sister's name was Jeanie, but according to her, her friends called her what?",
     "Shaunna",
     new Hints("Sandy", "Sarah", "Shaunna")
   );
@@ -110,7 +113,7 @@ function createQuestions() {
   // eslint-disable-next-line no-unused-vars
   const myQuestion10 = new Question(
     "In The Karate Kid what sport did Danny Larusso play in high school?",
-    "basketball",
+    "soccer",
     new Hints("basketball", "football", "soccer")
   );
 
@@ -135,7 +138,7 @@ function createQuestions() {
   // eslint-disable-next-line no-unused-vars
   const myQuestion13 = new Question(
     "Johnny Depp cuts the hedges in this 1990 Tim Burton film",
-    "Edward Scissor hands",
+    "Edward Scissorhands",
     new Hints(
       "Mad scientist creation with scissors for hands",
       "fantasy romance film",
@@ -160,7 +163,7 @@ function createQuestions() {
     "Point Break",
     new Hints(
       "Co-stars Keanu Reeves",
-      'The film was originally titled "Johnny Utah"',
+      'The film was originally titled "Johnny Utah',
       "A remake of the film was released in 2015"
     )
   );
@@ -180,7 +183,7 @@ function createQuestions() {
   const question17 = new Question(
     "What was the first animated feature film to nominated for a Best Picture Oscar?",
     "Beauty and the Beast",
-    new Hints("Disney", "A Princes", "There a talking tea cup")
+    new Hints("Disney", "A Princess", "There's a talking tea cup")
   );
 
   // eslint-disable-next-line no-unused-vars
@@ -265,7 +268,6 @@ function endGame() {
 function handleSubmit(event) {
   event.preventDefault();
   hintButton.addEventListener("click", handleHints);
-
   userAnswer();
 }
 
@@ -314,7 +316,9 @@ function userAnswer() {
 // creates hints and displays them when 'I need a hint' button is clicked.
 function handleHints() {
   console.log("proof of life");
+
   let currentQuestionInParr = pocketArray[pocketArray.length - 1];
+
   console.log(currentQuestionInParr.attempts, "***");
 
   function createListElem1() {
@@ -351,6 +355,18 @@ function handleHints() {
   }
 }
 
+function renderEndButton() {
+  // ctx.style.display = 'block';
+  if (state.questions.length === 0) {
+    removeForm();
+    removeHints();
+    console.log("congrats!");
+    answerResults.textContent = "Congratulations! You are a trivia master!";
+    restartButton.addEventListener("click", endGame);
+  }
+  // renderEndButton.style.display = 'none';
+}
+
 console.log(state);
 // function calls to create questions and renders the questions.
 createQuestions();
@@ -358,7 +374,6 @@ renderQuestion();
 
 renderEndButton();
 // Listeners.
-
 submitButton.addEventListener("click", handleSubmit);
 hintButton.addEventListener("click", handleHints);
 
