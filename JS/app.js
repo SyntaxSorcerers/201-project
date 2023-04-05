@@ -253,7 +253,7 @@ function removeHints() {
 function renderQuestion() {
   let currentQuestion = getRandomQuestion();
   score.textContent = state.score;
-  answerResults.textContent = 'you have 3 attempt(s)';
+  answerResults.textContent = 'You have 3 more attempt(s)';
   question.innerText = state.questions[currentQuestion].question;
   pocketArray.push(state.questions[currentQuestion]);
   state.questions.splice(currentQuestion, 1);
@@ -316,12 +316,14 @@ function handleSubmit(event) {
 function userAnswer() {
   let currentQuestionInParr = pocketArray[pocketArray.length - 1];
   let userInput = event.target.form.userInput.value.toLowerCase();
+
+ 
   console.log(userInput);
   if (userInput !== currentQuestionInParr.answer.toLowerCase() && currentQuestionInParr.attempts >= 0) {
     console.log('you got it wrong');
     --currentQuestionInParr.attempts;
     console.log(currentQuestionInParr.attempts);
-    answerResults.textContent = `Bummer you got it wrong. you still have ${currentQuestionInParr.attempts} attempt(s) left`;
+    answerResults.textContent = `Bummer you got it wrong. You still have ${currentQuestionInParr.attempts} more attempt(s) left`;
     removeLi();
     if (currentQuestionInParr.attempts === 0) {
       alert('out of attempts');
@@ -337,9 +339,10 @@ function userAnswer() {
       localStorage.setItem('score', JSON.stringify(state.score));
       renderEndButton();
     }
+
   } else if (userInput === currentQuestionInParr.answer.toLowerCase() && currentQuestionInParr.attempts > 0) {
     console.log(currentQuestionInParr.attempts);
-    console.log('you got it right');
+    console.log('You got it right');
     congratsAlert.textContent = 'Radical you got the last question right';
     state.score += 100;
     localStorage.setItem('score', JSON.stringify(state.score));
