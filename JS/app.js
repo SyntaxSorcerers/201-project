@@ -48,7 +48,7 @@ function createQuestions() {
   // eslint-disable-next-line no-unused-vars
   const myQuestionOne = new Question(
 
-    'Who is the high school wise guy in Ferris Beuller\'s Day Off?',
+    'Who is the high school wise guy in Ferris Bueller\'s Day Off?',
 
     'Ferris Bueller',
     new Hints('Day Off', 'Matthew Broderick', 'John Hughes Film')
