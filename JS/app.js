@@ -251,7 +251,8 @@ function removeHints() {
 //render again.
 function renderQuestion() {
   let currentQuestion = getRandomQuestion();
-  score.textContent = state.score;
+  score.textContent = `Score: ${state.score}`;
+  congratsAlert.textContent = 'Take a chill pill and try out your trivia skills';
   answerResults.textContent = 'You have 3 more attempt(s)';
   question.innerText = state.questions[currentQuestion].question;
   pocketArray.push(state.questions[currentQuestion]);
@@ -284,15 +285,14 @@ function userAnswer() {
     console.log('you got it wrong');
     --currentQuestionInParr.attempts;
     console.log(currentQuestionInParr.attempts);
-    answerResults.textContent = `Bummer you got it wrong. You still have ${currentQuestionInParr.attempts} more attempt(s) left`;
+    answerResults.textContent = `Talk to the hand! ${currentQuestionInParr.attempts} more attempt(s) left`;
     removeLi();
+    userInputEvent.reset();
     if (currentQuestionInParr.attempts === 0) {
       alert('out of attempts');
       removeLi();
-      userInputEvent.reset();
-      //shift method removes the first element from an array and returns that removed element
-      state.questions.shift();
       renderQuestion();
+      userInputEvent.reset();
       console.log(state, pocketArray);
     } else if (state.questions.length === 0) {
       let storedScore = localStorage.getItem('score');
@@ -309,11 +309,6 @@ function userAnswer() {
     localStorage.setItem('score', JSON.stringify(state.score));
     removeLi();
     renderQuestion();
-  }
-
-  if (storedScore) {
-  } else {
-    endGame();
   }
 }
 
@@ -365,7 +360,7 @@ function renderEndButton() {
     removeForm();
     removeHints();
     console.log('congrats!');
-    answerResults.textContent = 'Congratulations! You are a trivia master!';
+    answerResults.textContent = 'Dude! Your a trivia skills are choice! You\'re all that and a bag of chips!';
     restartButton.addEventListener('click', endGame);
   }
   // renderEndButton.style.display = 'none';
