@@ -348,6 +348,7 @@ function userAnswer() {
     localStorage.setItem('score', JSON.stringify(state.score));
     removeLi();
     renderQuestion();
+    userInputEvent.reset();
   }
 }
 
