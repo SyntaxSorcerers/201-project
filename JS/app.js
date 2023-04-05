@@ -100,7 +100,7 @@ function createQuestions() {
   // eslint-disable-next-line no-unused-vars
   const myQuestion8 = new Question(
     'What did Samantha give to The Geek so that he could win a bet in Sixteen Candles?',
-    'Her Underwear',
+    'her underwear',
     new Hints('a kiss', 'her underwear', '$100 bill')
   );
 
@@ -180,11 +180,12 @@ function createQuestions() {
     )
   );
 
-  // eslint-disable-next-line no-unused-vars
-  const question17 = new Question(
-    'What was the first animated feature film to nominated for a Best Picture Oscar?',
+  const question17 = new Question('What was the first animated feature film to be nominated for a Best Picture Oscar?',
     'Beauty and the Beast',
-    new Hints('Disney', 'A Princess', 'There\'s a talking tea cup')
+    new Hints(
+      'Disney',
+      'A Princess',
+      'There\'s a talking tea cup')
   );
 
   // eslint-disable-next-line no-unused-vars
