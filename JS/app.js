@@ -12,6 +12,7 @@ let question = document.getElementById('question');
 let submitButton = document.getElementById('submit');
 let hintButton = document.getElementById('hint');
 let restartButton = document.getElementById('restart');
+restartButton.style.display = 'none';
 
 //creates Unordered List
 let ulElem = document.createElement('ul');
@@ -251,7 +252,7 @@ function removeHints() {
 function renderQuestion() {
   let currentQuestion = getRandomQuestion();
   score.textContent = state.score;
-  answerResults.textContent = 'you have 3 attempt(s)';
+  answerResults.textContent = 'You have 3 more attempt(s)';
   question.innerText = state.questions[currentQuestion].question;
   pocketArray.push(state.questions[currentQuestion]);
   state.questions.splice(currentQuestion, 1);
@@ -277,40 +278,42 @@ function userAnswer() {
   let currentQuestionInParr = pocketArray[pocketArray.length - 1];
   let userInput = event.target.form.userInput.value.toLowerCase();
 
-  if (currentQuestionInParr.attempts >= 2) {
-    if (userInput !== currentQuestionInParr.answer.toLowerCase()) {
-      console.log('you got it wrong');
-      currentQuestionInParr.attempts--;
-      answerResults.textContent = `Bummer you got it wrong. you still have ${currentQuestionInParr.attempts} attempt(s) left`;
-      removeLi();
-      userInputEvent.reset();
-      console.log(currentQuestionInParr.attempts);
-    } else if (userInput === currentQuestionInParr.answer.toLowerCase()) {
-      console.log('you got it right');
-      congratsAlert.textContent = 'Radical you got the last question right';
-      state.score += 100;
-      localStorage.setItem('score', JSON.stringify(state.score));
-      removeLi();
-      renderQuestion();
-      userInputEvent.reset();
-    }
-  } else {
-    alert('out of attempts');
+ 
+  console.log(userInput);
+  if (userInput !== currentQuestionInParr.answer.toLowerCase() && currentQuestionInParr.attempts >= 0) {
+    console.log('you got it wrong');
+    --currentQuestionInParr.attempts;
+    console.log(currentQuestionInParr.attempts);
+    answerResults.textContent = `Bummer you got it wrong. You still have ${currentQuestionInParr.attempts} more attempt(s) left`;
     removeLi();
-    userInputEvent.reset();
-    //shift method removes the first element from an array and returns that removed element
-    state.questions.shift();
-    renderQuestion();
-    if (state.questions.length === 0) {
-      endGame();
+    if (currentQuestionInParr.attempts === 0) {
+      alert('out of attempts');
+      removeLi();
+      userInputEvent.reset();
+      //shift method removes the first element from an array and returns that removed element
+      state.questions.shift();
+      renderQuestion();
+      console.log(state, pocketArray);
+    } else if (state.questions.length === 0) {
+      let storedScore = localStorage.getItem('score');
+      state.score = JSON.parse(storedScore);
+      localStorage.setItem('score', JSON.stringify(state.score));
+      renderEndButton();
     }
+
+  } else if (userInput === currentQuestionInParr.answer.toLowerCase() && currentQuestionInParr.attempts > 0) {
+    console.log(currentQuestionInParr.attempts);
+    console.log('You got it right');
+    congratsAlert.textContent = 'Radical you got the last question right';
+    state.score += 100;
+    localStorage.setItem('score', JSON.stringify(state.score));
+    removeLi();
+    renderQuestion();
   }
 
-  let storedScore = localStorage.getItem('score');
   if (storedScore) {
-    state.score = JSON.parse(storedScore);
   } else {
-    localStorage.setItem('score', JSON.stringify(state.score));
+    endGame();
   }
 }
 
@@ -373,7 +376,6 @@ console.log(state);
 createQuestions();
 renderQuestion();
 
-renderEndButton();
 // Listeners.
 submitButton.addEventListener('click', handleSubmit);
 hintButton.addEventListener('click', handleHints);
