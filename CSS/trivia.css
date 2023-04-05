@@ -14,12 +14,6 @@ h1{
   overflow:hidden;
 }
 
-.movie-title{
-  text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiart),
-  9px 9px var(--color-quternary),;
-  animation: shadows 1.2s ease-in infinite, move 1.2s ease-in infinite;
-    letter-spacing: 0.4rem;
-}
 
 .vhs{
   display: flex;
@@ -36,16 +30,48 @@ h1{
   margin-top: 50px;
 }
 
-p a{
+#home-page a{
   display: flex;
   justify-content: center;
   color: #FEDB79;
   font-family:'Press Start 2P', cursive;
-  font-size: 12px;
+  font-size: 30px;
   text-align: center;
-  padding-top: 150px;
+  margin-top: 150px;
   padding-bottom: 20px;
 }
+
+#current-question{
+  margin: auto;
+  color:#fdf1f1;
+  font-weight: 800;
+  /* border: solid #5b2079; */
+  border-width: 30px;
+  background: linear-gradient(#55177C,#241438);
+
+}
+
+#resultsOfAnswer{
+  text-align: center;
+  margin-top: 50px;
+  font-weight: 700;
+  margin-bottom: -15px;
+  border-width: 5px;
+  color:#fdf1f1;
+}
+.scores-and-hints{
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 25px;
+  margin-top: 20px;
+  font-weight: 900;
+  color:#FDE9DE;
+  text-shadow: 3px 2px #361551;
+  /* border: solid #55177C;
+  border-width: 1px;
+  background: linear-gradient(#951CD8, #56177C); */
+  } 
+
 
 #home-page a {
   text-decoration: none;
@@ -61,6 +87,7 @@ input,
 textarea {
   display: block;
   width: 100%;
+  margin-top: 20px;
 }
 
 label {

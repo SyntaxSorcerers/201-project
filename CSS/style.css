@@ -56,12 +56,12 @@ input[type="checkbox"]{
     /* align-items: center;
     justify-content: center; */
     text-decoration: none;
-    width: 136px;
+    width: 139px;
     height:110px;
     padding: 10px;
     margin: auto;
-    left:-185px;
-    top:-41px;
+    left:-186px;
+    top:-27px;
     position: relative;
     /* position: relative; */
   }
@@ -174,7 +174,7 @@ input:checked[type="checkbox"]:before{
 
 h1 {
   animation: wobble 3s ease 0s infinite normal forwards;  
-  background-color: hotpink;
+  background-color: fuchsia;
   color: yellow;
   font-family: 'Cabin Sketch', cursive;
   font-size: 200px;

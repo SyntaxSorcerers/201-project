@@ -11,12 +11,16 @@ let answerResults = document.getElementById('resultsOfAnswer');
 let question = document.getElementById('question');
 let submitButton = document.getElementById('submit');
 let hintButton = document.getElementById('hint');
+let restartButton = document.getElementById('restart');
+
 //creates Unordered List
 let ulElem = document.createElement('ul');
 hintButton.appendChild(ulElem);
 let userInputEvent = document.getElementById('current-question');
 let score = document.getElementById('scores');
 let congratsAlert = document.getElementById('right');
+
+const ctx = document.getElementById('end-button');
 
 // helper function for generating a random question from the state index.
 function getRandomQuestion() {
@@ -45,8 +49,9 @@ class Question {
 function createQuestions() {
   // eslint-disable-next-line no-unused-vars
   const myQuestionOne = new Question(
-    'Who is the high school wise guy?',
-    'Ferris Bueller\'s',
+
+    'Who is the high school wise guy in Ferris Bueller\'s Day Off?',
+    'Ferris Bueller',
     new Hints('Day Off', 'Matthew Broderick', 'John Hughes Film')
   );
 
@@ -59,7 +64,7 @@ function createQuestions() {
 
   // eslint-disable-next-line no-unused-vars
   const myQuestionThree = new Question(
-    'Ferris\' sister\'s name was Jeanie, but according to her, her friends called her what?',
+    'Ferris sister\'s name was Jeanie, but according to her, her friends called her what?',
     'Shaunna',
     new Hints('Sandy', 'Sarah', 'Shaunna')
   );
@@ -73,7 +78,7 @@ function createQuestions() {
 
   // eslint-disable-next-line no-unused-vars
   const myQuestionFive = new Question(
-    'What kind of car do the boys take out for the day?',
+    'What kind of car do the boys take out for the day in Ferris Bueller\'s Day Off?',
     'Ferrari',
     new Hints('Mustang', 'Camaro', 'Ferrari')
   );
@@ -95,21 +100,21 @@ function createQuestions() {
   // eslint-disable-next-line no-unused-vars
   const myQuestion8 = new Question(
     'What did Samantha give to The Geek so that he could win a bet in Sixteen Candles?',
-    'Her Underwear',
+    'her underwear',
     new Hints('a kiss', 'her underwear', '$100 bill')
   );
 
   // eslint-disable-next-line no-unused-vars
   const myQuestion9 = new Question(
     'After and unfortunate incident the family from A Christmas Story ate their Christmas dinner at what kind of restaurant?',
-    'A Chinese Restaurant',
+    'Chinese',
     new Hints('Chinese', 'Italian', 'Mexican')
   );
 
   // eslint-disable-next-line no-unused-vars
   const myQuestion10 = new Question(
     'In The Karate Kid what sport did Danny Larusso play in high school?',
-    'basketball',
+    'soccer',
     new Hints('basketball', 'football', 'soccer')
   );
 
@@ -134,7 +139,7 @@ function createQuestions() {
   // eslint-disable-next-line no-unused-vars
   const myQuestion13 = new Question(
     'Johnny Depp cuts the hedges in this 1990 Tim Burton film',
-    'Edward Scissor hands',
+    'Edward Scissorhands',
     new Hints(
       'Mad scientist creation with scissors for hands',
       'fantasy romance film',
@@ -159,13 +164,14 @@ function createQuestions() {
     'Point Break',
     new Hints(
       'Co-stars Keanu Reeves',
-      'The film was originally titled "Johnny Utah"',
+      'The film was originally titled "Johnny Utah',
       'A remake of the film was released in 2015'
     )
   );
 
   // eslint-disable-next-line no-unused-vars
-  const question16 = new Question('Wesley Snipes plays a vampire hunter in what 90\'s action movie?',
+  const question16 = new Question(
+    'Wesley Snipes plays a vampire hunter in what 90\'s action movie?',
     'Blade',
     new Hints(
       'It\'s a Marvel movie',
@@ -174,41 +180,45 @@ function createQuestions() {
     )
   );
 
-  // eslint-disable-next-line no-unused-vars
-  const question17 = new Question('What was the first animated feature film to nominated for a Best Picture Oscar?',
+  const question17 = new Question('What was the first animated feature film to be nominated for a Best Picture Oscar?',
     'Beauty and the Beast',
     new Hints(
       'Disney',
-      'A Princes',
-      'There a talking tea cup')
+      'A Princess',
+      'There\'s a talking tea cup')
   );
 
   // eslint-disable-next-line no-unused-vars
-  const question18 = new Question('What 1997 action film stars John Malkovich, Nicolas Cage, and John Cusack?',
+  const question18 = new Question(
+    'What 1997 action film stars John Malkovich, Nicolas Cage, and John Cusack?',
     'Con Air',
     new Hints(
       'It was nominated for two Oscars',
       'Directed by Simon West',
-      'It\'s about a prison transfer gone wrong')
+      'It\'s about a prison transfer gone wrong'
+    )
   );
 
   // eslint-disable-next-line no-unused-vars
-  const question19 = new Question('What actor starred in two of the top 10 highest grossing films of the 1990s?',
+  const question19 = new Question(
+    'What actor starred in two of the top 10 highest grossing films of the 1990s?',
     'Will Smith',
     new Hints(
       'Men In Black',
       'In West Philadelphia born and Raised',
-      'He slapped Chris Rock')
+      'He slapped Chris Rock'
+    )
   );
 
-
   // eslint-disable-next-line no-unused-vars
-  const question20 = new Question('What movie did Harland Williams love buttered stuff in this 1998 comedy?',
+  const question20 = new Question(
+    'What movie did Harland Williams love buttered stuff in this 1998 comedy?',
     'Half Baked',
     new Hints(
       'Directed by Tamra Davis',
       'It\'s about Mary Jane',
-      'Dave Chappelle Was in it.')
+      'Dave Chappelle Was in it.'
+    )
   );
 }
 
@@ -217,6 +227,22 @@ function removeLi() {
   let oldList = document.querySelector('ul');
   while (oldList.firstChild) {
     oldList.removeChild(oldList.firstChild);
+  }
+}
+
+//removes questions form.
+function removeForm() {
+  let restartButton = document.getElementById('current-question');
+  while (restartButton.firstChild) {
+    restartButton.removeChild(restartButton.firstChild);
+  }
+}
+
+//removes questions form.
+function removeHints() {
+  let restartButton = document.querySelector('scores-and-hints');
+  while (restartButton.firstChild) {
+    restartButton.removeChild(restartButton.firstChild);
   }
 }
 
@@ -244,6 +270,49 @@ function endGame() {
 function handleSubmit(event) {
   event.preventDefault();
   hintButton.addEventListener('click', handleHints);
+  // let currentQuestionInParr = pocketArray[pocketArray.length - 1];
+  // let userInput = event.target.form.userInput.value.toLowerCase();
+
+  // if (currentQuestionInParr.attempts >= 2) {
+  //   if (userInput !== currentQuestionInParr.answer.toLowerCase()) {
+  //     console.log("you got it wrong");
+  //     currentQuestionInParr.attempts--;
+  //     answerResults.textContent = `Bummer you got it wrong. you still have ${currentQuestionInParr.attempts} attempt(s) left`;
+  //     removeLi();
+  //     userInputEvent.reset();
+  //     console.log(currentQuestionInParr.attempts);
+  //   } else if (userInput === currentQuestionInParr.answer.toLowerCase()) {
+  //     console.log("you got it right");
+  //     congratsAlert.textContent = "Radical you got the last question right";
+  //     state.score += 100;
+  //     // testing local storage
+  //     localStorage.setItem("score", JSON.stringify(state.score));
+  //     removeLi();
+  //     renderQuestion();
+  //     userInputEvent.reset();
+  //   }
+  // } else {
+  //   alert("out of attempts");
+  //   removeLi();
+  //   renderQuestion();
+  //   userInputEvent.reset();
+  // }
+  // // Local storage
+  // const storedObj = JSON.parse(localStorage.getItem("score"));
+  // console.log(storedObj); // O
+
+  // // testing local storage
+  // let storedScore = localStorage.getItem("score");
+  // if (storedScore) {
+  //   state.score = JSON.parse(storedScore);
+  // } else {
+  //   localStorage.setItem("score", JSON.stringify(state.score));
+  // }
+  userAnswer();
+}
+
+//function test answer
+function userAnswer() {
   let currentQuestionInParr = pocketArray[pocketArray.length - 1];
   let userInput = event.target.form.userInput.value.toLowerCase();
 
@@ -259,6 +328,7 @@ function handleSubmit(event) {
       console.log('you got it right');
       congratsAlert.textContent = 'Radical you got the last question right';
       state.score += 100;
+      localStorage.setItem('score', JSON.stringify(state.score));
       removeLi();
       renderQuestion();
       userInputEvent.reset();
@@ -266,17 +336,31 @@ function handleSubmit(event) {
   } else {
     alert('out of attempts');
     removeLi();
-    renderQuestion();
     userInputEvent.reset();
+    //shift method removes the first element from an array and returns that removed element
+    state.questions.shift();
+    renderQuestion();
+    if (state.questions.length === 0) {
+      endGame();
+    }
   }
 
+  let storedScore = localStorage.getItem('score');
+  if (storedScore) {
+    state.score = JSON.parse(storedScore);
+  } else {
+    localStorage.setItem('score', JSON.stringify(state.score));
+  }
 }
 
 // creates hints and displays them when 'I need a hint' button is clicked.
 function handleHints() {
   console.log('proof of life');
+
   let currentQuestionInParr = pocketArray[pocketArray.length - 1];
+
   console.log(currentQuestionInParr.attempts, '***');
+
 
   function createListElem1() {
     let liElem = document.createElement('li');
@@ -300,18 +384,30 @@ function handleHints() {
   if (currentQuestionInParr.attempts === 3) {
     createListElem1();
     hintButton.removeEventListener('click', handleHints);
-  }
-  else if (currentQuestionInParr.attempts === 2) {
+  } else if (currentQuestionInParr.attempts === 2) {
     createListElem1();
     createListElem2();
     hintButton.removeEventListener('click', handleHints);
-  }
-  else if (currentQuestionInParr.attempts === 1) {
+  } else if (currentQuestionInParr.attempts === 1) {
     createListElem1();
     createListElem2();
     createListElem3();
     hintButton.removeEventListener('click', handleHints);
   }
+}
+
+function renderEndButton(){
+  // ctx.style.display = 'block';
+  if (state.questions.length === 0){
+    removeForm();
+    removeHints();
+    console.log('congrats!');
+    answerResults.textContent = 'Congratulations! You are a trivia master!';
+    restartButton.addEventListener('click', endGame);
+  }
+  // renderEndButton.style.display = 'none';
+
+
 }
 
 
@@ -320,7 +416,14 @@ console.log(state);
 createQuestions();
 renderQuestion();
 
-
+renderEndButton();
 // Listeners.
+
 submitButton.addEventListener('click', handleSubmit);
 hintButton.addEventListener('click', handleHints);
+
+localStorage.setItem('score', JSON.stringify(state.score));
+
+const storedObj = JSON.parse(localStorage.getItem('score'));
+console.log(storedObj); // O
+
