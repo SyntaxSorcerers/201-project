@@ -179,7 +179,7 @@ function createQuestions() {
       'He\'s a half vampire'
     )
   );
-// eslint-disable-next-line no-unused-vars
+  // eslint-disable-next-line no-unused-vars
   const question17 = new Question('What was the first animated feature film to be nominated for a Best Picture Oscar?',
     'Beauty and the Beast',
     new Hints(
