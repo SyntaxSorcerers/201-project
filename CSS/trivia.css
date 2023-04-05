@@ -46,39 +46,48 @@ h1{
   color:#fdf1f1;
   font-weight: 800;
   /* border: solid #5b2079; */
-  border-width: 30px;
+  border-width: 40px;
   background: linear-gradient(#55177C,#241438);
-
 }
 
 #resultsOfAnswer{
   text-align: center;
+  font-size: 25px;
+  font-family: 'Press Start 2P', cursive;
   margin-top: 50px;
   font-weight: 700;
   margin-bottom: -15px;
   border-width: 5px;
-  color:#fdf1f1;
+  color:lime;
+  text-shadow: 4px 3px #361551;
 }
 .scores-and-hints{
   text-align: center;
   font-family: 'Press Start 2P', cursive;
-  font-size: 25px;
+  font-size: 30px;
   margin-top: 20px;
-  font-weight: 900;
-  color:#FDE9DE;
+  color:fuchsia;
   text-shadow: 3px 2px #361551;
-  /* border: solid #55177C;
-  border-width: 1px;
-  background: linear-gradient(#951CD8, #56177C); */
+  background-color: yellow;
+  height: 100px;
+  padding: 10px;
   } 
 
+#question {
+  font-size: 25px;
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
+  color: aqua;
+  text-shadow: 4px 3px #361551;
+
+}
 
 #home-page a {
   text-decoration: none;
 }
 
 form {
-  max-width: 500px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
@@ -104,6 +113,7 @@ textarea {
   border: none;
   border-radius: 5px;
   background-color: #fdf1f1;
+  max-width: 100%;;
 }
 
 textarea {

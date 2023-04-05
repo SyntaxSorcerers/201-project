@@ -252,7 +252,7 @@ function removeHints() {
 function renderQuestion() {
   let currentQuestion = getRandomQuestion();
   score.textContent = state.score;
-  answerResults.textContent = 'you have 3 attempt(s)';
+  answerResults.textContent = 'You have 3 more attempt(s)';
   question.innerText = state.questions[currentQuestion].question;
   pocketArray.push(state.questions[currentQuestion]);
   state.questions.splice(currentQuestion, 1);
@@ -320,7 +320,7 @@ function userAnswer() {
     if (userInput !== currentQuestionInParr.answer.toLowerCase()) {
       console.log('you got it wrong');
       currentQuestionInParr.attempts--;
-      answerResults.textContent = `Bummer you got it wrong. you still have ${currentQuestionInParr.attempts} attempt(s) left`;
+      answerResults.textContent = `Bummer you got it wrong. You still have ${currentQuestionInParr.attempts} more attempt(s) left`;
       removeLi();
       userInputEvent.reset();
       console.log(currentQuestionInParr.attempts);
@@ -334,7 +334,7 @@ function userAnswer() {
       userInputEvent.reset();
     }
   } else {
-    alert('out of attempts');
+    alert('You are out of attempts!');
     removeLi();
     userInputEvent.reset();
     //shift method removes the first element from an array and returns that removed element
