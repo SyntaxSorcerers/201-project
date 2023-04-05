@@ -317,8 +317,6 @@ function handleSubmit(event) {
 function userAnswer() {
   let currentQuestionInParr = pocketArray[pocketArray.length - 1];
   let userInput = event.target.form.userInput.value.toLowerCase();
-
- 
   console.log(userInput);
   if (userInput !== currentQuestionInParr.answer.toLowerCase() && currentQuestionInParr.attempts >= 0) {
     console.log('you got it wrong');
@@ -331,6 +329,7 @@ function userAnswer() {
       alert('out of attempts');
       removeLi();
       renderQuestion();
+      congratsAlert.textContent = 'Gag me with a spoon you\'re such a Airhead!';
       userInputEvent.reset();
       console.log(state, pocketArray);
     } else if (state.questions.length === 0) {
@@ -342,12 +341,12 @@ function userAnswer() {
 
   } else if (userInput === currentQuestionInParr.answer.toLowerCase() && currentQuestionInParr.attempts > 0) {
     console.log(currentQuestionInParr.attempts);
-    console.log('You got it right');
-    congratsAlert.textContent = 'Radical you got the last question right';
+    console.log('You got it right', state);
     state.score += 100;
     localStorage.setItem('score', JSON.stringify(state.score));
     removeLi();
     renderQuestion();
+    congratsAlert.textContent = 'Radical you got the last question right';
     userInputEvent.reset();
   }
 }
@@ -410,7 +409,6 @@ function renderEndButton() {
 }
 
 
-console.log(state);
 // function calls to create questions and renders the questions.
 createQuestions();
 renderQuestion();
