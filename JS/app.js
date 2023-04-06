@@ -48,21 +48,21 @@ class Question {
 function createQuestions() {
   // eslint-disable-next-line no-unused-vars
   const myQuestionOne = new Question(
-    "Who is the high school wise guy in Ferris Bueller's Day Off?",
+    'Who is the high school wise guy in Ferris Bueller\'s Day Off?',
     'Ferris Bueller',
     new Hints('Day Off', 'Matthew Broderick', 'John Hughes Film')
   );
 
   // eslint-disable-next-line no-unused-vars
   const myQuestionTwo = new Question(
-    "What year did Ferris Bueller's Day off came out?",
+    'What year did Ferris Bueller\'s Day off came out?',
     '1986',
     new Hints('1984', '1986', '1985')
   );
 
   // eslint-disable-next-line no-unused-vars
   const myQuestionThree = new Question(
-    "Ferris sister's name was Jeanie, but according to her, her friends called her what?",
+    'Ferris sister\'s name was Jeanie, but according to her, her friends called her what?',
     'Shaunna',
     new Hints('Sandy', 'Sarah', 'Shaunna')
   );
@@ -76,14 +76,14 @@ function createQuestions() {
 
   // eslint-disable-next-line no-unused-vars
   const myQuestionFive = new Question(
-    "What kind of car do the boys take out for the day in Ferris Bueller's Day Off?",
+    'What kind of car do the boys take out for the day in Ferris Bueller\'s Day Off?',
     'Ferrari',
     new Hints('Mustang', 'Camaro', 'Ferrari')
   );
 
   // eslint-disable-next-line no-unused-vars
   const myQuestion6 = new Question(
-    "A Boy's Life was the original working title for what 1983 movie?",
+    'A Boy\'s Life was the original working title for what 1983 movie?',
     'E.T.',
     new Hints('Highest grossing movie of the decade', 'Intergalactic', 'Elliot')
   );
@@ -125,7 +125,7 @@ function createQuestions() {
 
   // eslint-disable-next-line no-unused-vars
   const myQuestion12 = new Question(
-    "Which 90's movie featured Looney Tunes on it's soundtrack?",
+    'Which 90\'s movie featured Looney Tunes on it\'s soundtrack?',
     'Space Jam',
     new Hints(
       'Also featured Michael Jordan',
@@ -151,8 +151,8 @@ function createQuestions() {
     'Encino Man',
     new Hints(
       'co-stars Pauly Shore',
-      "Sean Austin's first movie since The Goonies",
-      "Weezin' on the juice"
+      'Sean Austin\'s first movie since The Goonies',
+      'Weezin\' on the juice'
     )
   );
 
@@ -169,19 +169,19 @@ function createQuestions() {
 
   // eslint-disable-next-line no-unused-vars
   const question16 = new Question(
-    "Wesley Snipes plays a vampire hunter in what 90's action movie?",
+    'Wesley Snipes plays a vampire hunter in what 90\'s action movie?',
     'Blade',
     new Hints(
-      "It's a Marvel movie",
-      "It's the first black marvel super hero movie.",
-      "He's a half vampire"
+      'It\'s a Marvel movie',
+      'It\'s the first black marvel super hero movie.',
+      'He\'s a half vampire'
     )
   );
   // eslint-disable-next-line no-unused-vars
   const question17 = new Question(
     'What was the first animated feature film to be nominated for a Best Picture Oscar?',
     'Beauty and the Beast',
-    new Hints('Disney', 'A Princess', "There's a talking tea cup")
+    new Hints('Disney', 'A Princess', 'There\'s a talking tea cup')
   );
 
   // eslint-disable-next-line no-unused-vars
@@ -191,7 +191,7 @@ function createQuestions() {
     new Hints(
       'It was nominated for two Oscars',
       'Directed by Simon West',
-      "It's about a prison transfer gone wrong"
+      'It\'s about a prison transfer gone wrong'
     )
   );
 
@@ -212,7 +212,7 @@ function createQuestions() {
     'Half Baked',
     new Hints(
       'Directed by Tamra Davis',
-      "It's about Mary Jane",
+      'It\'s about Mary Jane',
       'Dave Chappelle Was in it.'
     )
   );
@@ -264,7 +264,7 @@ function playAgainButton() {
     console.log('congrats!');
     hintButton.style.display = 'none';
     answerResults.textContent =
-      "Dude! Your a trivia skills are choice! You're all that and a bag of chips!";
+      'Dude! Your a trivia skills are choice! You\'re all that and a bag of chips!';
     restartButton.style.display = 'block';
   }
 }
@@ -288,7 +288,7 @@ function userAnswer() {
       alert('out of attempts');
       removeLi();
       renderQuestion();
-      congratsAlert.textContent = "Gag me with a spoon you're such a Airhead!";
+      congratsAlert.textContent = 'Gag me with a spoon you\'re such a Airhead!';
       userInputEvent.reset();
       console.log(state, pocketArray);
     } else if (state.questions.length === 0) {
