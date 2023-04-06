@@ -21,8 +21,6 @@ let userInputEvent = document.getElementById('current-question');
 let score = document.getElementById('scores');
 let congratsAlert = document.getElementById('right');
 
-const ctx = document.getElementById('end-button');
-
 // helper function for generating a random question from the state index.
 function getRandomQuestion() {
   return Math.floor(Math.random() * state.questions.length);
@@ -50,21 +48,21 @@ class Question {
 function createQuestions() {
   // eslint-disable-next-line no-unused-vars
   const myQuestionOne = new Question(
-    'Who is the high school wise guy in Ferris Bueller\'s Day Off?',
+    "Who is the high school wise guy in Ferris Bueller's Day Off?",
     'Ferris Bueller',
     new Hints('Day Off', 'Matthew Broderick', 'John Hughes Film')
   );
 
   // eslint-disable-next-line no-unused-vars
   const myQuestionTwo = new Question(
-    'What year did Ferris Bueller\'s Day off came out?',
+    "What year did Ferris Bueller's Day off came out?",
     '1986',
     new Hints('1984', '1986', '1985')
   );
 
   // eslint-disable-next-line no-unused-vars
   const myQuestionThree = new Question(
-    'Ferris sister\'s name was Jeanie, but according to her, her friends called her what?',
+    "Ferris sister's name was Jeanie, but according to her, her friends called her what?",
     'Shaunna',
     new Hints('Sandy', 'Sarah', 'Shaunna')
   );
@@ -78,14 +76,14 @@ function createQuestions() {
 
   // eslint-disable-next-line no-unused-vars
   const myQuestionFive = new Question(
-    'What kind of car do the boys take out for the day in Ferris Bueller\'s Day Off?',
+    "What kind of car do the boys take out for the day in Ferris Bueller's Day Off?",
     'Ferrari',
     new Hints('Mustang', 'Camaro', 'Ferrari')
   );
 
   // eslint-disable-next-line no-unused-vars
   const myQuestion6 = new Question(
-    'A Boy\'s Life was the original working title for what 1983 movie?',
+    "A Boy's Life was the original working title for what 1983 movie?",
     'E.T.',
     new Hints('Highest grossing movie of the decade', 'Intergalactic', 'Elliot')
   );
@@ -127,7 +125,7 @@ function createQuestions() {
 
   // eslint-disable-next-line no-unused-vars
   const myQuestion12 = new Question(
-    'Which 90\'s movie featured Looney Tunes on it\'s soundtrack?',
+    "Which 90's movie featured Looney Tunes on it's soundtrack?",
     'Space Jam',
     new Hints(
       'Also featured Michael Jordan',
@@ -153,8 +151,8 @@ function createQuestions() {
     'Encino Man',
     new Hints(
       'co-stars Pauly Shore',
-      'Sean Austin\'s first movie since The Goonies',
-      'Weezin\' on the juice'
+      "Sean Austin's first movie since The Goonies",
+      "Weezin' on the juice"
     )
   );
 
@@ -171,21 +169,19 @@ function createQuestions() {
 
   // eslint-disable-next-line no-unused-vars
   const question16 = new Question(
-    'Wesley Snipes plays a vampire hunter in what 90\'s action movie?',
+    "Wesley Snipes plays a vampire hunter in what 90's action movie?",
     'Blade',
     new Hints(
-      'It\'s a Marvel movie',
-      'It\'s the first black marvel super hero movie.',
-      'He\'s a half vampire'
+      "It's a Marvel movie",
+      "It's the first black marvel super hero movie.",
+      "He's a half vampire"
     )
   );
   // eslint-disable-next-line no-unused-vars
-  const question17 = new Question('What was the first animated feature film to be nominated for a Best Picture Oscar?',
+  const question17 = new Question(
+    'What was the first animated feature film to be nominated for a Best Picture Oscar?',
     'Beauty and the Beast',
-    new Hints(
-      'Disney',
-      'A Princess',
-      'There\'s a talking tea cup')
+    new Hints('Disney', 'A Princess', "There's a talking tea cup")
   );
 
   // eslint-disable-next-line no-unused-vars
@@ -195,7 +191,7 @@ function createQuestions() {
     new Hints(
       'It was nominated for two Oscars',
       'Directed by Simon West',
-      'It\'s about a prison transfer gone wrong'
+      "It's about a prison transfer gone wrong"
     )
   );
 
@@ -216,13 +212,27 @@ function createQuestions() {
     'Half Baked',
     new Hints(
       'Directed by Tamra Davis',
-      'It\'s about Mary Jane',
+      "It's about Mary Jane",
       'Dave Chappelle Was in it.'
     )
   );
 }
 
 //removes list items.
+//Renders question and pushes the currentQuestion into a pocketArray
+//then it will remove the question from the state.questions so it will not
+//render again.
+function renderQuestion() {
+  let currentQuestion = getRandomQuestion();
+  score.textContent = `Score: ${state.score}`;
+  congratsAlert.textContent =
+    'Take a chill pill and try out your trivia skills';
+  answerResults.textContent = 'You have 3 more attempt(s)';
+  question.innerText = state.questions[currentQuestion].question;
+  pocketArray.push(state.questions[currentQuestion]);
+  state.questions.splice(currentQuestion, 1);
+}
+
 function removeLi() {
   let oldList = document.querySelector('ul');
   while (oldList.firstChild) {
@@ -240,38 +250,23 @@ function removeForm() {
 
 //removes questions form.
 function removeHints() {
-  let restartButton = document.querySelector('scores-and-hints');
+  let restartButton = document.querySelector('.scores-and-hints');
   while (restartButton.firstChild) {
     restartButton.removeChild(restartButton.firstChild);
   }
 }
 
-//Renders question and pushes the currentQuestion into a pocketArray
-//then it will remove the question from the state.questions so it will not
-//render again.
-function renderQuestion() {
-  let currentQuestion = getRandomQuestion();
-  score.textContent = `Score: ${state.score}`;
-  congratsAlert.textContent = 'Take a chill pill and try out your trivia skills';
-  answerResults.textContent = 'You have 3 more attempt(s)';
-  question.innerText = state.questions[currentQuestion].question;
-  pocketArray.push(state.questions[currentQuestion]);
-  state.questions.splice(currentQuestion, 1);
-}
-
-// ends game and puts questions back into state.
-function endGame() {
+// renders play again button
+function playAgainButton() {
   if (state.questions.length === 0) {
-    pocketArray.splice(0, pocketArray.length);
-    createQuestions();
+    removeForm();
+    removeHints();
+    console.log('congrats!');
+    hintButton.style.display = 'none';
+    answerResults.textContent =
+      "Dude! Your a trivia skills are choice! You're all that and a bag of chips!";
+    restartButton.style.display = 'block';
   }
-}
-
-// handles and compares Answers to question object from pocket arr and decrements attempts.
-function handleSubmit(event) {
-  event.preventDefault();
-  hintButton.addEventListener('click', handleHints);
-  userAnswer();
 }
 
 //function test answer
@@ -279,7 +274,10 @@ function userAnswer() {
   let currentQuestionInParr = pocketArray[pocketArray.length - 1];
   let userInput = event.target.form.userInput.value.toLowerCase();
   console.log(userInput);
-  if (userInput !== currentQuestionInParr.answer.toLowerCase() && currentQuestionInParr.attempts >= 0) {
+  if (
+    userInput !== currentQuestionInParr.answer.toLowerCase() &&
+    currentQuestionInParr.attempts > 0
+  ) {
     console.log('you got it wrong');
     --currentQuestionInParr.attempts;
     console.log(currentQuestionInParr.attempts);
@@ -290,17 +288,19 @@ function userAnswer() {
       alert('out of attempts');
       removeLi();
       renderQuestion();
-      congratsAlert.textContent = 'Gag me with a spoon you\'re such a Airhead!';
+      congratsAlert.textContent = "Gag me with a spoon you're such a Airhead!";
       userInputEvent.reset();
       console.log(state, pocketArray);
     } else if (state.questions.length === 0) {
+      playAgainButton();
       let storedScore = localStorage.getItem('score');
       state.score = JSON.parse(storedScore);
       localStorage.setItem('score', JSON.stringify(state.score));
-      renderEndButton();
     }
-
-  } else if (userInput === currentQuestionInParr.answer.toLowerCase() && currentQuestionInParr.attempts > 0) {
+  } else if (
+    userInput === currentQuestionInParr.answer.toLowerCase() &&
+    currentQuestionInParr.attempts > 0
+  ) {
     console.log(currentQuestionInParr.attempts);
     console.log('You got it right', state);
     state.score += 100;
@@ -353,17 +353,11 @@ function handleHints() {
     hintButton.removeEventListener('click', handleHints);
   }
 }
-
-function renderEndButton() {
-  // ctx.style.display = 'block';
-  if (state.questions.length === 0) {
-    removeForm();
-    removeHints();
-    console.log('congrats!');
-    answerResults.textContent = 'Dude! Your a trivia skills are choice! You\'re all that and a bag of chips!';
-    restartButton.addEventListener('click', endGame);
-  }
-  // renderEndButton.style.display = 'none';
+// handles and compares Answers to question object from pocket arr and decrements attempts.
+function handleSubmit(event) {
+  event.preventDefault();
+  hintButton.addEventListener('click', handleHints);
+  userAnswer();
 }
 
 // function calls to create questions and renders the questions.
