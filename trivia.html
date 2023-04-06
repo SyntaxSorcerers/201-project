@@ -1,45 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Document</title>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../CSS/reset.css" />
-    <link rel="stylesheet" href="../CSS/trivia.css" />
-  </head>
-  
-  <body>
-    <header>
-        <h1 class="movie-title">Movie Madness!</h1>
-        <div class="vhs">
-          <img src="../img/vhs.jpg" height="200px" width="300px">
-        </div>
-    </header>
-    <main>
 
-      <section class="scores-and-hints">
-        <div id="scores"></div>
-        <div id="right"></div>
-      </section>
-      <button type="button" id="hint">hint</button>
-      <section class="currentQuestion">
-        <p id="resultsOfAnswer"></p>
-        <form id="current-question">
-          <label for="userInput" id="question"></label>
-          <input type="text" name="userInput" id="user">
-          <button type="submit" for="userInput" id="submit">Submit</button>
-        </form>
-        <button type="click" id="restart"><a href="./index.html">Play Again!</a> </button>
-      </section>
-      <li id = "home-page"><a href="./index.html">E.T.☎ Home</a></li>
-    </main>
-    <footer>
-      <script defer src="./JS/app.js"></script>
-      </footer>
-    </body>
-    </html>
-    
+<head>
+  <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../CSS/reset.css" />
+  <link rel="stylesheet" href="../CSS/trivia.css" />
+</head>
+
+<body>
+  <header>
+    <h1 class="movie-title">Movie Madness!</h1>
+    <div class="vhs">
+      <img src="../img/vhs.jpg" height="200px" width="300px">
+    </div>
+  </header>
+  <main>
+
+    <section class="scores-and-hints">
+      <div id="scores"></div>
+      <div id="right"></div>
+    </section>
+    <button type="button" id="hint">hint</button>
+    <section class="currentQuestion">
+      <p id="resultsOfAnswer"></p>
+      <form id="current-question">
+        <label for="userInput" id="question"></label>
+        <input type="text" name="userInput" id="user">
+        <button type="submit" for="userInput" id="submit">Submit</button>
+      </form>
+      <button type="click" id="restart"><a href="./index.html">Play Again!</a> </button>
+    </section>
+    <li id="home-page"><a href="./index.html">E.T.☎ Home</a></li>
+  </main>
+  <footer>
+    <script defer src="./JS/app.js"></script>
+  </footer>
+</body>
+
+</html>
