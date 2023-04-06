@@ -21,8 +21,6 @@ let userInputEvent = document.getElementById('current-question');
 let score = document.getElementById('scores');
 let congratsAlert = document.getElementById('right');
 
-const ctx = document.getElementById('end-button');
-
 // helper function for generating a random question from the state index.
 function getRandomQuestion() {
   return Math.floor(Math.random() * state.questions.length);
@@ -181,6 +179,7 @@ function createQuestions() {
     )
   );
 
+  // eslint-disable-next-line no-unused-vars
   const question17 = new Question('What was the first animated feature film to be nominated for a Best Picture Oscar?',
     'Beauty and the Beast',
     new Hints(
@@ -224,6 +223,20 @@ function createQuestions() {
 }
 
 //removes list items.
+//Renders question and pushes the currentQuestion into a pocketArray
+//then it will remove the question from the state.questions so it will not
+//render again.
+function renderQuestion() {
+  let currentQuestion = getRandomQuestion();
+  score.textContent = `Score: ${state.score}`;
+  congratsAlert.textContent = 'Take a chill pill and try out your trivia skills';
+  answerResults.textContent = 'You have 3 more attempt(s)';
+  question.innerText = state.questions[currentQuestion].question;
+  pocketArray.push(state.questions[currentQuestion]);
+  state.questions.splice(currentQuestion, 1);
+}
+
+
 function removeLi() {
   let oldList = document.querySelector('ul');
   while (oldList.firstChild) {
@@ -241,76 +254,22 @@ function removeForm() {
 
 //removes questions form.
 function removeHints() {
-  let restartButton = document.querySelector('scores-and-hints');
+  let restartButton = document.querySelector('.scores-and-hints');
   while (restartButton.firstChild) {
     restartButton.removeChild(restartButton.firstChild);
   }
 }
 
-//Renders question and pushes the currentQuestion into a pocketArray
-//then it will remove the question from the state.questions so it will not
-//render again.
-function renderQuestion() {
-  let currentQuestion = getRandomQuestion();
-  score.textContent = `Score: ${state.score}`;
-  congratsAlert.textContent = 'Take a chill pill and try out your trivia skills';
-  answerResults.textContent = 'You have 3 more attempt(s)';
-  question.innerText = state.questions[currentQuestion].question;
-  pocketArray.push(state.questions[currentQuestion]);
-  state.questions.splice(currentQuestion, 1);
-}
-
-// ends game and puts questions back into state.
-function endGame() {
+// renders play again button
+function playAgainButton() {
   if (state.questions.length === 0) {
-    pocketArray.splice(0, pocketArray.length);
-    createQuestions();
+    removeForm();
+    removeHints();
+    console.log('congrats!');
+    hintButton.style.display = 'none';
+    answerResults.textContent = 'Dude! Your a trivia skills are choice! You\'re all that and a bag of chips!';
+    restartButton.style.display = 'block';
   }
-}
-
-// handles and compares Answers to question object from pocket arr and decrements attempts.
-function handleSubmit(event) {
-  event.preventDefault();
-  hintButton.addEventListener('click', handleHints);
-  // let currentQuestionInParr = pocketArray[pocketArray.length - 1];
-  // let userInput = event.target.form.userInput.value.toLowerCase();
-
-  // if (currentQuestionInParr.attempts >= 2) {
-  //   if (userInput !== currentQuestionInParr.answer.toLowerCase()) {
-  //     console.log("you got it wrong");
-  //     currentQuestionInParr.attempts--;
-  //     answerResults.textContent = `Bummer you got it wrong. you still have ${currentQuestionInParr.attempts} attempt(s) left`;
-  //     removeLi();
-  //     userInputEvent.reset();
-  //     console.log(currentQuestionInParr.attempts);
-  //   } else if (userInput === currentQuestionInParr.answer.toLowerCase()) {
-  //     console.log("you got it right");
-  //     congratsAlert.textContent = "Radical you got the last question right";
-  //     state.score += 100;
-  //     // testing local storage
-  //     localStorage.setItem("score", JSON.stringify(state.score));
-  //     removeLi();
-  //     renderQuestion();
-  //     userInputEvent.reset();
-  //   }
-  // } else {
-  //   alert("out of attempts");
-  //   removeLi();
-  //   renderQuestion();
-  //   userInputEvent.reset();
-  // }
-  // // Local storage
-  // const storedObj = JSON.parse(localStorage.getItem("score"));
-  // console.log(storedObj); // O
-
-  // // testing local storage
-  // let storedScore = localStorage.getItem("score");
-  // if (storedScore) {
-  //   state.score = JSON.parse(storedScore);
-  // } else {
-  //   localStorage.setItem("score", JSON.stringify(state.score));
-  // }
-  userAnswer();
 }
 
 //function test answer
@@ -318,7 +277,7 @@ function userAnswer() {
   let currentQuestionInParr = pocketArray[pocketArray.length - 1];
   let userInput = event.target.form.userInput.value.toLowerCase();
   console.log(userInput);
-  if (userInput !== currentQuestionInParr.answer.toLowerCase() && currentQuestionInParr.attempts >= 0) {
+  if (userInput !== currentQuestionInParr.answer.toLowerCase() && currentQuestionInParr.attempts > 0) {
     console.log('you got it wrong');
     --currentQuestionInParr.attempts;
     console.log(currentQuestionInParr.attempts);
@@ -333,12 +292,11 @@ function userAnswer() {
       userInputEvent.reset();
       console.log(state, pocketArray);
     } else if (state.questions.length === 0) {
+      playAgainButton();
       let storedScore = localStorage.getItem('score');
       state.score = JSON.parse(storedScore);
       localStorage.setItem('score', JSON.stringify(state.score));
-      renderEndButton();
     }
-
   } else if (userInput === currentQuestionInParr.answer.toLowerCase() && currentQuestionInParr.attempts > 0) {
     console.log(currentQuestionInParr.attempts);
     console.log('You got it right', state);
@@ -393,21 +351,12 @@ function handleHints() {
     hintButton.removeEventListener('click', handleHints);
   }
 }
-
-function renderEndButton() {
-  // ctx.style.display = 'block';
-  if (state.questions.length === 0) {
-    removeForm();
-    removeHints();
-    console.log('congrats!');
-    answerResults.textContent = 'Dude! Your a trivia skills are choice! You\'re all that and a bag of chips!';
-    restartButton.addEventListener('click', endGame);
-  }
-  // renderEndButton.style.display = 'none';
-
-
+// handles and compares Answers to question object from pocket arr and decrements attempts.
+function handleSubmit(event) {
+  event.preventDefault();
+  hintButton.addEventListener('click', handleHints);
+  userAnswer();
 }
-
 
 // function calls to create questions and renders the questions.
 createQuestions();
