@@ -24,6 +24,7 @@ h1{
 .vhs img{
   border: solid rgb(74, 224, 247) 4px;
   border-radius: 15px 15px 15px 15px;
+  margin: 20px;
 }
 
 #hint{
@@ -46,39 +47,60 @@ h1{
   color:#fdf1f1;
   font-weight: 800;
   /* border: solid #5b2079; */
-  border-width: 30px;
+  border-width: 40px;
   background: linear-gradient(#55177C,#241438);
-
 }
 
 #resultsOfAnswer{
   text-align: center;
+  font-size: 25px;
+  font-family: 'Press Start 2P', cursive;
   margin-top: 50px;
   font-weight: 700;
   margin-bottom: -15px;
   border-width: 5px;
-  color:#fdf1f1;
+  color:lime;
+  text-shadow: 4px 3px #361551;
+}
+
+#scores{
+  padding:8px;
+}
+#right{
+  padding:8px;
 }
 .scores-and-hints{
   text-align: center;
   font-family: 'Press Start 2P', cursive;
-  font-size: 25px;
-  margin-top: 20px;
-  font-weight: 900;
-  color:#FDE9DE;
-  text-shadow: 3px 2px #361551;
-  /* border: solid #55177C;
-  border-width: 1px;
-  background: linear-gradient(#951CD8, #56177C); */
+  font-size: 30px;
+  color:#951CD8;
+  text-shadow: 3px 2px #351550;
+  background-color: yellow;
+  border: 5px solid fuchsia;
+  border-radius: 10px;
+  width: 500px;;
+  height: 180px;
+  padding: 10px;
+  margin:auto;
+  display: block;
+  justify-content: center;
   } 
 
+#question {
+  font-size: 25px;
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
+  color: aqua;
+  text-shadow: 4px 3px #361551;
+
+}
 
 #home-page a {
   text-decoration: none;
 }
 
 form {
-  max-width: 500px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
@@ -104,6 +126,7 @@ textarea {
   border: none;
   border-radius: 5px;
   background-color: #fdf1f1;
+  max-width: 100%;;
 }
 
 textarea {
@@ -136,4 +159,23 @@ h3 {
   margin: 10px;
   text-align: center;
   font-size: 20px;
+}
+
+#restart a{
+  text-decoration: none;
+  font-family: 'Press Start 2P', cursive;
+  color: white;
+}
+
+#restart{
+  font-family: 'Press Start 2P', cursive;
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 20px;
+  border: solid #46f9ff 1px;
+  border-radius: 5px;
+  background-color:#655DAA;
+  color: #f8f4ef;
+  font-size: 18px;
+  font-weight: bold;
 }
