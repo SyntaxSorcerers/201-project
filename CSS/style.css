@@ -1,6 +1,6 @@
 body {
     padding: 0;
-    background-image: url(./img/background-image.jpg);
+    background-image: url(/img/background-image.jpg);
     margin: 0;
 }
 
